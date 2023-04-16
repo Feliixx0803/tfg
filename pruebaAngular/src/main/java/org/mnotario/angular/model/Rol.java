@@ -1,37 +1,36 @@
 package org.mnotario.angular.model;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.Collection;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
-public class Usuario implements Serializable{
+public class Rol implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
 	private Long id;
 	private String nombre;
-	private String email;
-	private String telefono;
 	
-	@ManyToOne
-	private Rol rol;
+	@OneToMany(mappedBy = "rol")
+	private Collection<Usuario> usuarios;
 	
-	public Usuario() {
-		super();
+	public Rol() {
+		this.nombre = "user";
+		this.usuarios = new ArrayList<Usuario>();
 	}
 
-	public Usuario(Long id, String nombre, String email, String telefono) {
+	public Rol(Long id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.email = email;
-		this.telefono = telefono;
 	}
 
 	public Long getId() {
@@ -49,30 +48,12 @@ public class Usuario implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
 	
 	@Override
 	public String toString() {
 		return "Usuario{" + 
 				"id=" + id + '\'' + 
 				"nombre=" + nombre + '\'' +
-				"email=" + email + '\'' +
-				"telefono=" + telefono + '\'' +
 				"}";
 	}
 }
