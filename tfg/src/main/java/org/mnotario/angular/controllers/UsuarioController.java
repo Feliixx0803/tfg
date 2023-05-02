@@ -2,7 +2,9 @@ package org.mnotario.angular.controllers;
 
 import java.util.List;
 
+import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
+import org.mnotario.angular.services.RolService;
 import org.mnotario.angular.services.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 
 	private final UsuarioService usuarioService;
+	private final RolService rolService;
 	
-	public UsuarioController(UsuarioService usuarioService) {
+	public UsuarioController(UsuarioService usuarioService, RolService rolservice) {
 		this.usuarioService = usuarioService;
+		this.rolService = rolservice;
 	}
 	
 	@GetMapping("/all")
@@ -39,7 +43,9 @@ public class UsuarioController {
 	
 	@PostMapping("/add")
 	public ResponseEntity<Usuario> addUsuario(@RequestBody Usuario usuario){
-		Usuario nuevoUsuario = usuarioService.addUsuario(usuario);
+		Rol rol = rolService.findRolById(usuario.getRol().getId());
+		usuario.setRol(rol);
+		Usuario nuevoUsuario = usuarioService.addUsuario(usuario);	
 		return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
 	}
 	
