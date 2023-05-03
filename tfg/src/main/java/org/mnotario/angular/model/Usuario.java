@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
@@ -18,10 +18,13 @@ public class Usuario implements Serializable{
 	private String nombre;
 	private String email;
 	private String telefono;
-	
+
 	@ManyToOne
 	private Rol rol;
-	
+
+	@ManyToOne
+	private Inscripcion inscripcionUsuarios;
+
 	public Usuario() {
 		super();
 	}
@@ -65,7 +68,7 @@ public class Usuario implements Serializable{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
+
 	public Rol getRol() {
 		return rol;
 	}
@@ -74,13 +77,18 @@ public class Usuario implements Serializable{
 		this.rol = rol;
 	}
 
+	
+	public Inscripcion getInscripcionUsuarios() {
+		return inscripcionUsuarios;
+	}
+
+	public void setInscripcionUsuarios(Inscripcion inscripcionUsuarios) {
+		this.inscripcionUsuarios = inscripcionUsuarios;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuario{" + 
-				"id=" + id + '\'' + 
-				"nombre=" + nombre + '\'' +
-				"email=" + email + '\'' +
-				"telefono=" + telefono + '\'' +
-				"}";
+		return "Usuario{" + "id=" + id + '\'' + "nombre=" + nombre + '\'' + "email=" + email + '\'' + "telefono="
+				+ telefono + '\'' + "}";
 	}
 }

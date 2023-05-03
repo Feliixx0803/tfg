@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Evento implements Serializable{
@@ -20,7 +21,8 @@ public class Evento implements Serializable{
 	private LocalDate fechaFin;
 	private String descripcion;
 	
-	
+	@ManyToOne
+	private Inscripcion inscripcionEventos;
 	
 	public Evento() {
 		super();
@@ -74,6 +76,15 @@ public class Evento implements Serializable{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public Inscripcion getInscripcionEventos() {
+		return inscripcionEventos;
+	}
+
+	public void setInscripcionEventos(Inscripcion inscripcionEventos) {
+		this.inscripcionEventos = inscripcionEventos;
+	}
+
 	
 	
 	
