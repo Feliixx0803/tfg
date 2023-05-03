@@ -1,6 +1,8 @@
 package org.mnotario.angular.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Usuario implements Serializable {
@@ -22,11 +25,11 @@ public class Usuario implements Serializable {
 	@ManyToOne
 	private Rol rol;
 
-	@ManyToOne
-	private Inscripcion inscripcionUsuarios;
+	@OneToMany(mappedBy = "usuario")
+	private Collection<Inscripcion> inscripcion;
 
 	public Usuario() {
-		super();
+		this.inscripcion=new ArrayList<Inscripcion>();
 	}
 
 	public Usuario(Long id, String nombre, String email, String telefono) {
@@ -77,13 +80,13 @@ public class Usuario implements Serializable {
 		this.rol = rol;
 	}
 
-	
-	public Inscripcion getInscripcionUsuarios() {
-		return inscripcionUsuarios;
+
+	public Collection<Inscripcion> getinscripcion() {
+		return inscripcion;
 	}
 
-	public void setInscripcionUsuarios(Inscripcion inscripcionUsuarios) {
-		this.inscripcionUsuarios = inscripcionUsuarios;
+	public void setinscripcion(Collection<Inscripcion> inscripcion) {
+		this.inscripcion = inscripcion;
 	}
 
 	@Override

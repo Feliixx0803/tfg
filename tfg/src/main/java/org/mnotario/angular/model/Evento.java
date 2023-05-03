@@ -2,6 +2,8 @@ package org.mnotario.angular.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Evento implements Serializable{
@@ -21,11 +24,11 @@ public class Evento implements Serializable{
 	private LocalDate fechaFin;
 	private String descripcion;
 	
-	@ManyToOne
-	private Inscripcion inscripcionEventos;
+	@OneToMany(mappedBy = "evento")
+	private Collection<Inscripcion> inscripcion;
 	
 	public Evento() {
-		super();
+		this.inscripcion=new ArrayList<Inscripcion>();
 	}
 
 	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion) {
@@ -77,14 +80,15 @@ public class Evento implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public Inscripcion getInscripcionEventos() {
-		return inscripcionEventos;
+	public Collection<Inscripcion> getInscripcion() {
+		return inscripcion;
 	}
 
-	public void setInscripcionEventos(Inscripcion inscripcionEventos) {
-		this.inscripcionEventos = inscripcionEventos;
+	public void setInscripcion(Collection<Inscripcion> inscripcion) {
+		this.inscripcion = inscripcion;
 	}
 
+	
 	
 	
 	

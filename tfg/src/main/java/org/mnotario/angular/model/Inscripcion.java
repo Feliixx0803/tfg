@@ -1,34 +1,32 @@
 package org.mnotario.angular.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+
 
 @Entity
-public class Inscripcion {
+public class Inscripcion implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
 	private Long id;
 	private LocalDate fecha;
 	
-	@OneToMany(mappedBy = "inscripcionUsuarios")
-	private Collection<Usuario> usuarios;
+	@ManyToOne
+	private Usuario usuario;
 
-	@OneToMany(mappedBy = "inscripcionEventos")
-	private Collection<Evento> eventos;
+	@ManyToOne
+	private Evento evento;
 	
 	public Inscripcion() {
-		this.usuarios = new ArrayList<Usuario>();
-		this.eventos = new ArrayList<Evento>();
-
 	}
 
 	public Inscripcion(Long id, LocalDate fecha) {
@@ -53,20 +51,20 @@ public class Inscripcion {
 		this.fecha = fecha;
 	}
 
-	public Collection<Usuario> getUsuarios() {
-		return usuarios;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setUsuarios(Collection<Usuario> usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public Collection<Evento> getEventos() {
-		return eventos;
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setEventos(Collection<Evento> eventos) {
-		this.eventos = eventos;
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
 	
 	
