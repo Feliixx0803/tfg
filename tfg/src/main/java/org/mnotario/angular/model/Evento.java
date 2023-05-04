@@ -17,7 +17,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="usuario")
+@Table(name="evento")
 @JsonIgnoreProperties({"inscripciones"})
 public class Evento implements Serializable{
 	@Id
