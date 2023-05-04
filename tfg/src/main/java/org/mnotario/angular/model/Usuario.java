@@ -26,10 +26,10 @@ public class Usuario implements Serializable {
 	private Rol rol;
 
 	@OneToMany(mappedBy = "usuario")
-	private Collection<Inscripcion> inscripcion;
+	private Collection<Inscripcion> inscripciones;
 
 	public Usuario() {
-		this.inscripcion=new ArrayList<Inscripcion>();
+		this.inscripciones=new ArrayList<Inscripcion>();
 	}
 
 	public Usuario(Long id, String nombre, String email, String telefono) {
@@ -80,18 +80,11 @@ public class Usuario implements Serializable {
 		this.rol = rol;
 	}
 
-
-	public Collection<Inscripcion> getinscripcion() {
-		return inscripcion;
+	public Collection<Inscripcion> getInscripciones() {
+		return inscripciones;
 	}
 
-	public void setinscripcion(Collection<Inscripcion> inscripcion) {
-		this.inscripcion = inscripcion;
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario{" + "id=" + id + '\'' + "nombre=" + nombre + '\'' + "email=" + email + '\'' + "telefono="
-				+ telefono + '\'' + "}";
+	public void setInscripciones(Collection<Inscripcion> inscripciones) {
+		this.inscripciones = inscripciones;
 	}
 }

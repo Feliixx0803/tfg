@@ -2,9 +2,11 @@ package org.mnotario.angular.controllers;
 
 import java.util.List;
 
+import org.mnotario.angular.model.Evento;
 import org.mnotario.angular.model.Inscripcion;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
+import org.mnotario.angular.services.EventoService;
 import org.mnotario.angular.services.InscripcionService;
 import org.mnotario.angular.services.UsuarioService;
 import org.springframework.http.HttpStatus;
@@ -23,11 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class InscripcionController {
 	private final InscripcionService inscripcionService;
 	private final UsuarioService usuarioService;
+	private final EventoService eventoService;
 	
-	public InscripcionController(InscripcionService inscripcionService, UsuarioService usuarioService) {
+	public InscripcionController(InscripcionService inscripcionService, UsuarioService usuarioService, EventoService eventoService) {
 		super();
 		this.inscripcionService = inscripcionService;
 		this.usuarioService = usuarioService;
+		this.eventoService = eventoService;
 	}
 	
 	@GetMapping("/all")
@@ -44,8 +48,12 @@ public class InscripcionController {
 	
 	@PostMapping("/add")
 	public ResponseEntity<Inscripcion> addInscripcion(@RequestBody Inscripcion inscripcion){
-		Usuario usuario= usuarioService.findUsuarioById(inscripcion.getUsuario().getId());
+		Usuario usuario = usuarioService.findUsuarioById(inscripcion.getUsuario().getId());
 		inscripcion.setUsuario(usuario);
+		
+		Evento evento = eventoService.findEventoById(inscripcion.getEvento().getId());
+		inscripcion.setEvento(evento);
+		
 		Inscripcion nuevaInscripcion = inscripcionService.addInscripcion(inscripcion);	
 		return new ResponseEntity<>(nuevaInscripcion, HttpStatus.CREATED);
 	}
@@ -61,6 +69,4 @@ public class InscripcionController {
 		inscripcionService.deleteInscripcionById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	
 }

@@ -25,10 +25,10 @@ public class Evento implements Serializable{
 	private String descripcion;
 	
 	@OneToMany(mappedBy = "evento")
-	private Collection<Inscripcion> inscripcion;
+	private Collection<Inscripcion> inscripciones;
 	
 	public Evento() {
-		this.inscripcion=new ArrayList<Inscripcion>();
+		this.inscripciones=new ArrayList<Inscripcion>();
 	}
 
 	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion) {
@@ -80,12 +80,12 @@ public class Evento implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public Collection<Inscripcion> getInscripcion() {
-		return inscripcion;
+	public Collection<Inscripcion> getInscripciones() {
+		return inscripciones;
 	}
 
-	public void setInscripcion(Collection<Inscripcion> inscripcion) {
-		this.inscripcion = inscripcion;
+	public void setInscripciones(Collection<Inscripcion> inscripciones) {
+		this.inscripciones = inscripciones;
 	}
 
 	
