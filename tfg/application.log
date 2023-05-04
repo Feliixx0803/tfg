@@ -1,0 +1,234 @@
+2023-05-04T18:41:00.467+02:00  INFO 16564 --- [main] o.m.angular.PruebaAngularApplication     : Starting PruebaAngularApplication using Java 17.0.5 with PID 16564 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04T18:41:00.472+02:00  INFO 16564 --- [main] o.m.angular.PruebaAngularApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-05-04T18:41:01.365+02:00  INFO 16564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04T18:41:01.478+02:00  INFO 16564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 5 JPA repository interfaces.
+2023-05-04T18:41:02.237+02:00  INFO 16564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-04T18:41:02.257+02:00  INFO 16564 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-04T18:41:02.258+02:00  INFO 16564 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04T18:41:02.437+02:00  INFO 16564 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-04T18:41:02.438+02:00  INFO 16564 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1888 ms
+2023-05-04T18:41:02.682+02:00  INFO 16564 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04T18:41:02.751+02:00  INFO 16564 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04T18:41:03.161+02:00  INFO 16564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-04T18:41:03.422+02:00  INFO 16564 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fabef2e
+2023-05-04T18:41:03.426+02:00  INFO 16564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-04T18:41:03.487+02:00  WARN 16564 --- [main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04T18:41:03.496+02:00  INFO 16564 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04T18:41:04.962+02:00  INFO 16564 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04T18:41:04.980+02:00  INFO 16564 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04T18:41:05.641+02:00  WARN 16564 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04T18:41:06.179+02:00  INFO 16564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04T18:41:06.194+02:00  INFO 16564 --- [main] o.m.angular.PruebaAngularApplication     : Started PruebaAngularApplication in 6.398 seconds (process running for 7.613)
+2023-05-04T18:44:08.655+02:00  INFO 16564 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-04T18:44:08.674+02:00  INFO 16564 --- [RMI TCP Connection(11)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-04T18:44:08.688+02:00  INFO 16564 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04T18:44:08.692+02:00  INFO 16564 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-04T18:44:08.705+02:00  INFO 16564 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-04 18:44:11 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 2176 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:44:11 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:44:12 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:44:12 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:44:13 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:44:13 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:44:13 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:44:13 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:44:13 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1814 ms
+2023-05-04 18:44:13 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:44:14 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:44:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:44:14 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b4a3a1
+2023-05-04 18:44:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:44:14 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:44:14 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:44:16 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:44:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:44:16 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:44:17 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:44:17 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.207 seconds (process running for 7.394)
+2023-05-04 18:44:37 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:44:37 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:44:37 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:44:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:44:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:44:54 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 4268 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:44:54 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:44:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:44:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:44:56 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:44:56 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:44:56 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:44:56 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:44:56 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2055 ms
+2023-05-04 18:44:56 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:44:56 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:44:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:44:57 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5889fc44
+2023-05-04 18:44:57 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:44:57 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:44:57 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:44:58 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:44:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:44:59 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:44:59 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:44:59 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.453 seconds (process running for 7.621)
+2023-05-04 18:45:41 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:45:41 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:45:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:45:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:45:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:45:44 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 10584 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:45:44 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:45:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:45:45 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:45:46 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:45:46 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:45:46 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:45:46 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:45:46 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1860 ms
+2023-05-04 18:45:46 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:45:46 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:45:47 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:45:47 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78318ac2
+2023-05-04 18:45:47 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:45:47 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:45:47 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:45:48 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:45:49 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:45:49 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:45:50 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:45:50 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.322 seconds (process running for 7.424)
+2023-05-04 18:46:55 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:46:55 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:46:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:46:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:46:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:46:58 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 14676 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:46:58 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:46:59 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:46:59 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:47:00 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:47:00 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:47:00 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:47:00 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:47:00 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1831 ms
+2023-05-04 18:47:01 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:47:01 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:47:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:47:01 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@106cd9c8
+2023-05-04 18:47:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:47:01 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:47:01 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:47:03 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:47:03 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:47:03 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:47:04 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:47:04 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.242 seconds (process running for 7.463)
+2023-05-04 18:50:58 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:50:58 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:50:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:50:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:50:58 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:51:01 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 10700 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:51:01 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:51:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:51:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 98 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:51:03 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:51:03 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:51:03 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:51:03 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:51:03 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1883 ms
+2023-05-04 18:51:03 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:51:03 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:51:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:51:04 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5889fc44
+2023-05-04 18:51:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:51:04 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:51:04 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:51:05 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:51:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:51:06 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:51:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:51:07 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.523 seconds (process running for 7.66)
+2023-05-04 18:54:37 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:54:37 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:54:37 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:54:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:54:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:54:40 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 17220 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:54:40 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:54:41 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:54:41 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:54:42 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:54:42 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:54:42 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:54:42 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:54:42 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1858 ms
+2023-05-04 18:54:43 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:54:43 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:54:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:54:43 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5889fc44
+2023-05-04 18:54:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:54:43 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:54:43 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:54:45 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:54:45 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:54:45 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:54:46 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:54:46 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.257 seconds (process running for 7.441)
+2023-05-04 18:55:01 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:55:01 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:55:01 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:55:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:55:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:55:29 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 292 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:55:29 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:55:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:55:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:55:30 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:55:30 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:55:30 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:55:31 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:55:31 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1834 ms
+2023-05-04 18:55:31 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:55:31 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:55:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:55:32 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@184751f3
+2023-05-04 18:55:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:55:32 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:55:32 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:55:33 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:55:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:55:34 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:55:34 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:55:34 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.167 seconds (process running for 7.35)
+2023-05-04 18:57:02 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:57:02 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:57:02 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:57:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:57:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-04 18:57:05 INFO  o.m.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 12672 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-04 18:57:05 INFO  o.m.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-04 18:57:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-04 18:57:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 5 JPA repository interfaces.
+2023-05-04 18:57:06 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-04 18:57:06 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-04 18:57:06 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-04 18:57:07 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-04 18:57:07 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1853 ms
+2023-05-04 18:57:07 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-04 18:57:07 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-04 18:57:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-04 18:57:08 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@106cd9c8
+2023-05-04 18:57:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-04 18:57:08 WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-04 18:57:08 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-04 18:57:09 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-04 18:57:09 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:57:10 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-04 18:57:10 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-04 18:57:10 INFO  o.m.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.267 seconds (process running for 7.314)
+2023-05-04 18:58:41 INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-04 18:58:41 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-04 18:58:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-04 18:58:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-04 18:58:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
