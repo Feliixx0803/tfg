@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 
@@ -66,8 +67,4 @@ public class Inscripcion implements Serializable{
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
-	
-	
-	
-	
 }
