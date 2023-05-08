@@ -28,7 +28,7 @@ public class Inscripcion implements Serializable{
 	@ManyToOne
 	private Evento evento;
 	
-	@OneToOne
+	@ManyToOne
 	private Estado estado;
 	
 	public Inscripcion() {
