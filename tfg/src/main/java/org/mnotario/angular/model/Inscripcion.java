@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 
 @Entity
@@ -26,6 +27,9 @@ public class Inscripcion implements Serializable{
 
 	@ManyToOne
 	private Evento evento;
+	
+	@OneToOne
+	private Estado estado;
 	
 	public Inscripcion() {
 	}
@@ -67,4 +71,13 @@ public class Inscripcion implements Serializable{
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	
 }

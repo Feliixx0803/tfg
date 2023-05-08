@@ -2,10 +2,12 @@ package org.mnotario.angular.controllers;
 
 import java.util.List;
 
+import org.mnotario.angular.model.Estado;
 import org.mnotario.angular.model.Evento;
 import org.mnotario.angular.model.Inscripcion;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
+import org.mnotario.angular.services.EstadoService;
 import org.mnotario.angular.services.EventoService;
 import org.mnotario.angular.services.InscripcionService;
 import org.mnotario.angular.services.UsuarioService;
@@ -26,12 +28,14 @@ public class InscripcionController {
 	private final InscripcionService inscripcionService;
 	private final UsuarioService usuarioService;
 	private final EventoService eventoService;
+	private final EstadoService estadoService;
 	
-	public InscripcionController(InscripcionService inscripcionService, UsuarioService usuarioService, EventoService eventoService) {
+	public InscripcionController(InscripcionService inscripcionService, UsuarioService usuarioService, EventoService eventoService, EstadoService estadoService) {
 		super();
 		this.inscripcionService = inscripcionService;
 		this.usuarioService = usuarioService;
 		this.eventoService = eventoService;
+		this.estadoService = estadoService;
 	}
 	
 	@GetMapping("/all")
@@ -53,6 +57,9 @@ public class InscripcionController {
 		
 		Evento evento = eventoService.findEventoById(inscripcion.getEvento().getId());
 		inscripcion.setEvento(evento);
+		
+		Estado estado = estadoService.findEstadoById(inscripcion.getEstado().getId());
+		inscripcion.setEstado(estado);
 		
 		Inscripcion nuevaInscripcion = inscripcionService.addInscripcion(inscripcion);	
 		return new ResponseEntity<>(nuevaInscripcion, HttpStatus.CREATED);
