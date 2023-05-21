@@ -1,0 +1,13 @@
+<fieldset><legend>Registro</legend>
+
+    <form>
+
+        Nombre: <input type="text" name="nombre" [(ngModel)]="nombre"/><br>
+        Email: <input type="email" name="email" [(ngModel)]="email"/><br>
+        Telefono: <input type="text" name="telefono" [(ngModel)]="telefono"/><br>
+        Contraseña: <input type="password" name="pwd" [(ngModel)]="pwd" minlength="5" maxlength="15"/><br>
+        <button (click)="registro()">Enviar</button>
+
+    </form>
+
+</fieldset>

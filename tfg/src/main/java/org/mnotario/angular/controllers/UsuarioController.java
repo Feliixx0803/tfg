@@ -2,12 +2,15 @@ package org.mnotario.angular.controllers;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.RolService;
 import org.mnotario.angular.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +26,9 @@ public class UsuarioController {
 
 	private final UsuarioService usuarioService;
 	private final RolService rolService;
+	
+	/*@Autowired
+	private PasswordEncoder passwordEncoder;*/
 	
 	public UsuarioController(UsuarioService usuarioService, RolService rolservice) {
 		this.usuarioService = usuarioService;
@@ -45,7 +51,12 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> addUsuario(@RequestBody Usuario usuario){
 		Rol rol = rolService.findRolById(usuario.getRol().getId());
 		usuario.setRol(rol);
-		Usuario nuevoUsuario = usuarioService.addUsuario(usuario);	
+		
+		//HASH DE PWD
+		String passwd = usuario.getPwd();
+		usuario.setPwd(BCrypt.hashpw(passwd, BCrypt.gensalt()));
+		
+		Usuario nuevoUsuario = usuarioService.addUsuario(usuario);
 		return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
 	}
 	

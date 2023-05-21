@@ -47,10 +47,27 @@
 		  </exclusions>
 		</dependency>
 		
+		<!-- Funcionalidad de sacar archivo log a través de Log4J2 -->
 		<dependency>
 		   <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
+		
+		<!-- Por si acaso luego metemos esto por algún motivo -->
+		<!--<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-security</artifactId>
+		    <version>3.0.6</version>
+		</dependency>-->
+		
+		<!-- Funcionalidad de hash de contraseñas a través del método BCrypt -->
+		<!-- Añadido porque Spring Security da problemas con los filtros de CORS -->
+		<dependency>
+		    <groupId>org.mindrot</groupId>
+		    <artifactId>jbcrypt</artifactId>
+		    <version>0.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

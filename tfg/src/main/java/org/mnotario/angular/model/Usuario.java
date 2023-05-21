@@ -26,6 +26,7 @@ public class Usuario implements Serializable {
 	private String nombre;
 	private String email;
 	private String telefono;
+	private String pwd;
 
 	@ManyToOne
 	private Rol rol;
@@ -92,4 +93,14 @@ public class Usuario implements Serializable {
 	public void setInscripciones(Collection<Inscripcion> inscripciones) {
 		this.inscripciones = inscripciones;
 	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	
+	
 }
