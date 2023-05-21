@@ -1,0 +1,535 @@
+2023-05-18 12:18:47.370 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 15968 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 12:18:47.397 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 12:18:48.762 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 12:18:48.890 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 110 ms. Found 5 JPA repository interfaces.
+2023-05-18 12:18:49.801 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 12:18:49.822 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:18:49.825 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 12:18:49.826 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 12:18:50.023 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 12:18:50.024 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2555 ms
+2023-05-18 12:18:50.362 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 12:18:50.474 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 12:18:51.051 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 12:18:51.350 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e8d9bb6
+2023-05-18 12:18:51.353 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 12:18:51.417 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 12:18:51.426 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 12:18:53.382 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 12:18:53.401 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 12:18:54.147 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 12:18:54.697 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:18:54.737 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 12:18:54.748 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 8.056 seconds (process running for 10.225)
+2023-05-18 12:20:25.577 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 12:20:25.578 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 12:20:25.581 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-05-18 12:20:25.817 ERROR [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "org.mnotario.angular.model.Rol.getId()" because the return value of "org.mnotario.angular.model.Usuario.getRol()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "org.mnotario.angular.model.Rol.getId()" because the return value of "org.mnotario.angular.model.Usuario.getRol()" is null
+	at org.mnotario.angular.controllers.UsuarioController.addUsuario(UsuarioController.java:46) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731) ~[tomcat-embed-core-10.1.5.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814) ~[tomcat-embed-core-10.1.5.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+2023-05-18 12:25:27.560 ERROR [http-nio-8080-exec-4] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "org.mnotario.angular.model.Rol.getId()" because the return value of "org.mnotario.angular.model.Usuario.getRol()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "org.mnotario.angular.model.Rol.getId()" because the return value of "org.mnotario.angular.model.Usuario.getRol()" is null
+	at org.mnotario.angular.controllers.UsuarioController.addUsuario(UsuarioController.java:46) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731) ~[tomcat-embed-core-10.1.5.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814) ~[tomcat-embed-core-10.1.5.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+2023-05-18 12:26:00.001 ERROR [http-nio-8080-exec-6] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "org.mnotario.angular.model.Rol.getId()" because the return value of "org.mnotario.angular.model.Usuario.getRol()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "org.mnotario.angular.model.Rol.getId()" because the return value of "org.mnotario.angular.model.Usuario.getRol()" is null
+	at org.mnotario.angular.controllers.UsuarioController.addUsuario(UsuarioController.java:46) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:731) ~[tomcat-embed-core-10.1.5.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.6.jar:6.0.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814) ~[tomcat-embed-core-10.1.5.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.6.jar:6.0.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+2023-05-18 12:45:43.680 INFO  [RMI TCP Connection(37)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 12:45:43.704 INFO  [RMI TCP Connection(37)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:45:43.705 INFO  [RMI TCP Connection(37)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 12:45:43.711 INFO  [RMI TCP Connection(37)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 12:45:43.722 INFO  [RMI TCP Connection(37)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:45:43.726 INFO  [RMI TCP Connection(37)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:45:43.730 INFO  [RMI TCP Connection(37)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 12:45:43.734 INFO  [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 12:45:43.750 INFO  [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 12:45:47.941 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 16184 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 12:45:47.955 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 12:45:48.950 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 12:45:49.049 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 5 JPA repository interfaces.
+2023-05-18 12:45:49.956 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 12:45:49.974 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:45:49.975 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 12:45:49.976 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 12:45:50.142 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 12:45:50.143 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2117 ms
+2023-05-18 12:45:50.434 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 12:45:50.551 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 12:45:51.108 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 12:45:51.356 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bf5911d
+2023-05-18 12:45:51.359 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 12:45:51.436 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 12:45:51.445 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 12:45:53.122 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 12:45:53.141 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 12:45:53.834 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 12:45:54.310 WARN  [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: c9315010-7009-472d-b503-a804d06b27cd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-18 12:45:54.536 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d03cdc7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59043128, org.springframework.security.web.context.SecurityContextHolderFilter@4b8c9729, org.springframework.security.web.header.HeaderWriterFilter@78d52d4c, org.springframework.security.web.csrf.CsrfFilter@73973e77, org.springframework.security.web.authentication.logout.LogoutFilter@1b1d93e9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ce1ec7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6347f9cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@642334d6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55e02661, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15ade272, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e8f97dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f2b608e, org.springframework.security.web.access.ExceptionTranslationFilter@6a233d33, org.springframework.security.web.access.intercept.AuthorizationFilter@29dcad7e]
+2023-05-18 12:45:54.618 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 12:45:54.657 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 12:45:54.669 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 7.335 seconds (process running for 9.02)
+2023-05-18 12:48:03.532 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 12:48:03.532 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 12:48:03.535 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-05-18 13:17:07.317 INFO  [RMI TCP Connection(40)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:17:07.335 INFO  [RMI TCP Connection(40)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:17:07.336 INFO  [RMI TCP Connection(40)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:17:07.339 INFO  [RMI TCP Connection(40)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 13:17:07.346 INFO  [RMI TCP Connection(40)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:17:07.349 INFO  [RMI TCP Connection(40)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:17:07.354 INFO  [RMI TCP Connection(40)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:17:07.358 INFO  [RMI TCP Connection(40)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:17:07.365 INFO  [RMI TCP Connection(40)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:17:10.895 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 18680 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:17:10.910 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:17:11.852 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:17:11.955 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:17:12.821 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:17:12.840 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:17:12.843 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:17:12.845 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:17:13.033 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:17:13.033 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2059 ms
+2023-05-18 13:17:13.331 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:17:13.440 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:17:13.966 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:17:14.206 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bf5911d
+2023-05-18 13:17:14.208 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:17:14.281 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:17:14.291 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:17:15.874 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:17:15.892 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:17:16.565 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:17:17.037 WARN  [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6680ad18-0113-4178-a90a-1f027357cd81
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-18 13:17:17.218 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d03cdc7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59043128, org.springframework.security.web.context.SecurityContextHolderFilter@4b8c9729, org.springframework.security.web.header.HeaderWriterFilter@78d52d4c, org.springframework.security.web.csrf.CsrfFilter@73973e77, org.springframework.security.web.authentication.logout.LogoutFilter@1b1d93e9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ce1ec7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6347f9cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@642334d6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55e02661, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15ade272, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e8f97dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f2b608e, org.springframework.security.web.access.ExceptionTranslationFilter@6a233d33, org.springframework.security.web.access.intercept.AuthorizationFilter@29dcad7e]
+2023-05-18 13:17:17.289 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:17:17.325 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 13:17:17.339 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 7.026 seconds (process running for 8.614)
+2023-05-18 13:17:39.041 INFO  [http-nio-8080-exec-3] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 13:17:39.042 INFO  [http-nio-8080-exec-3] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 13:17:39.043 INFO  [http-nio-8080-exec-3] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-18 13:18:20.195 INFO  [RMI TCP Connection(9)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:18:20.217 INFO  [RMI TCP Connection(9)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:18:20.217 INFO  [RMI TCP Connection(9)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:18:20.220 INFO  [RMI TCP Connection(9)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 13:18:20.227 INFO  [RMI TCP Connection(9)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:18:20.230 INFO  [RMI TCP Connection(9)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:18:20.237 INFO  [RMI TCP Connection(9)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:18:20.241 INFO  [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:18:20.267 INFO  [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:18:23.927 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 19140 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:18:23.942 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:18:24.869 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:18:24.966 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:18:25.776 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:18:25.791 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:18:25.792 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:18:25.793 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:18:25.947 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:18:25.948 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1942 ms
+2023-05-18 13:18:26.229 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:18:26.301 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:18:26.731 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:18:26.962 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bf5911d
+2023-05-18 13:18:26.969 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:18:27.030 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:18:27.039 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:18:28.491 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:18:28.507 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:18:29.178 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:18:29.646 WARN  [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 90f73078-f028-4012-adb6-2a8c864c4ee2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-18 13:18:29.819 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3b6c55b6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55e02661, org.springframework.security.web.context.SecurityContextHolderFilter@7da0587a, org.springframework.security.web.header.HeaderWriterFilter@27244a88, org.springframework.security.web.csrf.CsrfFilter@65852d05, org.springframework.security.web.authentication.logout.LogoutFilter@3bede349, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7afac89a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@183435c0, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7f38545a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55d776ac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47a90d2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15ade272, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@549be307, org.springframework.security.web.access.ExceptionTranslationFilter@5cb64b9c, org.springframework.security.web.access.intercept.AuthorizationFilter@4ee80a94]
+2023-05-18 13:18:29.887 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:18:29.919 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 13:18:29.933 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.577 seconds (process running for 8.145)
+2023-05-18 13:18:45.770 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 13:18:45.771 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 13:18:45.774 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-05-18 13:22:12.647 INFO  [RMI TCP Connection(11)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:22:12.670 INFO  [RMI TCP Connection(11)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:12.671 INFO  [RMI TCP Connection(11)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:22:12.674 INFO  [RMI TCP Connection(11)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 13:22:12.682 INFO  [RMI TCP Connection(11)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:12.687 INFO  [RMI TCP Connection(11)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:12.693 INFO  [RMI TCP Connection(11)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:22:12.698 INFO  [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:22:12.715 INFO  [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:22:16.601 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 14472 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:22:16.617 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:22:16.624 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 14372 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:22:16.640 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:22:17.660 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:22:17.719 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:22:17.779 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:22:17.854 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 119 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:22:18.698 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:22:18.713 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:18.715 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:22:18.716 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:22:18.759 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:22:18.774 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:18.776 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:22:18.777 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:22:18.885 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:22:18.886 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2192 ms
+2023-05-18 13:22:18.967 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:22:18.968 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2249 ms
+2023-05-18 13:22:19.209 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:22:19.268 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:22:19.294 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:22:19.367 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:22:19.788 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:22:19.836 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:22:20.054 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bf5911d
+2023-05-18 13:22:20.057 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:22:20.108 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43b6cb1c
+2023-05-18 13:22:20.114 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:22:20.123 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:22:20.132 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:22:20.182 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:22:20.189 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:22:21.690 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:22:21.710 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:22:21.742 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:22:21.758 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:22:22.450 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:22:22.505 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:22:22.954 WARN  [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: a4182ca7-c55f-4993-a7aa-79b79244c879
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-18 13:22:23.004 WARN  [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d9de8587-f625-461c-8035-e241b9f9167e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-18 13:22:23.172 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d03cdc7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59043128, org.springframework.security.web.context.SecurityContextHolderFilter@4b8c9729, org.springframework.security.web.header.HeaderWriterFilter@78d52d4c, org.springframework.security.web.csrf.CsrfFilter@73973e77, org.springframework.security.web.authentication.logout.LogoutFilter@1b1d93e9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ce1ec7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6347f9cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@642334d6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55e02661, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15ade272, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e8f97dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f2b608e, org.springframework.security.web.access.ExceptionTranslationFilter@6a233d33, org.springframework.security.web.access.intercept.AuthorizationFilter@29dcad7e]
+2023-05-18 13:22:23.247 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:23.252 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5cb4ba80, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@978475b, org.springframework.security.web.context.SecurityContextHolderFilter@276eafad, org.springframework.security.web.header.HeaderWriterFilter@4ee80a94, org.springframework.security.web.csrf.CsrfFilter@625c9248, org.springframework.security.web.authentication.logout.LogoutFilter@73eaae1e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5bb661e0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3b6c55b6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@507187c1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@72e4ffa2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ce1ec7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@90b9695, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2220c5f7, org.springframework.security.web.access.ExceptionTranslationFilter@75ff2b6d, org.springframework.security.web.access.intercept.AuthorizationFilter@390e814c]
+2023-05-18 13:22:23.286 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 13:22:23.303 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 7.342 seconds (process running for 9.03)
+2023-05-18 13:22:23.324 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:23.340 WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-05-18 13:22:23.344 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:22:23.347 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:22:23.357 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:22:23.362 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:23.363 INFO  [main] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:22:23.377 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:23.377 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:23.393 INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-18 13:22:23.430 ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-05-18 13:22:27.246 INFO  [RMI TCP Connection(7)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:22:27.266 INFO  [RMI TCP Connection(7)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:27.267 INFO  [RMI TCP Connection(7)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:22:27.275 INFO  [RMI TCP Connection(7)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:27.278 INFO  [RMI TCP Connection(7)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:27.283 INFO  [RMI TCP Connection(7)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:22:27.286 INFO  [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:22:27.298 INFO  [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:22:30.950 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 3132 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:22:30.968 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:22:31.912 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:22:32.024 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 98 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:22:32.852 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:22:32.868 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:32.870 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:22:32.872 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:22:33.021 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:22:33.022 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1986 ms
+2023-05-18 13:22:33.290 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:22:33.366 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:22:33.795 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:22:34.036 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bf5911d
+2023-05-18 13:22:34.039 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:22:34.096 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:22:34.103 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:22:35.540 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:22:35.555 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:22:36.216 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:22:36.669 WARN  [main] org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 02f42b98-7510-4e98-b13f-c1b24a2f68b6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-05-18 13:22:36.874 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bb90b89, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10b0dd3a, org.springframework.security.web.context.SecurityContextHolderFilter@30bd6bc8, org.springframework.security.web.header.HeaderWriterFilter@29dcad7e, org.springframework.security.web.csrf.CsrfFilter@7d741200, org.springframework.security.web.authentication.logout.LogoutFilter@c5c2a84, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3b48361e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@d03cdc7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4c231f62, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@978475b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@90b9695, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c608a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6888746c, org.springframework.security.web.access.ExceptionTranslationFilter@76d220eb, org.springframework.security.web.access.intercept.AuthorizationFilter@5319e4fc]
+2023-05-18 13:22:36.936 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:22:36.971 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 13:22:36.983 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.65 seconds (process running for 8.312)
+2023-05-18 13:22:47.256 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 13:22:47.257 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 13:22:47.260 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-18 13:26:20.850 INFO  [RMI TCP Connection(13)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:26:20.869 INFO  [RMI TCP Connection(13)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:26:20.870 INFO  [RMI TCP Connection(13)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:26:20.883 INFO  [RMI TCP Connection(13)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 13:26:20.892 INFO  [RMI TCP Connection(13)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:26:20.896 INFO  [RMI TCP Connection(13)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:26:20.902 INFO  [RMI TCP Connection(13)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:26:20.906 INFO  [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:26:20.928 INFO  [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:26:24.634 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 19068 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:26:24.652 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:26:25.598 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:26:25.700 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:26:26.512 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:26:26.532 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:26:26.535 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:26:26.537 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:26:26.713 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:26:26.714 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1999 ms
+2023-05-18 13:26:27.031 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:26:27.140 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:26:27.688 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:26:27.930 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6253e59a
+2023-05-18 13:26:27.932 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:26:28.002 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:26:28.011 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:26:29.612 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:26:29.630 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:26:30.299 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:26:30.767 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:26:30.809 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 13:26:30.821 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.786 seconds (process running for 8.489)
+2023-05-18 13:26:40.491 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 13:26:40.491 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 13:26:40.493 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-05-18 13:36:55.285 INFO  [RMI TCP Connection(21)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:36:55.305 INFO  [RMI TCP Connection(21)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:36:55.305 INFO  [RMI TCP Connection(21)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:36:55.307 INFO  [RMI TCP Connection(21)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 13:36:55.315 INFO  [RMI TCP Connection(21)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:36:55.319 INFO  [RMI TCP Connection(21)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:36:55.323 INFO  [RMI TCP Connection(21)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:36:55.327 INFO  [RMI TCP Connection(21)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:36:55.341 INFO  [RMI TCP Connection(21)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-18 13:36:58.973 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 16588 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-05-18 13:36:58.988 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:36:59.883 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18 13:36:59.989 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93 ms. Found 5 JPA repository interfaces.
+2023-05-18 13:37:00.747 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-05-18 13:37:00.762 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:37:00.766 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:37:00.768 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-05-18 13:37:00.930 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:37:00.930 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1879 ms
+2023-05-18 13:37:01.192 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18 13:37:01.273 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18 13:37:01.729 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-18 13:37:01.968 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31b6b0c7
+2023-05-18 13:37:01.970 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-18 13:37:02.026 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-05-18 13:37:02.036 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-18 13:37:03.539 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18 13:37:03.555 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:37:04.182 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18 13:37:04.642 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:37:04.672 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18 13:37:04.685 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 6.292 seconds (process running for 8.059)
+2023-05-18 13:38:27.208 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18 13:38:27.208 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-18 13:38:27.211 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-05-18 13:51:34.816 INFO  [RMI TCP Connection(25)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-18 13:51:34.838 INFO  [RMI TCP Connection(25)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:51:34.839 INFO  [RMI TCP Connection(25)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-18 13:51:34.850 INFO  [RMI TCP Connection(25)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-18 13:51:34.860 INFO  [RMI TCP Connection(25)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:51:34.864 INFO  [RMI TCP Connection(25)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-05-18 13:51:34.870 INFO  [RMI TCP Connection(25)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18 13:51:34.875 INFO  [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-18 13:51:34.896 INFO  [RMI TCP Connection(25)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
