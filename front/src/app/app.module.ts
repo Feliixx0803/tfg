@@ -10,6 +10,9 @@ import { PruebaLoginComponent } from './prueba-login/prueba-login.component';
 import { FormsModule } from '@angular/forms';
 import { PruebaRegistroComponent } from './prueba-registro/prueba-registro.component';
 import { RolComponent } from './components/rol/rol.component';
+import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
+import { EventoComponent } from './components/evento/evento.component';
+import { EstadoComponent } from './components/estado/estado/estado.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { RolComponent } from './components/rol/rol.component';
     UsuarioComponent,
     PruebaLoginComponent,
     PruebaRegistroComponent,
-    RolComponent
+    RolComponent,
+    InscripcionComponent,
+    EventoComponent,
+    EstadoComponent
   ],
   imports: [
     BrowserModule,

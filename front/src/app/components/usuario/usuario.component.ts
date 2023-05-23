@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsuarioModel} from "../../models/usuario/usuario-model";
 import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
 
@@ -7,7 +7,7 @@ import {UsuarioServiceService} from "../../services/usuario/usuario-service.serv
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss']
 })
-export class UsuarioComponent {
+export class UsuarioComponent implements OnInit{
 
   usuarios :UsuarioModel[];
 

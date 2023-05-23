@@ -1,4 +1,5 @@
 import {RolModel} from "../rol/rol-model";
+import {InscripcionModel} from "../inscripcion/inscripcion-model";
 export class UsuarioModel {
 
     id :number;
@@ -7,7 +8,6 @@ export class UsuarioModel {
     telefono :number;
     password :string;
 
-    //Relacion con rol:
+    //Relaciones:
     rol: RolModel
-
 }
