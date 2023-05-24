@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,6 +34,11 @@ public class Usuario implements Serializable {
 
 	@OneToMany(mappedBy = "usuario")
 	private Collection<Inscripcion> inscripciones;
+	
+	
+	@OneToMany(mappedBy = "gestor")
+	@JsonManagedReference
+	private Collection<Evento> eventosGestionados;
 
 	public Usuario() {
 		this.inscripciones=new ArrayList<Inscripcion>();
@@ -101,6 +107,12 @@ public class Usuario implements Serializable {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
-	
+
+	public Collection<Evento> getEventosGestionados() {
+		return eventosGestionados;
+	}
+
+	public void setEventosGestionados(Collection<Evento> eventosGestionados) {
+		this.eventosGestionados = eventosGestionados;
+	}
 }

@@ -26,11 +26,11 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
 
+	@Autowired
 	private final UsuarioService usuarioService;
-	private final RolService rolService;
 	
-	/*@Autowired
-	private PasswordEncoder passwordEncoder;*/
+	@Autowired
+	private final RolService rolService;
 	
 	public UsuarioController(UsuarioService usuarioService, RolService rolservice) {
 		this.usuarioService = usuarioService;

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -31,6 +32,10 @@ public class Evento implements Serializable{
 	
 	@OneToMany(mappedBy = "evento")
 	private Collection<Inscripcion> inscripciones;
+	
+	@ManyToOne
+	@JsonBackReference
+	private Usuario gestor;
 	
 	public Evento() {
 		this.inscripciones=new ArrayList<Inscripcion>();
@@ -93,10 +98,11 @@ public class Evento implements Serializable{
 		this.inscripciones = inscripciones;
 	}
 
-	
-	
-	
-	
-	
+	public Usuario getGestor() {
+		return gestor;
+	}
 
+	public void setGestor(Usuario gestor) {
+		this.gestor = gestor;
+	}
 }
