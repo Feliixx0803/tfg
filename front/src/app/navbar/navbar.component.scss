@@ -1,0 +1,54 @@
+.navbar {
+    position: absolute;
+    background: linear-gradient(to right, #3f0461, #4b1df0);
+    height: 3vw;
+    color: #fff;
+    width: 100%;
+    top: 0;
+    left: 0;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+  
+      ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+  
+        li {
+          margin-left: 2em;
+  
+          &:last-child {
+            margin-right: 0;
+          }
+  
+          a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+  
+            &:hover {
+              color: #ff9900;
+            }
+          }
+        }
+      }
+    }
+  
+    .loginButton {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      margin-left: auto; // Coloca el loginButton a la derecha
+      margin-right: 2em;
+    }
+    .loginButton a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+  }
+  
