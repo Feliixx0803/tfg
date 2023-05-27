@@ -22,7 +22,7 @@ export class EventoComponent {
   private getAllEventos() {
     this.eventoServicio.getAllEventos().subscribe(evento => {
       this.eventos = evento;
-    })
+    })  
 
   }
 }
