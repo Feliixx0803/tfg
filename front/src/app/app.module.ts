@@ -13,6 +13,11 @@ import { RolComponent } from './components/rol/rol.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { EventoComponent } from './components/evento/evento.component';
 import { EstadoComponent } from './components/estado/estado/estado.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar_miro/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { CalendarioComponent } from './components/calendario/calendario.component';
+import { AutenticacionComponent } from './components/autenticacion_miro/autenticacion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './ui-controls/navbar/navbar.component';
@@ -39,6 +44,11 @@ import { VentanaErrorComponent } from './components/ventana-error/ventana-error.
     InscripcionComponent,
     EventoComponent,
     EstadoComponent,
+    FooterComponent,
+    NavbarComponent,
+    HomeComponent,
+    CalendarioComponent,
+    AutenticacionComponent,
     LoginComponent,
     NavbarComponent,
     RegisterComponent,

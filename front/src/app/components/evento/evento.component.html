@@ -1,8 +1,16 @@
+<div class="container">
+  <h2>Eventos disponibles</h2>
 
-<table>
-  <tr *ngFor="let evento of eventos">
-    <td>{{evento.nombre}}</td>
-    <td>{{evento.descripcion}}</td>
-    <td>USU: {{evento.usuario.nombre}}</td>
-  </tr>
-</table>
+  <div class="row">
+    <div class="col-md-12" *ngFor="let evento of eventos">
+      <div class="card">
+        <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
+        <div class="card-body">
+          <h5 class="card-title">{{ evento.nombre }}</h5>
+          <p class="card-text">{{ evento.descripcion }}</p>
+          <a href="#" class="btn btn-primary">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
