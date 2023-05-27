@@ -44,12 +44,13 @@ public class Usuario implements Serializable {
 		this.inscripciones=new ArrayList<Inscripcion>();
 	}
 
-	public Usuario(Long id, String nombre, String email, String telefono) {
+	public Usuario(Long id, String nombre, String email, String telefono, String pwd) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.email = email;
 		this.telefono = telefono;
+		this.pwd = pwd;
 	}
 
 	public Long getId() {

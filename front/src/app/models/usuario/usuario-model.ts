@@ -6,7 +6,7 @@ export class UsuarioModel {
     nombre :string;
     email :string;
     telefono :number;
-    password :string;
+    pwd :string;
 
     //Relaciones:
     rol: RolModel
