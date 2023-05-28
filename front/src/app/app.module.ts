@@ -6,13 +6,20 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
+=======
+//import { PruebaLoginComponent } from './prueba-login/prueba-login.component';
+>>>>>>> 117286c26be5e5e0118097e20ade376eaf43fb1e
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RolComponent } from './components/rol/rol.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { EventoComponent } from './components/evento/evento.component';
 import { EstadoComponent } from './components/estado/estado/estado.component';
 import { FooterComponent } from './components/footer/footer.component';
+<<<<<<< HEAD
 // import { NavbarComponent } from './components/navbar_miro/navbar.component';
+=======
+>>>>>>> 117286c26be5e5e0118097e20ade376eaf43fb1e
 import { HomeComponent } from './components/home/home.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { AutenticacionComponent } from './components/autenticacion_miro/autenticacion.component';
@@ -38,6 +45,11 @@ import { EventosDiaComponent } from './components/eventos-dia-dispensable/evento
   declarations: [
     AppComponent,
     UsuarioComponent,
+<<<<<<< HEAD
+=======
+    //PruebaLoginComponent,
+    PruebaRegistroComponent,
+>>>>>>> 117286c26be5e5e0118097e20ade376eaf43fb1e
     RolComponent,
     InscripcionComponent,
     EventoComponent,
