@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { PruebaLoginComponent } from './prueba-login/prueba-login.component';
+//import { PruebaLoginComponent } from './prueba-login/prueba-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PruebaRegistroComponent } from './prueba-registro/prueba-registro.component';
 import { RolComponent } from './components/rol/rol.component';
@@ -14,7 +14,6 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
 import { EventoComponent } from './components/evento/evento.component';
 import { EstadoComponent } from './components/estado/estado/estado.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar_miro/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { AutenticacionComponent } from './components/autenticacion_miro/autenticacion.component';
@@ -38,7 +37,7 @@ import { VentanaErrorComponent } from './components/ventana-error/ventana-error.
   declarations: [
     AppComponent,
     UsuarioComponent,
-    PruebaLoginComponent,
+    //PruebaLoginComponent,
     PruebaRegistroComponent,
     RolComponent,
     InscripcionComponent,
