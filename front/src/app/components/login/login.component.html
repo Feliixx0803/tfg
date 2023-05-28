@@ -1,0 +1,14 @@
+<div class="contenedor">
+    <mat-card>LOGIN</mat-card>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label> <input type="email" name="email" matInput [(ngModel)]="email"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput [(ngModel)]="pwd"/>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </form>
+</div>

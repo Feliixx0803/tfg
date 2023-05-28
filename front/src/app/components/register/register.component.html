@@ -1,0 +1,22 @@
+<div class="contenedor">
+    <mat-card>REGISTRO</mat-card>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label> <input type="text" name="nombre" matInput [(ngModel)]="nombre"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label> <input type="email" name="email" matInput [(ngModel)]="email"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label> <input type="text" name="telefono" matInput [(ngModel)]="telefono"/>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput [(ngModel)]="pwd"/>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" (click)="register()">Registrar</button> 
+    </form>
+</div>
