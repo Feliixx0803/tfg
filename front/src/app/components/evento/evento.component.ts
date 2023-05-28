@@ -10,10 +10,24 @@ import {EventoService} from "../../services/evento/evento.service";
 })
 export class EventoComponent {
   eventos: EventoModel[];
+  eventosFiltrados: EventoModel[] = [];
 
   constructor(private eventoServicio: EventoService) {
   }
-
+  selectDay(day: Date) {
+    this.eventosFiltrados = this.eventos.filter(evento =>
+      this.compararFechas(evento.fechaInicio, evento.fechaFin, day)
+    );
+  }
+  compararFechas(fechaInicio: Date, fechaFin: Date, selectedDate: Date): boolean {
+    const start = new Date(fechaInicio);
+    const end = new Date(fechaFin);
+    const selected = new Date(selectedDate);
+  
+    return selected >= start && selected <= end;
+  }
+  
+  
   ngOnInit(): void {
     this.getAllEventos()
   }

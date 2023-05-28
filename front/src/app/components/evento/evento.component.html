@@ -2,15 +2,30 @@
   <h2>Eventos disponibles</h2>
 
   <div class="row">
-    <div class="col-md-12" *ngFor="let evento of eventos">
-      <div class="card">
-        <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
-        <div class="card-body">
-          <h5 class="card-title">{{ evento.nombre }}</h5>
-          <p class="card-text">{{ evento.descripcion }}</p>
-          <a href="#" class="btn btn-primary">Ver detalles</a>
+    <div class="col-md-12">
+      <ng-container *ngIf="!eventosFiltrados.length; else eventosFiltradosBlock">
+        <div class="card" *ngFor="let evento of eventos">
+          <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
+          <div class="card-body">
+            <h5 class="card-title">{{ evento.nombre }}</h5>
+            <p class="card-text">{{ evento.descripcion }}</p>
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <ng-template #eventosFiltradosBlock>
+      <div *ngFor="let evento of eventosFiltrados">
+        <!-- Aquí puedes mostrar la información del evento -->
+        <div class="card">
+          <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
+          <div class="card-body">
+            <h5 class="card-title">{{ evento.nombre }}</h5>
+            <p class="card-text">{{ evento.descripcion }}</p>
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-template>
   </div>
 </div>

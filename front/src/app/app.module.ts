@@ -6,15 +6,13 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { PruebaLoginComponent } from './prueba-login/prueba-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PruebaRegistroComponent } from './prueba-registro/prueba-registro.component';
 import { RolComponent } from './components/rol/rol.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { EventoComponent } from './components/evento/evento.component';
 import { EstadoComponent } from './components/estado/estado/estado.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar_miro/navbar.component';
+// import { NavbarComponent } from './components/navbar_miro/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { AutenticacionComponent } from './components/autenticacion_miro/autenticacion.component';
@@ -31,15 +29,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { VentanaErrorComponent } from './components/ventana-error/ventana-error.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { EventosDiaComponent } from './components/eventos-dia-dispensable/eventos-dia.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
-    PruebaLoginComponent,
-    PruebaRegistroComponent,
     RolComponent,
     InscripcionComponent,
     EventoComponent,
@@ -52,7 +50,8 @@ import { VentanaErrorComponent } from './components/ventana-error/ventana-error.
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    VentanaErrorComponent
+    VentanaErrorComponent,
+    EventosDiaComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +66,8 @@ import { VentanaErrorComponent } from './components/ventana-error/ventana-error.
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent]

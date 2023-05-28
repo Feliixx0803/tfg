@@ -1,1 +1,41 @@
-<p>calendario works!</p>
+<div class="container">
+  <h2>{{ currentDate | date: 'MMMM yyyy' }}</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between mb-3">
+        <button class="btn btn-primary" (click)="previousMonth()">Anterior</button>
+        <button class="btn btn-primary" (click)="nextMonth()">Siguiente</button>
+      </div>
+      <table class="table table-bordered">
+        <!-- Encabezado de días de la semana -->
+        <thead>
+          <tr>
+            <th class="text-center">Lun</th>
+            <th class="text-center">Mar</th>
+            <th class="text-center">Mié</th>
+            <th class="text-center">Jue</th>
+            <th class="text-center">Vie</th>
+            <th class="text-center">Sáb</th>
+            <th class="text-center">Dom</th>
+          </tr>
+        </thead>
+        <!-- Cuerpo del calendario -->
+        <tbody>
+          <ng-container *ngFor="let week of getWeeks()">
+            <tr>
+              <ng-container *ngFor="let day of week">
+                <td *ngIf="day.month === currentMonth || (day.month === previousMonth && day.date >= getLastDayOfPreviousMonth() - getFirstDayOfWeek()) || (day.month === nextMonth && day.date <= getFirstDayOfNextMonth())" (click)="selectDay(day.date)">
+                  <div class="day-cell d-flex align-items-center justify-content-center"
+                    [class.today]="isToday(day)" [class.selected]="isSelected(day)">
+                    <span class="day-number">{{ day }}</span>
+                  </div>
+                </td>
+                <td *ngIf="day.month !== currentMonth"></td>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
