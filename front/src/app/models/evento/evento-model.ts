@@ -1,4 +1,4 @@
-import {UsuarioModel} from "../usuario/usuario-model";
+import { UsuarioModel } from "../usuario/usuario-model";
 
 export class EventoModel {
   id :number;

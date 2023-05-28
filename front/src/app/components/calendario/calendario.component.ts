@@ -5,6 +5,8 @@ import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMo
 import { formatDate } from '@angular/common'; // Importa la función formatDate de @angular/common
 import { EventosDiaComponent } from '../eventos-dia-dispensable/eventos-dia.component';
 import { Router } from '@angular/router';
+import { EventoService } from 'src/app/services/evento/evento.service';
+import { EventoModel } from 'src/app/models/evento/evento-model';
 
 
 @Component({
@@ -20,10 +22,49 @@ export class CalendarioComponent implements OnInit {
   selectedDay: Date | null = null;
   currentDate: Date = new Date(); // Variable para almacenar la fecha actual
   currentMonth: number;
+
+  mostrarDivEventos: boolean = false;
+  eventos: EventoModel[] = [];
+  eventosFiltrados: EventoModel[] = [];
+
+  constructor(public eventoService: EventoService){}
+
   ngOnInit() {
     // Aquí puedes cargar los eventos desde tu servicio o base de datos
     this.getEvents();
   }
+
+
+
+  mostrarEventos(dia: number): void{
+
+    console.log(dia);
+    
+    this.selectedDate = new Date();
+    this.selectedDate.setDate(dia);
+
+    this.eventoService.getAllEventos().subscribe(eventos => {
+      this.eventos = eventos;
+      this.filtrarEventos(this.selectedDate);
+    });
+
+    this.mostrarDivEventos = true;
+  }
+
+  filtrarEventos(day: Date) {
+    this.eventosFiltrados = this.eventos.filter(evento =>
+      this.compararFechas(evento.fechaInicio, evento.fechaFin, day)
+    );
+  }
+  compararFechas(fechaInicio: Date, fechaFin: Date, selectedDate: Date): boolean {
+    const start = new Date(fechaInicio);
+    const end = new Date(fechaFin);
+    const selected = new Date(selectedDate);
+  
+    return selected >= start && selected <= end;
+  }
+
+
 
   chunkArray(array: any[], size: number): any[][] {
     const chunks = [];
@@ -134,7 +175,6 @@ export class CalendarioComponent implements OnInit {
   
     return dayOfWeek;
   }
-  
 
   getFirstDayOfNextMonth(): number {
     const nextMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 1);
