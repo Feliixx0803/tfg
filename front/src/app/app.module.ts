@@ -6,20 +6,14 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 
-=======
->>>>>>> 62bc6edc974015db1f14178904abc428f36b67e7
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RolComponent } from './components/rol/rol.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { EventoComponent } from './components/evento/evento.component';
 import { EstadoComponent } from './components/estado/estado/estado.component';
 import { FooterComponent } from './components/footer/footer.component';
-<<<<<<< HEAD
 
-=======
->>>>>>> 62bc6edc974015db1f14178904abc428f36b67e7
 import { HomeComponent } from './components/home/home.component';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { AutenticacionComponent } from './components/autenticacion_miro/autenticacion.component';
@@ -45,10 +39,6 @@ import { EventosDiaComponent } from './components/eventos-dia-dispensable/evento
   declarations: [
     AppComponent,
     UsuarioComponent,
-<<<<<<< HEAD
-=======
-    PruebaRegistroComponent,
->>>>>>> 62bc6edc974015db1f14178904abc428f36b67e7
     RolComponent,
     InscripcionComponent,
     EventoComponent,
