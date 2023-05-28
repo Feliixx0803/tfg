@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 
 import { HttpClientModule } from '@angular/common/http';
-//import { PruebaLoginComponent } from './prueba-login/prueba-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PruebaRegistroComponent } from './prueba-registro/prueba-registro.component';
 import { RolComponent } from './components/rol/rol.component';
@@ -37,7 +36,6 @@ import { VentanaErrorComponent } from './components/ventana-error/ventana-error.
   declarations: [
     AppComponent,
     UsuarioComponent,
-    //PruebaLoginComponent,
     PruebaRegistroComponent,
     RolComponent,
     InscripcionComponent,
