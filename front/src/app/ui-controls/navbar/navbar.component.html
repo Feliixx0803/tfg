@@ -1,5 +1,6 @@
 <mat-toolbar>
     <mat-toolbar-row>
+      <theme-switcher></theme-switcher>
         <button mat-raised-button color="warn" routerLink="home">Eventify <mat-icon>mms</mat-icon></button>
         <span class="espaciado"></span>
         <span *ngIf="usuarioRegistrado; else login">Usuario: {{nombreUsuario}}<button mat-raised-button color="warn" (click)="logout()">LOGOUT</button></span>
