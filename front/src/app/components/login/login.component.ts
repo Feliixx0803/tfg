@@ -4,6 +4,7 @@ import { UsuarioModel } from 'src/app/models/usuario/usuario-model';
 import { EventEmitterService } from 'src/app/services/eventEmitter/event-emitter.service';
 import { MatDialog } from '@angular/material/dialog';
 import { VentanaErrorComponent } from '../ventana-error/ventana-error.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   email: string = "";
   pwd: string = "";
 
-  constructor(public http: HttpClient, public eventEmitterService: EventEmitterService, public dialogRef: MatDialog){}
+  constructor(public http: HttpClient, public eventEmitterService: EventEmitterService, public dialogRef: MatDialog, private router: Router){}
 
   public login():void {
     let email = this.email;
@@ -29,6 +30,7 @@ export class LoginComponent {
     this.http.post<UsuarioModel>('http://localhost:8080/login', body, {responseType: 'json'}).subscribe(
       (response) => {
         this.validarLogin(response);
+        this.router.navigate(["/home"])
       },
       (error) => this.open(error.error)
     );
@@ -38,7 +40,7 @@ export class LoginComponent {
     console.log(response.nombre);
     localStorage.setItem('usuario', response.nombre);
     this.eventEmitterService.eventoLogin.emit({nombreUsuario: localStorage.getItem("usuario")});
-    
+
   }
 
   open(texto: String){
