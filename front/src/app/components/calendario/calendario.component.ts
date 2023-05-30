@@ -5,6 +5,8 @@ import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMo
 import { formatDate } from '@angular/common'; // Importa la función formatDate de @angular/common
 import { EventosDiaComponent } from '../eventos-dia-dispensable/eventos-dia.component';
 import { Router } from '@angular/router';
+import { EventoService } from 'src/app/services/evento/evento.service';
+import { EventoModel } from 'src/app/models/evento/evento-model';
 
 
 @Component({
@@ -20,10 +22,49 @@ export class CalendarioComponent implements OnInit {
   selectedDay: Date | null = null;
   currentDate: Date = new Date(); // Variable para almacenar la fecha actual
   currentMonth: number;
+
+  mostrarDivEventos: boolean = false;
+  eventos: EventoModel[] = [];
+  eventosFiltrados: EventoModel[] = [];
+
+  constructor(public eventoService: EventoService){}
+
   ngOnInit() {
     // Aquí puedes cargar los eventos desde tu servicio o base de datos
     this.getEvents();
   }
+
+
+
+  mostrarEventos(dia: number): void{
+
+    console.log(dia);
+
+    this.selectedDate = new Date();
+    this.selectedDate.setDate(dia);
+
+    this.eventoService.getAllEventos().subscribe(eventos => {
+      this.eventos = eventos;
+      this.filtrarEventos(this.selectedDate);
+    });
+
+    this.mostrarDivEventos = true;
+  }
+
+  filtrarEventos(day: Date) {
+    this.eventosFiltrados = this.eventos.filter(evento =>
+      this.compararFechas(evento.fechaInicio, evento.fechaFin, day)
+    );
+  }
+  compararFechas(fechaInicio: Date, fechaFin: Date, selectedDate: Date): boolean {
+    const start = new Date(fechaInicio).getDate();
+    const end = new Date(fechaFin).getDate();
+    const selected = new Date(selectedDate).getDate();
+
+    return selected >= start && selected <= end;
+  }
+
+
 
   chunkArray(array: any[], size: number): any[][] {
     const chunks = [];
@@ -55,22 +96,22 @@ export class CalendarioComponent implements OnInit {
       { title: 'Evento 1', start: new Date(), end: new Date() },
       // ... otros eventos
     ];
-  
+
     this.events = eventsFromService.map(event => ({
       title: event.title,
       start: event.start instanceof Date ? event.start : new Date(event.start),
       end: event.end instanceof Date ? event.end : new Date(event.end)
     }));
   }
-  
+
   isToday(day: CalendarMonthViewDay): boolean {
     return isSameDay(day.date, new Date());
   }
-  
+
   isSelected(day: CalendarMonthViewDay): boolean {
     return isSameDay(day.date, this.selectedDate);
   }
-  
+
   previousMonth() {
     this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() - 1);
   }
@@ -78,11 +119,11 @@ export class CalendarioComponent implements OnInit {
   nextMonth() {
     this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1);
   }
-  
+
   formatDate(date: Date, format: string): string {
     return formatDate(date, format, 'en-US'); // Ajusta el locale según tus necesidades
   }
-  
+
   get viewDays(): CalendarMonthViewDay[] {
     const start = startOfMonth(this.viewDate);
     const end = endOfMonth(this.viewDate);
@@ -127,14 +168,13 @@ export class CalendarioComponent implements OnInit {
   getFirstDayOfWeek(): number {
     const firstDayOfMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
     let dayOfWeek = firstDayOfMonth.getDay() - 1; // Restamos 1 para que 0 represente el lunes
-  
+
     if (dayOfWeek === -1) {
       dayOfWeek = 6; // Si el primer día del mes es domingo, ajustamos el valor para que 6 represente el lunes
     }
-  
+
     return dayOfWeek;
   }
-  
 
   getFirstDayOfNextMonth(): number {
     const nextMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 1);

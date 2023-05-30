@@ -6,6 +6,7 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
 import { AutenticacionComponent } from './components/autenticacion_miro/autenticacion.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import {CrearEventoComponent} from "./components/evento/crear-evento/crear-evento.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'autenticacion', component: AutenticacionComponent},
   { path: 'calendario', component: CalendarioComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'nuevo-evento', component: CrearEventoComponent}
 ];
 
 @NgModule({

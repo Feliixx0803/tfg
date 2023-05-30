@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit{
     this.usuarioRegistrado = false;
 
     this.eventEmitterService.eventoLogout.emit({usuario: localStorage.getItem("usuario")});
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
   loginUsuario(nombreUsuario: string): void{

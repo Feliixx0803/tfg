@@ -3,7 +3,6 @@ import {EventoModel} from "../evento/evento-model";
 import {EstadoModel} from "../estado/estado-model";
 
 export class InscripcionModel {
-  id :number;
   fecha : Date;
 
   //Relaciones:

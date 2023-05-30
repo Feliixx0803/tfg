@@ -31,6 +31,7 @@ import { VentanaErrorComponent } from './components/ventana-error/ventana-error.
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { EventosDiaComponent } from './components/eventos-dia-dispensable/eventos-dia.component';
+import { CrearEventoComponent } from './components/evento/crear-evento/crear-evento.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { EventosDiaComponent } from './components/eventos-dia-dispensable/evento
     NavbarComponent,
     RegisterComponent,
     VentanaErrorComponent,
-    EventosDiaComponent
+    EventosDiaComponent,
+    CrearEventoComponent
   ],
   imports: [
     BrowserModule,

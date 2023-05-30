@@ -1,0 +1,23 @@
+<div class="contenedor">
+  <mat-card>Registrar nuevo evento</mat-card>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label> <input type="email" name="nombre" matInput [(ngModel)]="nombre"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Inicio del evento</mat-label> <input type="date" name="fechaInicio" matInput [(ngModel)]="fechaInicio"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Fin del evento</mat-label> <input type="date" name="fechaFin" matInput [(ngModel)]="fechaFin"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Descripcion</mat-label> <textarea name="descripcion" rows="4" cols="20" matInput [(ngModel)]="descripcion"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="registrarEvento()">Registrar</button>
+  </form>
+</div>
+
