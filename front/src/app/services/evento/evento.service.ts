@@ -14,4 +14,8 @@ export class EventoService {
   getAllEventos() :Observable<EventoModel[]>{
     return this.http.get<EventoModel[]>(this.apiUrl+'/evento/all');
   }
+
+  createEvento(eventoNuevo : EventoModel){
+    return this.http.post<EventoModel>(`${this.apiUrl}/evento/add`, eventoNuevo);
+  }
 }
