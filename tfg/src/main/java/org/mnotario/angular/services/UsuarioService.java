@@ -33,6 +33,10 @@ public class UsuarioService {
 		return usuarioRepositorio.findUsuarioById(id);
 	}
 	
+	public Usuario findUsuarioByName(String nombre) {
+		return usuarioRepositorio.findUsuarioByName(nombre);
+	}
+	
 	public void deleteUsuarioById(Long id) {
 		usuarioRepositorio.deleteById(id);
 	}
