@@ -49,6 +49,12 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuario, HttpStatus.OK);
 	}
 	
+	@GetMapping("/findByName/{nombre}")
+	public ResponseEntity<Usuario> findUsuarioByName(@PathVariable("nombre") String nombre){
+		Usuario usuario = usuarioService.findUsuarioByName(nombre);
+		return new ResponseEntity<>(usuario, HttpStatus.OK);
+	}
+	
 	@PostMapping("/add")
 	public ResponseEntity<Usuario> addUsuario(@RequestBody Usuario usuario){
 		Rol rol = rolService.findRolById(usuario.getRol().getId());

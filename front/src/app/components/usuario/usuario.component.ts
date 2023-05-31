@@ -11,7 +11,7 @@ import {RolModel} from "../../models/rol/rol-model";
 export class UsuarioComponent implements OnInit{
 
   usuarios :UsuarioModel[];
-  nuevoUsuario : UsuarioModel;
+
 
   constructor(private usuarioServicio : UsuarioServiceService) { }
 
@@ -26,9 +26,9 @@ export class UsuarioComponent implements OnInit{
     })
   }
 
-  private createUsuario(){
+  /*private createUsuario(){
     this.usuarioServicio.createUser(this.nuevoUsuario).subscribe();
-  }
+  }*/
 
   /*private updateUsuario(){
     this.usuarioServicio.updateUsuario(this.usuarioId,this.usuario).subscribe();
