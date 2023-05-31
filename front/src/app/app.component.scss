@@ -1,0 +1,9 @@
+.contenedor-principal{
+    display: flex;
+    flex-flow: column;
+}
+
+.contenedor-secundario{
+    position: fixed;
+    bottom: 0;
+}

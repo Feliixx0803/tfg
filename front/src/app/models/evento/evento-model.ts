@@ -8,5 +8,5 @@ export class EventoModel {
   descripcion :string;
 
   //Relaciones
-  usuario :UsuarioModel;
+  gestor :UsuarioModel;
 }

@@ -50,8 +50,8 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/findByName/{nombre}")
-	public ResponseEntity<Usuario> findUsuarioByName(@PathVariable("nombre") String nombre){
-		Usuario usuario = usuarioService.findUsuarioByName(nombre);
+	public ResponseEntity<Usuario> findUsuarioByNombre(@PathVariable("nombre") String nombre){
+		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
 		return new ResponseEntity<>(usuario, HttpStatus.OK);
 	}
 	

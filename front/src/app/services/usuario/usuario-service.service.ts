@@ -27,7 +27,7 @@ export class UsuarioServiceService {
     return this.http.delete<void>(`${this.apiUrl}/usuario/delete/${usuarioId}`);
   }
 
-  getUserByName(nombre: any): Observable<UsuarioModel> {
+  getUserByNombre(nombre: any): Observable<UsuarioModel> {
     return this.http.get<UsuarioModel>(`${this.apiUrl}/usuario/findByName/${nombre}`);
   }
 }
