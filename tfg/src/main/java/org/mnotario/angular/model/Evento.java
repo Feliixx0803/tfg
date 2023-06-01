@@ -25,7 +25,10 @@ public class Evento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
 	private Long id;
+	
+	@Column(unique = true)
 	private String nombre;
+	
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	private String descripcion;

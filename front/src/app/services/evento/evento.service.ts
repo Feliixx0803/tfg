@@ -16,6 +16,10 @@ export class EventoService {
   }
 
   createEvento(eventoNuevo : EventoModel){
-    return this.http.post<EventoModel>(`${this.apiUrl}/evento/add`, eventoNuevo);
+    return this.http.post<string>(`${this.apiUrl}/evento/add`, eventoNuevo);
+  }
+
+  findEventoByNombre(nombre: string | null): Observable<EventoModel>{
+    return this.http.get<EventoModel>(`${this.apiUrl}/evento/findNombre/` + nombre);
   }
 }

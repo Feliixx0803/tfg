@@ -27,16 +27,13 @@ export class EventoComponent {
     return selected >= start && selected <= end;
   }
   
-  
   ngOnInit(): void {
     this.getAllEventos()
   }
-
 
   private getAllEventos() {
     this.eventoServicio.getAllEventos().subscribe(evento => {
       this.eventos = evento;
     })  
-
   }
 }
