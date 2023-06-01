@@ -54,14 +54,19 @@ public class EventoController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Evento> addEvento(@RequestBody Evento evento){
-		Usuario gestor = usuarioService.findUsuarioById(evento.getGestor().getId());
-		logger.info("GESTOR RECOGIDO");
-		evento.setGestor(gestor);
-		logger.info("GESTOR ASIGNADO");
-		Evento nuevoEvento = eventoService.addEvento(evento);
-		logger.info("EVENTO GUARDADO - " + nuevoEvento.getId());
-		return new ResponseEntity<>(nuevoEvento, HttpStatus.CREATED);
+	public ResponseEntity<String> addEvento(@RequestBody Evento evento) throws Exception{
+		try {
+			Usuario gestor = usuarioService.findUsuarioById(evento.getGestor().getId());
+			logger.info("GESTOR RECOGIDO");
+			evento.setGestor(gestor);
+			logger.info("GESTOR ASIGNADO");
+			Evento nuevoEvento = eventoService.addEvento(evento);
+			logger.info("EVENTO GUARDADO - " + nuevoEvento.getId());
+			return new ResponseEntity<>("id-" + nuevoEvento.getId(), HttpStatus.CREATED);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PutMapping("/update")
@@ -74,6 +79,13 @@ public class EventoController {
 	public ResponseEntity<?> deleteEvento(@PathVariable("id") Long id){
 		eventoService.deleteEventoById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/findNombre/{nombre}")
+	public ResponseEntity<Evento> findEventoByNombre(@PathVariable("nombre") String nombre){
+		logger.info("NOMBRE BUSCADO: " + nombre);
+		Evento evento = eventoService.findEventoByNombre(nombre);
+		return new ResponseEntity<>(evento, HttpStatus.OK);
 	}
 	
 }

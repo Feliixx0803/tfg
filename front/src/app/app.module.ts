@@ -32,6 +32,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { EventosDiaComponent } from './components/eventos-dia-dispensable/eventos-dia.component';
 import { CrearEventoComponent } from './components/evento/crear-evento/crear-evento.component';
+import { DetallesEventoComponent } from './components/evento/detalles-evento/detalles-evento.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CrearEventoComponent } from './components/evento/crear-evento/crear-eve
     RegisterComponent,
     VentanaErrorComponent,
     EventosDiaComponent,
-    CrearEventoComponent
+    CrearEventoComponent,
+    DetallesEventoComponent
   ],
   imports: [
     BrowserModule,

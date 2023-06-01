@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EventoRepo extends JpaRepository<Evento, Long>{
 	Evento findEventoById(Long id);
+
+	Evento findEventoByNombre(String nombre);
 }

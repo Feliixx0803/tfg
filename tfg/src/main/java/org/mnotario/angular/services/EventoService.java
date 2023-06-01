@@ -36,6 +36,10 @@ public class EventoService {
 	public void deleteEventoById(Long id) {
 		eventoRepositorio.deleteById(id);
 	}
+
+	public Evento findEventoByNombre(String nombre) {
+		return eventoRepositorio.findEventoByNombre(nombre);
+	}
 	
 	
 

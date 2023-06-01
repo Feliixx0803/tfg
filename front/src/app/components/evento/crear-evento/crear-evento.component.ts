@@ -53,7 +53,7 @@ export class CrearEventoComponent {
 
       if (!this.nombre || !this.fechaInicio || !this.fechaFin || !this.descripcion) {
         this.open("Todos los campos son obligatorios");
-        return; // Detener la creación del evento
+        return;
       }
 
       const eventoNuevo: EventoModel = {
@@ -70,7 +70,8 @@ export class CrearEventoComponent {
         this.router.navigate(['/evento']);
       },
       (error)=>{
-        this.open(error.error)
+        console.log(error.error);
+        this.open("Nombre de evento ya existe");
       });
     });
   }
