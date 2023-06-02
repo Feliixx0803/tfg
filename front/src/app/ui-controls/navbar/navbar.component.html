@@ -7,3 +7,6 @@
         <span><button mat-raised-button color="warn" routerLink="register">REGISTRO</button></span>
     </mat-toolbar-row>
 </mat-toolbar>
+<div *ngIf="usuarioRegistrado">
+  <pop-up></pop-up>
+</div>
