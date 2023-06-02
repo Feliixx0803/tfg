@@ -4,7 +4,7 @@
         <span class="espaciado"></span>
         <span *ngIf="usuarioRegistrado; else login">Usuario: {{nombreUsuario}}<button mat-raised-button color="warn" (click)="logout()">LOGOUT</button></span>
         <ng-template #login><span><button mat-raised-button color="warn" routerLink="login">LOGIN</button></span></ng-template>
-        <span><button mat-raised-button color="warn" routerLink="register">REGISTRO</button></span>
+        <span *ngIf="!usuarioRegistrado"><button mat-raised-button color="warn" routerLink="register">REGISTRO</button></span>
     </mat-toolbar-row>
 </mat-toolbar>
 <div *ngIf="usuarioRegistrado">
