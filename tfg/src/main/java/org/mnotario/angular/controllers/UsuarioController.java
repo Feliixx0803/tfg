@@ -56,16 +56,22 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Usuario> addUsuario(@RequestBody Usuario usuario){
-		Rol rol = rolService.findRolById(usuario.getRol().getId());
-		usuario.setRol(rol);
+	public ResponseEntity<String> addUsuario(@RequestBody Usuario usuario){
+		try {
+			Rol rol = rolService.findRolById(usuario.getRol().getId());
+			usuario.setRol(rol);
+			
+			//HASH DE PWD
+			String passwd = usuario.getPwd();
+			usuario.setPwd(BCrypt.hashpw(passwd, BCrypt.gensalt()));
+			
+			Usuario nuevoUsuario = usuarioService.addUsuario(usuario);
+			return new ResponseEntity<>("id-" + nuevoUsuario.getId(), HttpStatus.CREATED);
+		} 
+		catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
 		
-		//HASH DE PWD
-		String passwd = usuario.getPwd();
-		usuario.setPwd(BCrypt.hashpw(passwd, BCrypt.gensalt()));
-		
-		Usuario nuevoUsuario = usuarioService.addUsuario(usuario);
-		return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update")
