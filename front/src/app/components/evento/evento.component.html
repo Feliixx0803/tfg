@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Eventos disponibles</h2>
-  <button mat-raised-button color="primary" routerLink="/nuevo-evento">Registrar evento</button>
+  <button *ngIf="isUsuarioLogeado" mat-raised-button color="primary" routerLink="/nuevo-evento">Registrar evento</button>
   <div class="row">
     <div class="col-md-12">
       <ng-container *ngIf="!eventosFiltrados.length; else eventosFiltradosBlock">
