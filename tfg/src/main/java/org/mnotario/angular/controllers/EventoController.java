@@ -62,7 +62,7 @@ public class EventoController {
 			logger.info("GESTOR ASIGNADO");
 			Evento nuevoEvento = eventoService.addEvento(evento);
 			logger.info("EVENTO GUARDADO - " + nuevoEvento.getId());
-			return new ResponseEntity<>("id-" + nuevoEvento.getId(), HttpStatus.CREATED);
+			return new ResponseEntity<>("" + nuevoEvento.getId(), HttpStatus.CREATED);
 		}
 		catch(Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);

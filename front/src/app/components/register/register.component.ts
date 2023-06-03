@@ -33,7 +33,7 @@ export class RegisterComponent {
 
     this.http.post('http://localhost:8080/register', body, { 'responseType': 'text' }).subscribe(
       (response) => this.router.navigate(["/login"]),
-      (error) => this.open(error.error)
+      (error) => this.open("Ya existe un usuario con ese email")
     );
   }
 
