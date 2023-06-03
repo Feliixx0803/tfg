@@ -25,6 +25,8 @@ public class Usuario implements Serializable {
 	@Column(nullable = false, updatable = false)
 	private Long id;
 	private String nombre;
+	
+	@Column(unique=true)
 	private String email;
 	private String telefono;
 	private String pwd;

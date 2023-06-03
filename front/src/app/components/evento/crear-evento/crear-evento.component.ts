@@ -66,7 +66,6 @@ export class CrearEventoComponent {
 
       this.eventoService.createEvento(eventoNuevo).subscribe(
       (response)=>{
-        console.log('Evento creado:', response);
         this.router.navigate(['/evento']);
       },
       (error)=>{
