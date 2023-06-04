@@ -1,10 +1,9 @@
 .footer {
     background: linear-gradient(to right, #3f0461, #4b1df0);
     color: #fff;
-    nav {
+    mat-toolbar-row {
       a {
         color: #fff;
-        font-weight: bold;
         text-decoration: none;
   
         &:hover {

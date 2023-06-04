@@ -3,6 +3,13 @@
     flex-flow: column;
 }
 
+.espaciado{
+    height: 20vh;
+}
+
 .contenedor-secundario{
     z-index: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

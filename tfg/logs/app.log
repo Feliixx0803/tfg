@@ -33,3 +33,41 @@
 2023-06-04 13:30:11.328 INFO  [RMI TCP Connection(133)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-04 13:30:11.335 INFO  [RMI TCP Connection(133)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-04 13:30:11.362 INFO  [RMI TCP Connection(133)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-06-04 18:33:48.116 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 21888 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-06-04 18:33:48.135 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-04 18:33:49.510 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-04 18:33:49.633 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105 ms. Found 5 JPA repository interfaces.
+2023-06-04 18:33:50.570 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-06-04 18:33:50.592 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-06-04 18:33:50.594 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-06-04 18:33:50.595 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-06-04 18:33:50.778 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-06-04 18:33:50.779 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2567 ms
+2023-06-04 18:33:51.129 INFO  [main] org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-04 18:33:51.248 INFO  [main] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-04 18:33:51.864 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-06-04 18:33:52.209 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17f8db6
+2023-06-04 18:33:52.212 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-06-04 18:33:52.281 WARN  [main] org.hibernate.dialect.Dialect - HHH000511: The 5.5.0 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-06-04 18:33:52.293 INFO  [main] SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-06-04 18:33:54.140 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-04 18:33:54.160 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-04 18:33:54.975 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-04 18:33:55.581 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-06-04 18:33:55.617 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-04 18:33:55.630 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 8.235 seconds (process running for 9.89)
+2023-06-04 18:41:31.396 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-04 18:41:31.398 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-06-04 18:41:31.401 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-06-04 19:54:52.108 INFO  [http-nio-8080-exec-10] org.mnotario.angular.controllers.EventoController - NOMBRE BUSCADO: Marcos Notario
+2023-06-04 19:55:36.192 INFO  [http-nio-8080-exec-1] org.mnotario.angular.controllers.EventoController - NOMBRE BUSCADO: Marcos Notario
+2023-06-04 19:55:37.976 INFO  [http-nio-8080-exec-2] org.mnotario.angular.controllers.EventoController - NOMBRE BUSCADO: Marcos Notario
+2023-06-04 21:00:40.224 INFO  [RMI TCP Connection(157)-127.0.0.1] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-06-04 21:00:40.274 INFO  [RMI TCP Connection(157)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-06-04 21:00:40.275 INFO  [RMI TCP Connection(157)-127.0.0.1] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-06-04 21:00:40.283 INFO  [RMI TCP Connection(157)-127.0.0.1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-06-04 21:00:40.310 INFO  [RMI TCP Connection(157)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-06-04 21:00:40.315 INFO  [RMI TCP Connection(157)-127.0.0.1] org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-06-04 21:00:40.323 INFO  [RMI TCP Connection(157)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-04 21:00:40.336 INFO  [RMI TCP Connection(157)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-06-04 21:00:40.342 INFO  [RMI TCP Connection(157)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
