@@ -7,6 +7,7 @@ import { EventosDiaComponent } from '../eventos-dia-dispensable/eventos-dia.comp
 import { Router } from '@angular/router';
 import { EventoService } from 'src/app/services/evento/evento.service';
 import { EventoModel } from 'src/app/models/evento/evento-model';
+import * as moment from 'moment';
 
 
 @Component({
@@ -23,6 +24,8 @@ export class CalendarioComponent implements OnInit {
   currentDate: Date = new Date(); // Variable para almacenar la fecha actual
   currentMonth: number;
 
+  fechaSeleccionada = moment();
+
   mostrarDivEventos: boolean = false;
   eventos: EventoModel[] = [];
   eventosFiltrados: EventoModel[] = [];
@@ -34,7 +37,11 @@ export class CalendarioComponent implements OnInit {
     this.getEvents();
   }
 
-
+  cambioFechaSeleccionada(){
+    this.selectedDate = this.fechaSeleccionada.toDate()
+    console.log(this.selectedDate)
+    this.mostrarEventos(this.selectedDate.getDate())
+  }
 
   mostrarEventos(dia: number): void{
 
