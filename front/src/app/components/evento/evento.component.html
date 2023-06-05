@@ -21,7 +21,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ evento.nombre }}</h5>
             <p class="card-text">{{ evento.descripcion }}</p>
-            <a routerLink="/detalles" class="btn btn-primary">Ver detalles</a>
+            <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
           </div>
         </div>
       </div>

@@ -36,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { NoPageFoundComponent } from './errorPage/no-page-found/no-page-found.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     VentanaErrorComponent,
     EventosDiaComponent,
     CrearEventoComponent,
-    DetallesEventoComponent
+    DetallesEventoComponent,
+    NoPageFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -9,9 +9,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { CrearEventoComponent } from "./components/evento/crear-evento/crear-evento.component";
 import { DetallesEventoComponent } from './components/evento/detalles-evento/detalles-evento.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import {NoPageFoundComponent} from "./errorPage/no-page-found/no-page-found.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'usuario/:nombre', component: UsuarioComponent },
   { path: 'home', component: HomeComponent },
   { path: 'evento', component: EventoComponent },
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'nuevo-evento', component: CrearEventoComponent},
-  { path: 'detalles/:nombre', component: DetallesEventoComponent} 
+  { path: 'detalles/:nombre', component: DetallesEventoComponent},
+  { path: "error", component:NoPageFoundComponent},
+  { path: "**", redirectTo: "error", pathMatch: 'full'},
 ];
 
 @NgModule({

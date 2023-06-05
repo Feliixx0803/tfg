@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FullCalendarComponent } from './full-calendar.component';
+import { NoPageFoundComponent } from './no-page-found.component';
 
-describe('FullCalendarComponent', () => {
-  let component: FullCalendarComponent;
-  let fixture: ComponentFixture<FullCalendarComponent>;
+describe('NoPageFoundComponent', () => {
+  let component: NoPageFoundComponent;
+  let fixture: ComponentFixture<NoPageFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FullCalendarComponent ]
+      declarations: [ NoPageFoundComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FullCalendarComponent);
+    fixture = TestBed.createComponent(NoPageFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
