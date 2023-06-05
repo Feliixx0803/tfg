@@ -17,6 +17,13 @@
 
             <form>
               <mat-form-field appearance="outline">
+                <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{usuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
+              </mat-form-field>
+
+              &nbsp;
+              &nbsp;
+
+              <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label> <input type="email" name="email" value="{{usuario.email}}" matInput [(ngModel)]="emailUsuario"/>
               </mat-form-field>
 

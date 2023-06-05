@@ -3,6 +3,7 @@ import {UsuarioModel} from "../../models/usuario/usuario-model";
 import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
 import { ActivatedRoute } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'usuario',
@@ -13,10 +14,15 @@ export class UsuarioComponent implements OnInit{
 
   usuario: UsuarioModel = new UsuarioModel();
 
+  nombreUsuario: string;
   emailUsuario: string;
   telefonoUsuario: string;
 
-  constructor(public ruta: ActivatedRoute, private usuarioService : UsuarioServiceService) { }
+  constructor(
+    public ruta: ActivatedRoute,
+    private usuarioService : UsuarioServiceService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
     const nombre = this.ruta.snapshot.paramMap.get('nombre');
@@ -31,9 +37,16 @@ export class UsuarioComponent implements OnInit{
   }
 
   cambiarDatos(){
+    let nombre = this.nombreUsuario;
     let email = this.emailUsuario;
     let telefono = this.telefonoUsuario;
 
+    this.usuario.nombre = nombre;
+    this.usuario.email = email;
+    this.usuario.telefono = telefono;
+
+    this.http.put<UsuarioModel>('http://localhost:8080/usuario/update',this.usuario)
+      .subscribe();
     //TODO: hacer cambio de datos (datosDTO, metodo en backend, mostrar aqui)
   }
 }
