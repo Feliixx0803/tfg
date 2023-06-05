@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { EventoComponent } from '../evento/evento.component';
 @Component({
   selector: 'eventos-dia',
   templateUrl: './eventos-dia.component.html',

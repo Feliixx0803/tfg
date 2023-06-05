@@ -8,9 +8,11 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CrearEventoComponent } from "./components/evento/crear-evento/crear-evento.component";
 import { DetallesEventoComponent } from './components/evento/detalles-evento/detalles-evento.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'usuario/:nombre', component: UsuarioComponent },
   { path: 'home', component: HomeComponent },
   { path: 'evento', component: EventoComponent },
   { path: 'autenticacion', component: AutenticacionComponent},
