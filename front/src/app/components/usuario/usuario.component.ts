@@ -4,6 +4,7 @@ import {UsuarioServiceService} from "../../services/usuario/usuario-service.serv
 import { ActivatedRoute } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import {EventEmitterService} from "../../services/eventEmitter/event-emitter.service";
 
 @Component({
   selector: 'usuario',
@@ -21,7 +22,8 @@ export class UsuarioComponent implements OnInit{
   constructor(
     public ruta: ActivatedRoute,
     private usuarioService : UsuarioServiceService,
-    private http: HttpClient
+    private http: HttpClient,
+    private eventEmitterService : EventEmitterService
   ) { }
 
   ngOnInit() {
@@ -37,16 +39,23 @@ export class UsuarioComponent implements OnInit{
   }
 
   cambiarDatos(){
-    let nombre = this.nombreUsuario;
-    let email = this.emailUsuario;
-    let telefono = this.telefonoUsuario;
+    const nombre = this.nombreUsuario;
+    const email = this.emailUsuario;
+    const telefono = this.telefonoUsuario;
 
-    this.usuario.nombre = nombre;
-    this.usuario.email = email;
-    this.usuario.telefono = telefono;
+    if (nombre) {
+      this.usuario.nombre = nombre;
+    }
+    if (email) {
+      this.usuario.email = email;
+    }
+    if (telefono) {
+      this.usuario.telefono = telefono;
+    }
 
     this.http.put<UsuarioModel>('http://localhost:8080/usuario/update',this.usuario)
-      .subscribe();
-    //TODO: hacer cambio de datos (datosDTO, metodo en backend, mostrar aqui)
+      .subscribe(()=>{
+        this.eventEmitterService.eventoUsuarioActualizado.emit(this.usuario);
+      });
   }
 }
