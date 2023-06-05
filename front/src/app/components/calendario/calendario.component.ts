@@ -48,14 +48,14 @@ export class CalendarioComponent implements OnInit {
 
     console.log(dia);
 
-    this.selectedDate = new Date();
+    //this.selectedDate = new Date();
     this.selectedDate.setDate(dia);
 
     this.eventoService.getAllEventos().subscribe(eventos => {
       this.eventos = eventos;
       this.filtrarEventos(this.selectedDate);
 
-      console.log(this.eventosFiltrados);
+      //console.log(this.eventosFiltrados);
       if(this.eventosFiltrados.length == 0) this.noEventos = true; else this.noEventos = false;
     });
 
@@ -69,11 +69,21 @@ export class CalendarioComponent implements OnInit {
   }
 
   compararFechas(fechaInicio: Date, fechaFin: Date, selectedDate: Date): boolean {
-    const start = new Date(fechaInicio).getDate();
-    const end = new Date(fechaFin).getDate();
-    const selected = new Date(selectedDate).getDate();
+    const startDay = new Date(fechaInicio).getDate();
+    const endDay = new Date(fechaFin).getDate();
+    const selectedDay = new Date(selectedDate).getDate();
 
-    return selected >= start && selected <= end;
+    const startMonth = new Date(fechaInicio).getMonth();
+    const endMonth = new Date(fechaFin).getMonth();
+    const selectedMonth = new Date(selectedDate).getMonth();
+
+    const startYear = new Date(fechaInicio).getFullYear();
+    const endYear = new Date(fechaFin).getFullYear();
+    const selectedYear = new Date(selectedDate).getFullYear();
+
+    return selectedDay >= startDay && selectedDay <= endDay
+      && selectedMonth >= startMonth && selectedMonth <= endMonth
+      && selectedYear >= startYear && selectedYear <= endYear;
   }
 
   chunkArray(array: any[], size: number): any[][] {
