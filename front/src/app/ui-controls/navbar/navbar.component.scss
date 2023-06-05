@@ -14,4 +14,22 @@ mat-icon{
 mat-toolbar{
     background: linear-gradient(to right, #3f0461, #4b1df0);
     color: white;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: #ff9900;
+        }
+    }
+}
+
+.navbar{
+    margin-left: 20px;
+}
+
+.usuario{
+    background: rgb(131,58,180);
+    background: linear-gradient(45deg, rgba(131,58,180,1) 14%, rgba(252,176,69,1) 73%);
 }

@@ -1,9 +1,51 @@
-<table>
-  <tr *ngFor="let usu of usuarios">
-    <td>{{usu.nombre}}</td>
-    <!--<td>{{usu.telefono}}</td>-->
-    <td>EMAIL {{usu.email}}</td>
-    <td>PASS {{usu.pwd}}</td>
-    <td>ROL {{usu.rol.nombre}}</td>
-  </tr>
-</table>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Detalles del usuario</h1>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+        <mat-card>
+          <mat-card-header><h1>{{usuario.nombre}}</h1></mat-card-header>
+          <br>
+          <mat-card-content>
+
+
+            <form>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label> <input type="email" name="email" value="{{usuario.email}}" matInput [(ngModel)]="emailUsuario"/>
+              </mat-form-field>
+
+              &nbsp;
+              &nbsp;
+
+              <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{usuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
+              </mat-form-field> &nbsp; &nbsp;
+              <button mat-raised-button (click)="cambiarDatos()">Cambiar</button>
+            </form>
+
+
+          </mat-card-content>
+        </mat-card>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row" *ngIf="usuario.rol.nombre == 'admin'">
+    <div class="col-md-12">
+      <mat-card class="admin">
+        <mat-card-content>
+          ADMINISTRADOR
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

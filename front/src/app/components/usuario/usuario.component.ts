@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuarioModel} from "../../models/usuario/usuario-model";
 import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
-import {RolModel} from "../../models/rol/rol-model";
+import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'usuario',
@@ -10,31 +11,29 @@ import {RolModel} from "../../models/rol/rol-model";
 })
 export class UsuarioComponent implements OnInit{
 
-  usuarios :UsuarioModel[];
+  usuario: UsuarioModel = new UsuarioModel();
 
+  emailUsuario: string;
+  telefonoUsuario: string;
 
-  constructor(private usuarioServicio : UsuarioServiceService) { }
+  constructor(public ruta: ActivatedRoute, private usuarioService : UsuarioServiceService) { }
 
   ngOnInit() {
-    this.getAllUsuarios();
+    const nombre = this.ruta.snapshot.paramMap.get('nombre');
+
+    this.encontrarUsuario(nombre).then(() => {
+      console.log(this.usuario);
+    });
   }
 
-  //Recibir todos los empleados:
-  private getAllUsuarios(){
-    this.usuarioServicio.getAllUsuarios().subscribe(usuario =>{
-      this.usuarios = usuario;
-    })
+  async encontrarUsuario(nombre: string | null){
+    this.usuario = await lastValueFrom(this.usuarioService.getUserByNombre(nombre).pipe());
   }
 
-  /*private createUsuario(){
-    this.usuarioServicio.createUser(this.nuevoUsuario).subscribe();
-  }*/
+  cambiarDatos(){
+    let email = this.emailUsuario;
+    let telefono = this.telefonoUsuario;
 
-  /*private updateUsuario(){
-    this.usuarioServicio.updateUsuario(this.usuarioId,this.usuario).subscribe();
-  }*/
-
-  private deleteUsuario(usuarioId:number){
-    this.usuarioServicio.deleteUsuario(usuarioId).subscribe();
+    //TODO: hacer cambio de datos (datosDTO, metodo en backend, mostrar aqui)
   }
 }
