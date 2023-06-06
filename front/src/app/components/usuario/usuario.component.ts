@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuarioModel} from "../../models/usuario/usuario-model";
 import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
-import {RolModel} from "../../models/rol/rol-model";
+import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {EventEmitterService} from "../../services/eventEmitter/event-emitter.service";
 
 @Component({
   selector: 'usuario',
@@ -10,31 +13,49 @@ import {RolModel} from "../../models/rol/rol-model";
 })
 export class UsuarioComponent implements OnInit{
 
-  usuarios :UsuarioModel[];
+  usuario: UsuarioModel = new UsuarioModel();
 
+  nombreUsuario: string;
+  emailUsuario: string;
+  telefonoUsuario: string;
 
-  constructor(private usuarioServicio : UsuarioServiceService) { }
+  constructor(
+    public ruta: ActivatedRoute,
+    private usuarioService : UsuarioServiceService,
+    private http: HttpClient,
+    private eventEmitterService : EventEmitterService
+  ) { }
 
   ngOnInit() {
-    this.getAllUsuarios();
+    const nombre = this.ruta.snapshot.paramMap.get('nombre');
+
+    this.encontrarUsuario(nombre).then(() => {
+      console.log(this.usuario);
+    });
   }
 
-  //Recibir todos los empleados:
-  private getAllUsuarios(){
-    this.usuarioServicio.getAllUsuarios().subscribe(usuario =>{
-      this.usuarios = usuario;
-    })
+  async encontrarUsuario(nombre: string | null){
+    this.usuario = await lastValueFrom(this.usuarioService.getUserByNombre(nombre).pipe());
   }
 
-  /*private createUsuario(){
-    this.usuarioServicio.createUser(this.nuevoUsuario).subscribe();
-  }*/
+  cambiarDatos(){
+    const nombre = this.nombreUsuario;
+    const email = this.emailUsuario;
+    const telefono = this.telefonoUsuario;
 
-  /*private updateUsuario(){
-    this.usuarioServicio.updateUsuario(this.usuarioId,this.usuario).subscribe();
-  }*/
+    if (nombre) {
+      this.usuario.nombre = nombre;
+    }
+    if (email) {
+      this.usuario.email = email;
+    }
+    if (telefono) {
+      this.usuario.telefono = telefono;
+    }
 
-  private deleteUsuario(usuarioId:number){
-    this.usuarioServicio.deleteUsuario(usuarioId).subscribe();
+    this.http.put<UsuarioModel>('http://localhost:8080/usuario/update',this.usuario)
+      .subscribe(()=>{
+        this.eventEmitterService.eventoUsuarioActualizado.emit(this.usuario);
+      });
   }
 }

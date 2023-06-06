@@ -33,6 +33,10 @@ public class Evento implements Serializable{
 	private LocalDate fechaFin;
 	private String descripcion;
 	
+	@Column(name = "imagen", columnDefinition = "BLOB")
+	private byte[] imagen;
+
+
 	@OneToMany(mappedBy = "evento")
 	private Collection<Inscripcion> inscripciones;
 	
@@ -44,13 +48,14 @@ public class Evento implements Serializable{
 		this.inscripciones=new ArrayList<Inscripcion>();
 	}
 
-	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion) {
+	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion, byte[] imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.descripcion = descripcion;
+		this.imagen = imagen;
 	}
 
 	public Long getId() {
@@ -107,5 +112,14 @@ public class Evento implements Serializable{
 
 	public void setGestor(Usuario gestor) {
 		this.gestor = gestor;
+	}
+	
+	
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
 	}
 }

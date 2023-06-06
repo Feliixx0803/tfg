@@ -11,6 +11,7 @@ import {EventoService} from "../../services/evento/evento.service";
 export class EventoComponent {
   eventos: EventoModel[];
   eventosFiltrados: EventoModel[] = [];
+  isUsuarioLogeado :boolean = localStorage.getItem("usuario") !== null;
 
   constructor(private eventoServicio: EventoService) {
   }

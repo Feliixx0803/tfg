@@ -4,7 +4,7 @@ export class UsuarioModel {
 
     nombre :string;
     email :string;
-    telefono :number;
+    telefono :string;
     pwd :string;
 
     //Relaciones:

@@ -7,6 +7,7 @@ import { EventosDiaComponent } from '../eventos-dia-dispensable/eventos-dia.comp
 import { Router } from '@angular/router';
 import { EventoService } from 'src/app/services/evento/evento.service';
 import { EventoModel } from 'src/app/models/evento/evento-model';
+import * as moment from 'moment';
 
 
 @Component({
@@ -17,35 +18,45 @@ import { EventoModel } from 'src/app/models/evento/evento-model';
 export class CalendarioComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   viewDate: Date = new Date(); // La fecha actual del calendario
-  events: CalendarEvent[] = [];
   selectedDate: Date = new Date(); // Fecha seleccionada por el usuario
   selectedDay: Date | null = null;
   currentDate: Date = new Date(); // Variable para almacenar la fecha actual
   currentMonth: number;
 
+  fechaSeleccionada = moment();
+
   mostrarDivEventos: boolean = false;
   eventos: EventoModel[] = [];
   eventosFiltrados: EventoModel[] = [];
 
+  noEventos: boolean;
+
   constructor(public eventoService: EventoService){}
 
   ngOnInit() {
-    // Aquí puedes cargar los eventos desde tu servicio o base de datos
-    this.getEvents();
+    // Carga eventos desde BD
+    this.mostrarEventos(this.selectedDate.getDate());
   }
 
-
+  cambioFechaSeleccionada(){
+    this.selectedDate = this.fechaSeleccionada.toDate();
+    this.mostrarEventos(this.selectedDate.getDate());
+  }
 
   mostrarEventos(dia: number): void{
+    this.noEventos = false;
 
     console.log(dia);
 
-    this.selectedDate = new Date();
+    //this.selectedDate = new Date();
     this.selectedDate.setDate(dia);
 
     this.eventoService.getAllEventos().subscribe(eventos => {
       this.eventos = eventos;
       this.filtrarEventos(this.selectedDate);
+
+      //console.log(this.eventosFiltrados);
+      if(this.eventosFiltrados.length == 0) this.noEventos = true; else this.noEventos = false;
     });
 
     this.mostrarDivEventos = true;
@@ -56,15 +67,24 @@ export class CalendarioComponent implements OnInit {
       this.compararFechas(evento.fechaInicio, evento.fechaFin, day)
     );
   }
+
   compararFechas(fechaInicio: Date, fechaFin: Date, selectedDate: Date): boolean {
-    const start = new Date(fechaInicio).getDate();
-    const end = new Date(fechaFin).getDate();
-    const selected = new Date(selectedDate).getDate();
+    const startDay = new Date(fechaInicio).getDate();
+    const endDay = new Date(fechaFin).getDate();
+    const selectedDay = new Date(selectedDate).getDate();
 
-    return selected >= start && selected <= end;
+    const startMonth = new Date(fechaInicio).getMonth();
+    const endMonth = new Date(fechaFin).getMonth();
+    const selectedMonth = new Date(selectedDate).getMonth();
+
+    const startYear = new Date(fechaInicio).getFullYear();
+    const endYear = new Date(fechaFin).getFullYear();
+    const selectedYear = new Date(selectedDate).getFullYear();
+
+    return selectedDay >= startDay && selectedDay <= endDay
+      && selectedMonth >= startMonth && selectedMonth <= endMonth
+      && selectedYear >= startYear && selectedYear <= endYear;
   }
-
-
 
   chunkArray(array: any[], size: number): any[][] {
     const chunks = [];
@@ -89,21 +109,6 @@ export class CalendarioComponent implements OnInit {
     return weeks;
   }
 
-  getEvents() {
-    // Lógica para obtener los eventos desde tu servicio
-    // y asignarlos a this.events
-    const eventsFromService = [
-      { title: 'Evento 1', start: new Date(), end: new Date() },
-      // ... otros eventos
-    ];
-
-    this.events = eventsFromService.map(event => ({
-      title: event.title,
-      start: event.start instanceof Date ? event.start : new Date(event.start),
-      end: event.end instanceof Date ? event.end : new Date(event.end)
-    }));
-  }
-
   isToday(day: CalendarMonthViewDay): boolean {
     return isSameDay(day.date, new Date());
   }
@@ -121,7 +126,7 @@ export class CalendarioComponent implements OnInit {
   }
 
   formatDate(date: Date, format: string): string {
-    return formatDate(date, format, 'en-US'); // Ajusta el locale según tus necesidades
+    return formatDate(date, format, 'es'); // Ajusta el locale según tus necesidades
   }
 
   get viewDays(): CalendarMonthViewDay[] {

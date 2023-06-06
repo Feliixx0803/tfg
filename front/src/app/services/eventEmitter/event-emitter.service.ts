@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import {UsuarioModel} from "../../models/usuario/usuario-model";
 
 @Injectable({
   providedIn: 'root'
@@ -9,5 +10,6 @@ export class EventEmitterService {
 
   eventoLogout: EventEmitter<any> = new EventEmitter();
 
+  eventoUsuarioActualizado: EventEmitter<UsuarioModel> = new EventEmitter<UsuarioModel>();
   constructor() { }
 }

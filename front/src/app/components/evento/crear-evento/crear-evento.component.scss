@@ -35,3 +35,22 @@ button{
   width: fit-content;
   margin: 0 auto;
 }
+.custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  color: #FFF;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.custom-file-upload:hover {
+  background-color: #283593;
+}
+
+.custom-file-upload:active {
+  background-color: #1a237e;
+}

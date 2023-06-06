@@ -16,6 +16,9 @@ export class NavbarComponent implements OnInit{
     this.eventEmitterService.eventoLogin.subscribe((datos: any) => {
       this.loginUsuario(datos.nombreUsuario);
     })
+    this.eventEmitterService.eventoUsuarioActualizado.subscribe(usuario =>{
+      this.nombreUsuario = usuario.nombre;
+    })
   }
 
   ngOnInit(){

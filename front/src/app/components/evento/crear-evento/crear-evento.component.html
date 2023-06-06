@@ -17,6 +17,9 @@
       <mat-label>Descripcion</mat-label> <textarea name="descripcion" rows="4" cols="20" matInput [(ngModel)]="descripcion"></textarea>
     </mat-form-field>
     <br>
+    <input type="file" #fileInput accept="image/*" style="display: none" (change)="onFileSelected($event)">
+    <button mat-raised-button color="primary" class="custom-file-upload" (click)="fileInput.click()">Seleccionar archivo</button>
+    <br>
     <button mat-raised-button color="primary" (click)="registrarEvento()">Registrar</button>
   </form>
 </div>

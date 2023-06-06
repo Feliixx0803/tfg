@@ -6,6 +6,7 @@ export class EventoModel {
   fechaInicio :Date;
   fechaFin :Date;
   descripcion :string;
+  imagen : File;
 
   //Relaciones
   gestor :UsuarioModel;

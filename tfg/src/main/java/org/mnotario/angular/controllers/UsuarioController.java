@@ -66,7 +66,7 @@ public class UsuarioController {
 			usuario.setPwd(BCrypt.hashpw(passwd, BCrypt.gensalt()));
 			
 			Usuario nuevoUsuario = usuarioService.addUsuario(usuario);
-			return new ResponseEntity<>("id-" + nuevoUsuario.getId(), HttpStatus.CREATED);
+			return new ResponseEntity<>("" + nuevoUsuario.getId(), HttpStatus.CREATED);
 		} 
 		catch(Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -75,7 +75,8 @@ public class UsuarioController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Usuario> updateUsuario(@RequestBody Usuario usuario){
+	public ResponseEntity<Usuario> updateUsuario(
+			@RequestBody Usuario usuario){
 		Usuario usuarioAct = usuarioService.updateUsuario(usuario);
 		return new ResponseEntity<>(usuarioAct, HttpStatus.OK);
 	}

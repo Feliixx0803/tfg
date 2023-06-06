@@ -1,14 +1,14 @@
 <div class="container">
-  <br>
-  <h2>{{ currentDate | date: 'MMMM yyyy' }}</h2>
-  <div class="row">
+  <!-- ANTIGUA IMPLEMENTACIÓN DEL CALENDARIO -->
+
+  <!--<div class="row">
     <div class="col-md-12">
       <div class="d-flex justify-content-between mb-3">
         <button class="btn btn-primary" (click)="previousMonth()">Anterior</button>
         <button class="btn btn-primary" (click)="nextMonth()">Siguiente</button>
       </div>
       <table class="table">
-        <!-- Encabezado de días de la semana -->
+        <-- Encabezado de días de la semana ->
         <thead>
           <tr>
             <th class="text-center">Lun</th>
@@ -20,7 +20,7 @@
             <th class="text-center">Dom</th>
           </tr>
         </thead>
-        <!-- Cuerpo del calendario -->
+        <-- Cuerpo del calendario ->
         <tbody>
           <ng-container *ngFor="let week of getWeeks()">
             <tr>
@@ -38,22 +38,40 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div>-->
 
-  <div class="row" *ngIf="mostrarDivEventos">
-    <div class="col-md-12">
-      <p>Eventos del dia {{selectedDate.getDate()}}</p>
+  <div class="row">
+    <div class="col-md-6 calendario">
+      <mat-calendar [(selected)]="fechaSeleccionada" (selectedChange)="cambioFechaSeleccionada()"></mat-calendar>
+    </div>
+
+    <div class="col-md-6" *ngIf="mostrarDivEventos; else noEventoSeleccionado">
+      <h2>Eventos del dia {{selectedDate.getDate()}}</h2>
       <br>
-      <div *ngFor="let evento of eventosFiltrados">
-        <div class="card">
-          <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
-          <div class="card-body">
-            <h5 class="card-title">{{ evento.nombre }}</h5>
-            <p class="card-text">{{ evento.descripcion }}</p>
-            <a routerLink="detalles" class="btn btn-primary">Ver detalles</a>
+
+      <div *ngIf="!noEventos; else noEventosDia">
+        <div *ngFor="let evento of eventosFiltrados">
+          <div class="card">
+            <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
+            <div class="card-body">
+              <h5 class="card-title">{{ evento.nombre }}</h5>
+              <p class="card-text">{{ evento.descripcion }}</p>
+              <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
+            </div>
           </div>
         </div>
       </div>
+
+      <ng-template #noEventosDia>
+        <h1>No hay eventos en este día ;(</h1>
+      </ng-template>
     </div>
+
+    <ng-template #noEventoSeleccionado>
+      <div class="col-md-6">
+        <h2>¡Selecciona un día para ver sus eventos!</h2>
+      </div>
+    </ng-template>
+
   </div>
 </div>
