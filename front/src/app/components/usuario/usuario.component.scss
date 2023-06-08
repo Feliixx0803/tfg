@@ -2,8 +2,31 @@ mat-form-field{
     width: 300px;
 }
 
+img{
+    width: 100%;
+}
+
 .admin{
     width: fit-content;
     color: white;
     background-color: red;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: row;
+}
+
+.divisor{
+    flex: 1;
+}
+
+mat-card{
+    background-color: rgb(245,232,218);
+}
+
+.boton{
+    margin-top: 9px;
+    color: rgb(245,232,218);
+    background-color: rgb(43,25,46);
 }

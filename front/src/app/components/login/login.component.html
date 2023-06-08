@@ -1,14 +1,12 @@
+<img src="assets/login-short.png" style="width: 100%">
 <div class="contenedor">
-    <mat-card>INICIAR SESION</mat-card>
     <form>
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label> <input type="email" name="email" matInput [(ngModel)]="email"/>
         </mat-form-field>
-        <br>
         <mat-form-field appearance="outline">
             <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput [(ngModel)]="pwd"/>
         </mat-form-field>
-        <br>
-        <button mat-raised-button (click)="login()">Login</button>
+        <button class="boton" mat-raised-button (click)="login()">Login</button>
     </form>
 </div>

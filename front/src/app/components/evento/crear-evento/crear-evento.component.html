@@ -1,6 +1,6 @@
 <div class="contenedor">
   <mat-card>Registrar nuevo evento</mat-card>
-  <form>
+  <form enctype="multipart/form-data">
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label> <input type="email" name="nombre" matInput [(ngModel)]="nombre"/>
     </mat-form-field>
@@ -17,9 +17,11 @@
       <mat-label>Descripcion</mat-label> <textarea name="descripcion" rows="4" cols="20" matInput [(ngModel)]="descripcion"></textarea>
     </mat-form-field>
     <br>
-    <input type="file" #fileInput accept="image/*" style="display: none" (change)="onFileSelected($event)">
-    <button mat-raised-button color="primary" class="custom-file-upload" (click)="fileInput.click()">Seleccionar archivo</button>
-    <br>
+    <!--<input type="file" #fileInput accept="image/*" style="display: none" (change)="onFileSelected($event)">
+    <button mat-raised-button color="primary" class="custom-file-upload" (click)="fileInput.click()">
+      {{ imagenSeleccionada ? imagenSeleccionada.name : 'Seleccionar archivo' }}
+    </button>
+    <br>-->
     <button mat-raised-button color="primary" (click)="registrarEvento()">Registrar</button>
   </form>
 </div>

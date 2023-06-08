@@ -1,40 +1,33 @@
+<img src="assets/usuario-short.png" style="width: 100%">
 <div class="container">
-  <br>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Detalles del usuario</h1>
-    </div>
-  </div>
-
   <div class="row">
 
     <div class="col-md-12">
         <mat-card>
+          
           <mat-card-content>
-
-
-            <form>
+            <br>
+            <form class="formulario">
               <mat-form-field appearance="outline">
                 <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{usuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
               </mat-form-field>
 
-              &nbsp;
-              &nbsp;
+              <span class="divisor"></span>
 
               <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label> <input type="email" name="email" value="{{usuario.email}}" matInput [(ngModel)]="emailUsuario"/>
               </mat-form-field>
 
-              &nbsp;
-              &nbsp;
+              <span class="divisor"></span>
 
               <mat-form-field appearance="outline">
                 <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{usuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
-              </mat-form-field> &nbsp; &nbsp;
-              <button mat-raised-button (click)="cambiarDatos()">Cambiar</button>
+              </mat-form-field>
+
+              <span class="divisor"></span>
+
+              <button class="boton" mat-raised-button (click)="cambiarDatos()">Cambiar</button>
             </form>
-
-
           </mat-card-content>
         </mat-card>
     </div>
@@ -52,5 +45,5 @@
       </mat-card>
     </div>
   </div>
-
+  
 </div>

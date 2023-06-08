@@ -31,17 +31,6 @@ export class CrearEventoComponent {
     public validarFechas: ValidadorFechasService
   ) {}
 
-  onFileSelected(fileInput: any) {
-    this.imagenSeleccionada = fileInput.target.files[0];
-  }
-  
-  onUpload() {
-    if (this.imagenSeleccionada) {
-      const formData = new FormData();
-      formData.append('imagen', this.imagenSeleccionada);
-  
-    }
-  }
   registrarEvento() {
     this.encontrarUsuario().then(() => {
       if (
@@ -51,40 +40,61 @@ export class CrearEventoComponent {
         this.open('Por favor, introduce fechas válidas');
         return;
       }
-
-      if (!this.validarFechas.validarFecha(this.fechaInicio)) {
+      else if (!this.validarFechas.validarFecha(this.fechaInicio)) {
         this.open('Fecha incorrecta');
         return;
       }
-
-      if (this.fechaInicio > this.fechaFin) {
+      else if (this.fechaInicio > this.fechaFin) {
         this.open('La fecha de inicio no puede ser posterior a la fecha de fin');
         return;
       }
-
-      if (!this.nombre || !this.fechaInicio || !this.fechaFin || !this.descripcion ) {
+      else if (!this.nombre || !this.fechaInicio || !this.fechaFin || !this.descripcion ) {
         this.open('Todos los campos son obligatorios');
         return;
       }
+      /*else if (this.imagenSeleccionada.size >= 1048576) {
+        this.open('Todos los campos son obligatorios');
+        return;
+      }*/
+      else{
 
-      const eventoNuevo: EventoModel = {
-        nombre: this.nombre,
-        fechaInicio: this.fechaInicio,
-        fechaFin: this.fechaFin,
-        descripcion: this.descripcion,
-        imagen: this.imagenSeleccionada,
-        gestor: this.usuarioLogeado
-      };
+        /*const formData = new FormData();
 
-      this.eventoService.createEvento(eventoNuevo).subscribe(
-        (response) => {
-          this.router.navigate(['/evento']);
-        },
-        (error) => {
-          console.log(error.error);
-          this.open('Nombre de evento ya existe');
-        }
-      );
+        console.log(this.fechaInicio);
+        console.log(this.fechaFin);
+
+        formData.append('nombre', this.nombre);
+        formData.append('fechaInicio', new Date(this.fechaInicio).toISOString());
+        formData.append('fechaFin', new Date(this.fechaFin).toISOString());
+        formData.append('descripcion', this.descripcion); 
+        formData.append('imagen', this.imagenSeleccionada, this.imagenSeleccionada.name);
+        formData.append('gestor', JSON.stringify(this.usuarioLogeado));
+
+        this.nuevoEvento(formData).then((evento) => {
+          console.log(evento); 
+        });*/
+
+        const eventoNuevo: EventoModel = {
+          nombre: this.nombre,
+          fechaInicio: this.fechaInicio,
+          fechaFin: this.fechaFin,
+          descripcion: this.descripcion,
+          //imagen: this.imagenSeleccionada,
+          gestor: this.usuarioLogeado
+        };
+
+        this.eventoService.createEvento(eventoNuevo).subscribe(
+          () => {
+            this.router.navigate(['/evento']);
+          },
+          (error) => {
+            console.log(error.error);
+            this.open('Nombre de evento ya existe');
+          }
+        );
+      }
+
+      
     });
   }
 
@@ -103,4 +113,19 @@ export class CrearEventoComponent {
       }
     });
   }
+
+  onFileSelected(fileInput: any) {
+    this.imagenSeleccionada = fileInput.target.files[0];
+  }
+
+  onUpload() {
+    if (this.imagenSeleccionada) {
+      const formData = new FormData();
+      formData.append('imagen', this.imagenSeleccionada);
+    }
+  }
+
+  /*async nuevoEvento(formData: FormData){
+    return await lastValueFrom(this.eventoService.addEvento(formData));
+  }*/
 }

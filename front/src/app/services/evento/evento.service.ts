@@ -19,6 +19,10 @@ export class EventoService {
     return this.http.post<string>(`${this.apiUrl}/evento/add`, eventoNuevo);
   }
 
+  /*addEvento(formData: FormData): Observable<EventoModel>{
+    return this.http.post<EventoModel>(this.apiUrl + '/evento/add', formData, {});
+  }*/
+
   findEventoByNombre(nombre: string | null): Observable<EventoModel>{
     return this.http.get<EventoModel>(`${this.apiUrl}/evento/findNombre/` + nombre);
   }

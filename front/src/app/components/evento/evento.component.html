@@ -1,30 +1,39 @@
+<img src="assets/eventos-short.png" style="width: 100%">
 <div class="container">
-  <h2>Eventos disponibles</h2>
-  <button *ngIf="isUsuarioLogeado" mat-raised-button color="primary" routerLink="/nuevo-evento">Registrar evento</button>
+  <!--<h1 class="titulo">Eventos disponibles</h1>-->
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+      <button *ngIf="isUsuarioLogeado" mat-raised-button routerLink="/nuevo-evento">Registrar evento</button>
+    </div>
+  </div>
+  
+  <br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
       <ng-container *ngIf="!eventosFiltrados.length; else eventosFiltradosBlock">
         <div class="card" *ngFor="let evento of eventos">
-          <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
           <div class="card-body">
-            <h5 class="card-title">{{ evento.nombre }}</h5>
+            <h2 class="card-title">{{ evento.nombre }}</h2>
             <p class="card-text">{{ evento.descripcion }}</p>
             <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
           </div>
         </div>
+        <br><br>
       </ng-container>
     </div>
     <ng-template #eventosFiltradosBlock>
       <div *ngFor="let evento of eventosFiltrados">
         <div class="card">
-          <img src="" class="card-img-top" alt="Imagen del evento {{evento.nombre}}">
           <div class="card-body">
-            <h5 class="card-title">{{ evento.nombre }}</h5>
+            <h2 class="card-title">{{ evento.nombre }}</h2>
             <p class="card-text">{{ evento.descripcion }}</p>
             <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
           </div>
         </div>
       </div>
+      <br><br>
     </ng-template>
   </div>
 </div>

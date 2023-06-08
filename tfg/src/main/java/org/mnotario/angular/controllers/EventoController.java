@@ -1,5 +1,9 @@
 package org.mnotario.angular.controllers;
 
+import java.sql.Blob;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import org.mnotario.angular.model.Evento;
@@ -7,6 +11,7 @@ import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.EventoService;
 import org.mnotario.angular.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,8 +22,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.multipart.MultipartFile;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -53,8 +59,36 @@ public class EventoController {
 		return new ResponseEntity<>(evento, HttpStatus.OK);
 	}
 	
+	/*@PostMapping("/add")
+	public ResponseEntity<String> addEvento(
+			@RequestParam("nombre") String nombre,
+			@RequestParam("fechaInicio") String fechaInicioString,
+			@RequestParam("fechaFin") String fechaFinString,
+			@RequestParam("descripcion") String descripción,
+			@RequestParam("imagen") MultipartFile imagen,
+			@RequestParam("gestor") Usuario gestor
+			) throws Exception{
+		
+		LocalDate fechaInicio = LocalDate.parse(fechaInicioString, DateTimeFormatter.ISO_DATE);
+		LocalDate fechaFin = LocalDate.parse(fechaFinString, DateTimeFormatter.ISO_DATE);
+		
+		Evento evento = new Evento((long) 0, nombre, fechaInicio, fechaFin, descripción, imagen);
+		
+		try {
+			logger.info("GESTOR RECOGIDO");
+			evento.setGestor(gestor);
+			logger.info("GESTOR ASIGNADO");
+			Evento nuevoEvento = eventoService.addEvento(evento);
+			logger.info("EVENTO GUARDADO - " + nuevoEvento.getId());
+			return new ResponseEntity<>("" + nuevoEvento.getId(), HttpStatus.CREATED);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+	}*/
+	
 	@PostMapping("/add")
-	public ResponseEntity<String> addEvento(@RequestBody Evento evento) throws Exception{
+	public ResponseEntity<String> addEvento(@RequestBody Evento evento){
 		try {
 			Usuario gestor = usuarioService.findUsuarioById(evento.getGestor().getId());
 			logger.info("GESTOR RECOGIDO");

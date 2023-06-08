@@ -1,0 +1,29 @@
+.detalles{
+    background-color: rgb(245,232,218);
+    padding: 10px;
+}
+
+.nombre{
+    color: rgb(43,25,46);
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.card-descripcion{
+    background-color: rgb(245,232,218);
+    border: 2px solid rgb(43,25,46);
+    width: fit-content;
+}
+
+.titulo-descripcion{
+    color: rgb(43,25,46);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.contenido-descripcion{
+    color: rgb(43,25,46);
+    font-weight: 400;
+    font-size: 17px;
+    font-variant: normal;
+}

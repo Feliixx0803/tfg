@@ -1,9 +1,30 @@
+<img src="assets/detalles-short.png" style="width: 100%">
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>{{eventoSeleccionado.nombre}}</h2>
-            <p>{{eventoSeleccionado.descripcion}}</p>
+
+            <mat-card class="detalles">
+                <mat-card-header>
+                    <h1 class="nombre"><mat-icon> place</mat-icon> {{eventoSeleccionado.nombre}}</h1>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div class="descripción">
+                        <mat-card class="card-descripcion">
+                            <mat-card-header>
+                                <h3 class="titulo-descripcion">DESCRIPCIÓN</h3>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p class="contenido-descripcion">{{eventoSeleccionado.descripcion}}</p>
+                            </mat-card-content>
+                        </mat-card>
+                        
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
             
+
         </div>
     </div>
 </div>

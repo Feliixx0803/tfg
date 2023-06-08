@@ -1,9 +1,12 @@
 package org.mnotario.angular.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,8 +36,8 @@ public class Evento implements Serializable{
 	private LocalDate fechaFin;
 	private String descripcion;
 	
-	@Column(name = "imagen", columnDefinition = "BLOB")
-	private byte[] imagen;
+	//@Column(name = "imagen", columnDefinition = "BLOB")
+	//private MultipartFile imagen;
 
 
 	@OneToMany(mappedBy = "evento")
@@ -48,14 +51,14 @@ public class Evento implements Serializable{
 		this.inscripciones=new ArrayList<Inscripcion>();
 	}
 
-	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion, byte[] imagen) {
+	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.descripcion = descripcion;
-		this.imagen = imagen;
+		//this.imagen = imagen;
 	}
 
 	public Long getId() {
@@ -115,11 +118,11 @@ public class Evento implements Serializable{
 	}
 	
 	
-	public byte[] getImagen() {
+	/*public MultipartFile getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(byte[] imagen) {
+	public void setImagen(MultipartFile imagen) {
 		this.imagen = imagen;
-	}
+	}*/
 }
