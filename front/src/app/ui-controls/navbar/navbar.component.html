@@ -44,6 +44,7 @@
 
         <ng-template [ngIf]="usuarioRegistrado">
             <img src="assets/usuario-trans.svg" class="link der" [routerLink]="['/usuario', nombreUsuario]">
+            <img src="assets/logout-trans.svg" class="link der" (click)="logout()" routerLink="login">
         </ng-template>
         <ng-template [ngIf]="!usuarioRegistrado">
             <img src="assets/login-trans.svg" class="link der" routerLink="login">
