@@ -35,55 +35,48 @@ export class CalendarioComponent implements OnInit {
 
   ngOnInit() {
     // Carga eventos desde BD
-    this.mostrarEventos(this.selectedDate.getDate());
+    this.mostrarEventos(this.selectedDate);
   }
 
   cambioFechaSeleccionada(){
     this.selectedDate = this.fechaSeleccionada.toDate();
-    this.mostrarEventos(this.selectedDate.getDate());
+    this.mostrarEventos(this.selectedDate);
   }
 
-  mostrarEventos(dia: number): void{
+  mostrarEventos(selectedDate : Date): void{
     this.noEventos = false;
 
-    console.log(dia);
+    //console.log(dia);
 
     //this.selectedDate = new Date();
-    this.selectedDate.setDate(dia);
+    //this.selectedDate.setDate(dia);
 
     this.eventoService.getAllEventos().subscribe(eventos => {
       this.eventos = eventos;
       this.filtrarEventos(this.selectedDate);
-
-      //console.log(this.eventosFiltrados);
       if(this.eventosFiltrados.length == 0) this.noEventos = true; else this.noEventos = false;
     });
 
     this.mostrarDivEventos = true;
   }
 
-  filtrarEventos(day: Date) {
+  filtrarEventos(selectedDate: Date) {
     this.eventosFiltrados = this.eventos.filter(evento =>
-      this.compararFechas(evento.fechaInicio, evento.fechaFin, day)
+      this.compararFechas(evento.fechaInicio, evento.fechaFin, selectedDate),
     );
   }
 
-  compararFechas(fechaInicio: Date, fechaFin: Date, selectedDate: Date): boolean {
-    const startDay = new Date(fechaInicio).getDate();
-    const endDay = new Date(fechaFin).getDate();
-    const selectedDay = new Date(selectedDate).getDate();
+  compararFechas(fechaInicioString: Date, fechaFinString: Date, selectedDate: Date): boolean {
+    //Estan en formato YY-MM-DD los pasamos a formato Date para compararlo con la fecha seleccionada
+    const fechaInicio :Date = new Date(fechaInicioString) ;
+    const fechaFin :Date = new Date(fechaFinString);
 
-    const startMonth = new Date(fechaInicio).getMonth();
-    const endMonth = new Date(fechaFin).getMonth();
-    const selectedMonth = new Date(selectedDate).getMonth();
+    //Ponemos a 0 las horas,minutos y segundos para que no de conflictos al comparar
+    fechaInicio.setHours(0,0,0,0);
+    fechaFin.setHours(0,0,0,0);
+    selectedDate.setHours(0,0,0,0);
 
-    const startYear = new Date(fechaInicio).getFullYear();
-    const endYear = new Date(fechaFin).getFullYear();
-    const selectedYear = new Date(selectedDate).getFullYear();
-
-    return selectedDay >= startDay && selectedDay <= endDay
-      && selectedMonth >= startMonth && selectedMonth <= endMonth
-      && selectedYear >= startYear && selectedYear <= endYear;
+    return selectedDate >= fechaInicio && selectedDate <= fechaFin;
   }
 
   chunkArray(array: any[], size: number): any[][] {

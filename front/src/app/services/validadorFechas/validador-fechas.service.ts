@@ -19,7 +19,7 @@ export class ValidadorFechasService {
 
   validarAnio(fecha :Date){
     let isCorrect :boolean = false;
-    const MIN_YEAR = 1900; // Año mínimo aceptable
+    const MIN_YEAR = 2000; // Año mínimo aceptable
     const MAX_YEAR = 2100; // Año máximo aceptable
     const fech = new Date(fecha);
 
