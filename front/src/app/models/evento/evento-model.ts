@@ -7,6 +7,7 @@ export class EventoModel {
   fechaFin: Date;
   descripcion: string;
   //imagen: File;
+  ubicacion: string;
 
   //Relaciones
   gestor :UsuarioModel;

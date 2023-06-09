@@ -1,29 +1,52 @@
 .detalles{
     background-color: rgb(245,232,218);
-    padding: 10px;
 }
 
 .nombre{
     color: rgb(43,25,46);
-    font-weight: 500;
-    font-size: 30px;
+    font-weight: 800;
+    font-size: 45px;
 }
 
 .card-descripcion{
     background-color: rgb(245,232,218);
     border: 2px solid rgb(43,25,46);
-    width: fit-content;
 }
 
 .titulo-descripcion{
     color: rgb(43,25,46);
-    font-weight: 500;
-    font-size: 20px;
+    
+    font-weight: 700;
+    font-size: 27px;
 }
 
 .contenido-descripcion{
     color: rgb(43,25,46);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 17px;
     font-variant: normal;
+}
+
+.banner{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 35px;
+    margin-bottom: 35px;
+    height: fit-content;
+    width: 100%;
+
+    img{
+        margin: 0 auto;
+    }
+}
+
+.btn-primary{
+    background-color: rgb(80,0,108);
+    border: 2px solid rgb(80,0,108);
+    
+    color: rgb(206,140,165);
+
+    font-size: large;
+    font-weight: 500;
 }

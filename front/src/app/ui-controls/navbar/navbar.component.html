@@ -1,4 +1,4 @@
-<mat-toolbar>
+<!--<mat-toolbar>
     <mat-toolbar-row>
         <button mat-raised-button color="warn" routerLink="home">Eventify <mat-icon>mms</mat-icon></button>
 
@@ -28,4 +28,27 @@
             <button mat-raised-button color="warn" routerLink="register">REGISTRO</button>
         </span>
     </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar>-->
+
+<nav class="navbar navbar-expand-lg font">
+    <div class="container-fluid">
+        <img src="assets/home-solo-trans.svg" class="home" routerLink="home">
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <img src="assets/eventos-trans.svg" class="link" routerLink="evento">
+                </li>
+            </ul>
+        </div>
+
+        <ng-template [ngIf]="usuarioRegistrado">
+            <img src="assets/usuario-trans.svg" class="link der" [routerLink]="['/usuario', nombreUsuario]">
+        </ng-template>
+        <ng-template [ngIf]="!usuarioRegistrado">
+            <img src="assets/login-trans.svg" class="link der" routerLink="login">
+        </ng-template>
+
+        <img src="assets/registro-trans.svg" class="link der" routerLink="register">
+    </div>
+</nav>

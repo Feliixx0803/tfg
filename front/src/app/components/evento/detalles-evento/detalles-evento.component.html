@@ -1,29 +1,67 @@
-<img src="assets/detalles-short.png" style="width: 100%">
+<div class="banner">
+    <img src="assets/detalles-trans.svg">
+</div>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
 
-            <mat-card class="detalles">
-                <mat-card-header>
-                    <h1 class="nombre"><mat-icon> place</mat-icon> {{eventoSeleccionado.nombre}}</h1>
-                </mat-card-header>
+            <div class="card detalles font">
 
-                <mat-card-content>
-                    <div class="descripción">
-                        <mat-card class="card-descripcion">
-                            <mat-card-header>
-                                <h3 class="titulo-descripcion">DESCRIPCIÓN</h3>
-                            </mat-card-header>
-                            <mat-card-content>
-                                <p class="contenido-descripcion">{{eventoSeleccionado.descripcion}}</p>
-                            </mat-card-content>
-                        </mat-card>
-                        
+                <div class="card-body">
+
+                    <div class="card-title">
+                        <h1 class="nombre"><mat-icon>grade</mat-icon> {{eventoSeleccionado.nombre}}</h1>
                     </div>
-                </mat-card-content>
-            </mat-card>
 
-            
+                    <br>
+
+                    <div class="card-text">
+
+                        <div class="card card-descripcion">
+
+                            <div class="card-body">
+
+                                <div class="card-title">
+                                    <h3 class="titulo-descripcion"><mat-icon>help</mat-icon> DESCRIPCIÓN</h3>
+                                </div>
+
+                                <div class="card-text">
+                                    <p class="contenido-descripcion">{{eventoSeleccionado.descripcion}}</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="card card-descripcion">
+
+                            <div class="card-body">
+
+                                <div class="card-title">
+                                    <h3 class="titulo-descripcion"><mat-icon>place</mat-icon> UBICACIÓN</h3>
+                                </div>
+
+                                <div class="card-text">
+                                    <p class="contenido-descripcion">{{eventoSeleccionado.ubicacion}}</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <button class="btn btn-primary">Inscribirme</button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
     </div>

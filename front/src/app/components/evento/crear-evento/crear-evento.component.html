@@ -1,6 +1,9 @@
+<div class="banner">
+  <img src="assets/nuevo-trans.svg">
+</div>
+
 <div class="contenedor">
-  <mat-card>Registrar nuevo evento</mat-card>
-  <form enctype="multipart/form-data">
+  <form>
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label> <input type="email" name="nombre" matInput [(ngModel)]="nombre"/>
     </mat-form-field>
@@ -22,7 +25,11 @@
       {{ imagenSeleccionada ? imagenSeleccionada.name : 'Seleccionar archivo' }}
     </button>
     <br>-->
-    <button mat-raised-button color="primary" (click)="registrarEvento()">Registrar</button>
+    <mat-form-field appearance="outline">
+      <mat-label>Ubicación</mat-label> <input type="text" name="ubicacion" matInput [(ngModel)]="ubicacion"/>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button class="boton" (click)="registrarEvento()">Crear</button>
   </form>
 </div>
 

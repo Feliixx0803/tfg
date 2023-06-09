@@ -32,9 +32,17 @@ public class Evento implements Serializable{
 	@Column(unique = true)
 	private String nombre;
 	
+	@Column(name="fecha_inicio")
 	private LocalDate fechaInicio;
+	
+	@Column(name="fecha_fin")
 	private LocalDate fechaFin;
+	
+	@Column(name="descripcion")
 	private String descripcion;
+	
+	@Column(name="ubicacion")
+	private String ubicacion;
 	
 	//@Column(name = "imagen", columnDefinition = "BLOB")
 	//private MultipartFile imagen;
@@ -51,7 +59,7 @@ public class Evento implements Serializable{
 		this.inscripciones=new ArrayList<Inscripcion>();
 	}
 
-	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion) {
+	public Evento(Long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin, String descripcion, String ubicacion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -59,6 +67,7 @@ public class Evento implements Serializable{
 		this.fechaFin = fechaFin;
 		this.descripcion = descripcion;
 		//this.imagen = imagen;
+		this.ubicacion = ubicacion;
 	}
 
 	public Long getId() {
@@ -115,6 +124,14 @@ public class Evento implements Serializable{
 
 	public void setGestor(Usuario gestor) {
 		this.gestor = gestor;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
 	}
 	
 	
