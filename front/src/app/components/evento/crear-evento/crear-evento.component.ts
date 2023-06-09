@@ -19,7 +19,8 @@ export class CrearEventoComponent {
   fechaInicio: Date;
   fechaFin: Date;
   descripcion: string;
-  imagenSeleccionada: File;
+  //imagenSeleccionada: File;
+  ubicacion: string; 
 
   usuarioLogeado: UsuarioModel;
 
@@ -48,7 +49,7 @@ export class CrearEventoComponent {
         this.open('La fecha de inicio no puede ser posterior a la fecha de fin');
         return;
       }
-      else if (!this.nombre || !this.fechaInicio || !this.fechaFin || !this.descripcion ) {
+      else if (!this.nombre || !this.fechaInicio || !this.fechaFin || !this.descripcion || !this.ubicacion) {
         this.open('Todos los campos son obligatorios');
         return;
       }
@@ -80,6 +81,7 @@ export class CrearEventoComponent {
           fechaFin: this.fechaFin,
           descripcion: this.descripcion,
           //imagen: this.imagenSeleccionada,
+          ubicacion: this.ubicacion,
           gestor: this.usuarioLogeado
         };
 
@@ -114,7 +116,7 @@ export class CrearEventoComponent {
     });
   }
 
-  onFileSelected(fileInput: any) {
+  /*onFileSelected(fileInput: any) {
     this.imagenSeleccionada = fileInput.target.files[0];
   }
 
@@ -125,7 +127,7 @@ export class CrearEventoComponent {
     }
   }
 
-  /*async nuevoEvento(formData: FormData){
+  async nuevoEvento(formData: FormData){
     return await lastValueFrom(this.eventoService.addEvento(formData));
   }*/
 }
