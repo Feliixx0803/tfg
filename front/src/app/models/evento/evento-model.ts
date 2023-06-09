@@ -11,4 +11,5 @@ export class EventoModel {
 
   //Relaciones
   gestor :UsuarioModel;
+
 }

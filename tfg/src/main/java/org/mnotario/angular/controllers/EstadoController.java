@@ -1,6 +1,7 @@
 package org.mnotario.angular.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mnotario.angular.model.Estado;
 import org.mnotario.angular.services.EstadoService;
@@ -56,5 +57,21 @@ public class EstadoController {
 		estadoService.deleteEstadoById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+
+	@PostMapping("/findByName/{nombre}")
+	public ResponseEntity<Estado> verifyEstadoByName(@PathVariable("nombre") String nombre) {
+	  Estado estado = estadoService.findEstadoByNombre(nombre);
+	  
+	  if (estado != null) {
+	    return new ResponseEntity<>(estado, HttpStatus.OK);
+	  } else {
+	    Estado estadoInscrito = new Estado();
+	    estadoInscrito.setNombre(nombre);
+	    estadoService.addEstado(estadoInscrito);
+	    return new ResponseEntity<>(estadoInscrito, HttpStatus.OK);
+	  }
+	}
+
+
 	
 }

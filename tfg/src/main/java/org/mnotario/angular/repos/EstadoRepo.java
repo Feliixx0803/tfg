@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EstadoRepo extends JpaRepository<Estado, Long>{
 	Estado findEstadoById(Long id);
+	Estado findEstadoByNombre(String nombre);
 }

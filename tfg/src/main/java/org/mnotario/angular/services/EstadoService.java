@@ -37,6 +37,8 @@ public class EstadoService {
 		EstadoRepositorio.deleteById(id);
 	}
 	
-	
+	public Estado findEstadoByNombre(String nombre) {
+	    return EstadoRepositorio.findEstadoByNombre(nombre);
+	}
 
 }

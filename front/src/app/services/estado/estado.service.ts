@@ -14,4 +14,16 @@ export class EstadoService {
   getAllEstados() :Observable<EstadoModel[]>{
     return this.http.get<EstadoModel[]>(this.apiUrl+'/estado/all');
   }
+  verificarEstadoInscrito(nombreEstado: string): Observable<EstadoModel> {
+    return this.http.post<EstadoModel>(`${this.apiUrl}/estado/findByName/${nombreEstado}`, {});
+  }
+
+
+  crearEstadoInscrito(): Observable<EstadoModel> {
+    const nuevoEstado: EstadoModel = {
+      nombre: 'Inscrito'
+    };
+    return this.http.post<EstadoModel>(this.apiUrl + '/estado/add', nuevoEstado);
+  }
+  
 }

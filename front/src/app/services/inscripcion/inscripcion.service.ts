@@ -14,5 +14,8 @@ export class InscripcionService {
   getAllInscripciones() :Observable<InscripcionModel[]>{
     return this.http.get<InscripcionModel[]>(this.apiUrl+'/inscripcion/all');
   }
-
+  inscribirUsuario(inscripcion: InscripcionModel): Observable<any> {
+    return this.http.post<InscripcionModel>(this.apiUrl+'/inscripcion/add', inscripcion);
+  }
+  
 }

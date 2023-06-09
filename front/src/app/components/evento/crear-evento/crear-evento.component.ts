@@ -82,7 +82,7 @@ export class CrearEventoComponent {
           descripcion: this.descripcion,
           //imagen: this.imagenSeleccionada,
           ubicacion: this.ubicacion,
-          gestor: this.usuarioLogeado
+          gestor: this.usuarioLogeado,
         };
 
         this.eventoService.createEvento(eventoNuevo).subscribe(

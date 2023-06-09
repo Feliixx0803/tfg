@@ -10,5 +10,5 @@ export class InscripcionModel {
 
   evento :EventoModel;
 
-  estado :EstadoModel;
+  estado: EstadoModel;
 }
