@@ -2,7 +2,9 @@ package org.mnotario.angular.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,12 +17,12 @@ import jakarta.persistence.OneToOne;
 
 
 @Entity
-public class Inscripcion implements Serializable{
+public class Inscripcion{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
 	private Long id;
-	private LocalDate fecha;
+	private Date fecha;
 	
 	@ManyToOne
 	private Usuario usuario;
@@ -34,7 +36,7 @@ public class Inscripcion implements Serializable{
 	public Inscripcion() {
 	}
 
-	public Inscripcion(Long id, LocalDate fecha) {
+	public Inscripcion(Long id, Date fecha) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
@@ -48,11 +50,11 @@ public class Inscripcion implements Serializable{
 		this.id = id;
 	}
 
-	public LocalDate getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

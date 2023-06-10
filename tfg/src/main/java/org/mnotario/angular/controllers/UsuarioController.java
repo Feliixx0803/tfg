@@ -1,8 +1,11 @@
 package org.mnotario.angular.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.mnotario.angular.dto.DatosUsuario;
+import org.mnotario.angular.dto.UsuarioDTO;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.RolService;
@@ -38,21 +41,35 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Usuario>> findAllUsuarios(){
+	public ResponseEntity<List<UsuarioDTO>> findAllUsuarios(){
 		List<Usuario> usuarios = usuarioService.findAllUsuarios();
-		return new ResponseEntity<>(usuarios, HttpStatus.OK);
+		List<UsuarioDTO> usuarioDTOs = new ArrayList<>();
+		
+		for(Usuario usuario:usuarios) {
+			usuarioDTOs.add(new UsuarioDTO(usuario));
+		}
+		
+		return new ResponseEntity<>(usuarioDTOs, HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Usuario> findUsuarioById(@PathVariable("id") Long id){
+	public ResponseEntity<UsuarioDTO> findUsuarioById(@PathVariable("id") Long id){
 		Usuario usuario = usuarioService.findUsuarioById(id);
-		return new ResponseEntity<>(usuario, HttpStatus.OK);
+		UsuarioDTO usuarioDTO = new UsuarioDTO(usuario);
+		return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
 	}
 	
 	@GetMapping("/findByName/{nombre}")
-	public ResponseEntity<Usuario> findUsuarioByNombre(@PathVariable("nombre") String nombre){
+	public ResponseEntity<DatosUsuario> findUsuarioByNombre(@PathVariable("nombre") String nombre){
 		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
-		return new ResponseEntity<>(usuario, HttpStatus.OK);
+		DatosUsuario usuarioDTO = new DatosUsuario(usuario.getNombre(), usuario.getEmail(), usuario.getTelefono(), usuario.getRol().getNombre());
+		return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
+	}
+	
+	@GetMapping("/findIdByName/{nombre}")
+	public ResponseEntity<Long> findIdByNombre(@PathVariable("nombre") String nombre){
+		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
+		return new ResponseEntity<>(usuario.getId(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
@@ -75,10 +92,11 @@ public class UsuarioController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Usuario> updateUsuario(
+	public ResponseEntity<UsuarioDTO> updateUsuario(
 			@RequestBody Usuario usuario){
 		Usuario usuarioAct = usuarioService.updateUsuario(usuario);
-		return new ResponseEntity<>(usuarioAct, HttpStatus.OK);
+		UsuarioDTO usuarioActDTO = new UsuarioDTO(usuarioAct);
+		return new ResponseEntity<>(usuarioActDTO, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")

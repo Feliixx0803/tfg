@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,8 +23,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="evento")
-@JsonIgnoreProperties({"inscripciones"})
-public class Evento implements Serializable{
+public class Evento{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
@@ -52,7 +52,6 @@ public class Evento implements Serializable{
 	private Collection<Inscripcion> inscripciones;
 	
 	@ManyToOne
-	@JsonBackReference
 	private Usuario gestor;
 	
 	public Evento() {

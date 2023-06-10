@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +18,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="estado")
-@JsonIgnoreProperties({"inscripcion"})
+//@JsonIgnoreProperties({"inscripcion"})
 public class Estado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,6 +54,14 @@ public class Estado {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Collection<Inscripcion> getInscripciones() {
+		return inscripciones;
+	}
+
+	public void setInscripciones(Collection<Inscripcion> inscripciones) {
+		this.inscripciones = inscripciones;
 	}
 
 	

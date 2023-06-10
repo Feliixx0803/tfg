@@ -26,4 +26,8 @@ export class EventoService {
   findEventoByNombre(nombre: string | null): Observable<EventoModel>{
     return this.http.get<EventoModel>(`${this.apiUrl}/evento/findNombre/` + nombre);
   }
+
+  getIdByNombre(nombre: string): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/evento/findIdByNombre/` + nombre);
+  }
 }

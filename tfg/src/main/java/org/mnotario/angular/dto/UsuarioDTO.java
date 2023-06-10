@@ -1,55 +1,47 @@
-package org.mnotario.angular.model;
+package org.mnotario.angular.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.mnotario.angular.model.Evento;
+import org.mnotario.angular.model.Inscripcion;
+import org.mnotario.angular.model.Rol;
+import org.mnotario.angular.model.Usuario;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+public class UsuarioDTO implements Serializable{
 
-@Entity
-@Table(name="usuario")
-public class Usuario{
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(nullable = false, updatable = false)
 	private Long id;
-	private String nombre;
-	
-	@Column(unique=true)
 	private String email;
 	private String telefono;
 	private String pwd;
-
-	@ManyToOne
 	private Rol rol;
-
-	@OneToMany(mappedBy = "usuario")
 	private Collection<Inscripcion> inscripciones;
-	
-	
-	@OneToMany(mappedBy = "gestor")
 	private Collection<Evento> eventosGestionados;
-
-	public Usuario() {
+	
+	public UsuarioDTO(){
+		
 	}
 
-	public Usuario(Long id, String nombre, String email, String telefono, String pwd) {
+	public UsuarioDTO(Long id, String email, String telefono, String pwd, Rol rol,
+			Collection<Inscripcion> inscripciones, Collection<Evento> eventosGestionados) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
 		this.email = email;
 		this.telefono = telefono;
 		this.pwd = pwd;
+		this.rol = rol;
+		this.inscripciones = inscripciones;
+		this.eventosGestionados = eventosGestionados;
+	}
+	
+	public UsuarioDTO(Usuario usuario) {
+		this.id = usuario.getId();
+		this.email = usuario.getEmail();
+		this.telefono = usuario.getTelefono();
+		this.pwd = usuario.getPwd();
+		this.rol = usuario.getRol();
+		this.inscripciones = usuario.getInscripciones();
+		this.eventosGestionados = usuario.getEventosGestionados();
 	}
 
 	public Long getId() {
@@ -58,14 +50,6 @@ public class Usuario{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public String getEmail() {
@@ -84,6 +68,14 @@ public class Usuario{
 		this.telefono = telefono;
 	}
 
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
 	public Rol getRol() {
 		return rol;
 	}
@@ -98,14 +90,6 @@ public class Usuario{
 
 	public void setInscripciones(Collection<Inscripcion> inscripciones) {
 		this.inscripciones = inscripciones;
-	}
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
 	}
 
 	public Collection<Evento> getEventosGestionados() {

@@ -1,8 +1,10 @@
 package org.mnotario.angular.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.mnotario.angular.dto.EstadoDTO;
 import org.mnotario.angular.model.Estado;
 import org.mnotario.angular.services.EstadoService;
 import org.springframework.http.HttpStatus;
@@ -29,27 +31,38 @@ public class EstadoController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Estado>> findAllEstados(){
-		List<Estado> Estados = estadoService.findAllEstados();
-		return new ResponseEntity<>(Estados, HttpStatus.OK);
+	public ResponseEntity<List<EstadoDTO>> findAllEstados(){
+		
+		List<Estado> estados = estadoService.findAllEstados();
+		List<EstadoDTO> estadoDTOs = new ArrayList<>();
+		
+		for(Estado estado:estados) {
+			estadoDTOs.add(new EstadoDTO(estado.getId(), estado.getNombre(), estado.getInscripciones()));
+		}
+		
+		return new ResponseEntity<>(estadoDTOs, HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Estado> findEstadoById(@PathVariable("id") Long id){
+	public ResponseEntity<EstadoDTO> findEstadoById(@PathVariable("id") Long id){
 		Estado estado = estadoService.findEstadoById(id);
-		return new ResponseEntity<>(estado, HttpStatus.OK);
+		EstadoDTO estadoDTO = new EstadoDTO(estado.getId(), estado.getNombre(), estado.getInscripciones());
+		return new ResponseEntity<>(estadoDTO, HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Estado> addEstado(@RequestBody Estado estado){
+	public ResponseEntity<EstadoDTO> addEstado(@RequestBody Estado estado){
 		Estado nuevoEstado = estadoService.addEstado(estado);
-		return new ResponseEntity<>(nuevoEstado, HttpStatus.CREATED);
+		EstadoDTO nuevoEstadoDTO = new EstadoDTO(nuevoEstado.getId(), nuevoEstado.getNombre(), nuevoEstado.getInscripciones());
+		return new ResponseEntity<>(nuevoEstadoDTO, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Estado> updateEstado(@RequestBody Estado estado){
-		Estado EstadoAct = estadoService.updateEstado(estado);
-		return new ResponseEntity<>(EstadoAct, HttpStatus.OK);
+	public ResponseEntity<EstadoDTO> updateEstado(@RequestBody Estado estado){
+		Estado estadoAct = estadoService.updateEstado(estado);
+		EstadoDTO estadoActDTO = new EstadoDTO(estadoAct.getId(), estadoAct.getNombre(), estadoAct.getInscripciones());
+
+		return new ResponseEntity<>(estadoActDTO, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
@@ -59,16 +72,18 @@ public class EstadoController {
 	}
 
 	@PostMapping("/findByName/{nombre}")
-	public ResponseEntity<Estado> verifyEstadoByName(@PathVariable("nombre") String nombre) {
+	public ResponseEntity<EstadoDTO> verifyEstadoByName(@PathVariable("nombre") String nombre) {
 	  Estado estado = estadoService.findEstadoByNombre(nombre);
 	  
 	  if (estado != null) {
-	    return new ResponseEntity<>(estado, HttpStatus.OK);
+		  EstadoDTO estadoDTO = new EstadoDTO(estado.getId(), estado.getNombre(), estado.getInscripciones());
+		  return new ResponseEntity<>(estadoDTO, HttpStatus.OK);
 	  } else {
 	    Estado estadoInscrito = new Estado();
 	    estadoInscrito.setNombre(nombre);
-	    estadoService.addEstado(estadoInscrito);
-	    return new ResponseEntity<>(estadoInscrito, HttpStatus.OK);
+	    Estado estadoCreado = estadoService.addEstado(estadoInscrito);
+	    EstadoDTO estadoCreadoDTO = new EstadoDTO(estadoCreado.getId(), estadoCreado.getNombre(), estadoCreado.getInscripciones());
+	    return new ResponseEntity<>(estadoCreadoDTO, HttpStatus.OK);
 	  }
 	}
 

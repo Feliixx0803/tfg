@@ -1,6 +1,8 @@
-import {RolModel} from "../rol/rol-model";
+import { EventoModel } from "../evento/evento-model";
+import { InscripcionModel } from "../inscripcion/inscripcion-model";
+import { RolModel } from "../rol/rol-model";
 
-export class UsuarioModel {
+export interface UsuarioModel {
 
     nombre :string;
     email :string;
@@ -8,5 +10,9 @@ export class UsuarioModel {
     pwd :string;
 
     //Relaciones:
-    rol: RolModel
+    rol: RolModel;
+
+    inscripciones: InscripcionModel[];
+
+    eventosGestionados: EventoModel[];
 }

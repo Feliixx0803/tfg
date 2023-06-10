@@ -2,7 +2,7 @@
   <img src="assets/usuario-trans.svg">
 </div>
 
-<div class="container">
+<div class="container" *ngIf="datosUsuario">
   <div class="row">
 
     <div class="col-md-12">
@@ -11,20 +11,21 @@
           <mat-card-content>
             <br>
             <form class="formulario">
+              
               <mat-form-field appearance="outline">
-                <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{usuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
+                <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{datosUsuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
               </mat-form-field>
 
               <span class="divisor"></span>
 
               <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label> <input type="email" name="email" value="{{usuario.email}}" matInput [(ngModel)]="emailUsuario"/>
+                <mat-label>Email</mat-label> <input type="email" name="email" value="{{datosUsuario.email}}" matInput [(ngModel)]="emailUsuario"/>
               </mat-form-field>
 
               <span class="divisor"></span>
 
               <mat-form-field appearance="outline">
-                <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{usuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
+                <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{datosUsuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
               </mat-form-field>
 
               <span class="divisor"></span>
@@ -39,14 +40,54 @@
 
   <br>
 
-  <div class="row" *ngIf="usuario.rol.nombre == 'admin'">
+  <div class="row" *ngIf="datosUsuario.nombreRol === 'admin'">
     <div class="col-md-12">
       <mat-card class="admin">
         <mat-card-content>
-          <img src="assets/admin-trans.svg">
+          <img src="assets/admin-trans.svg" class="foto-admin">
         </mat-card-content>
       </mat-card>
     </div>
   </div>
+
+  <!--<div class="row">
+    <div class="col-md-6">
+      <div *ngFor="let inscripcion of usuario.inscripciones">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">{{ inscripcion.evento.nombre }}</h2>
+            <a [routerLink]="['/detalles', inscripcion.evento.nombre]" class="btn btn-primary">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="card">
+
+        <div class="card-content">
+
+          <div class="card-title">
+            <h1 class="nombre"><mat-icon>grade</mat-icon> EVENTOS GESTIONADOS</h1>
+          </div>
+
+          <div class="card-text">
+
+            <div class="card" *ngFor="let evento of usuario.eventosGestionados">
+              <div class="card-body">
+                <h2 class="card-title">{{ evento.nombre }}</h2>
+                <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>-->
   <br>
 </div>

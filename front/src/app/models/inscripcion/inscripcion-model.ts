@@ -2,7 +2,7 @@ import {UsuarioModel} from "../usuario/usuario-model";
 import {EventoModel} from "../evento/evento-model";
 import {EstadoModel} from "../estado/estado-model";
 
-export class InscripcionModel {
+export interface InscripcionModel {
   fecha : Date;
 
   //Relaciones:

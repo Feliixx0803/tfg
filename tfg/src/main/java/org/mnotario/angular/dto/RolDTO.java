@@ -1,36 +1,25 @@
-package org.mnotario.angular.model;
+package org.mnotario.angular.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
-@Entity
-public class Rol{
+import org.mnotario.angular.model.Usuario;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(nullable = false, updatable = false)
+public class RolDTO implements Serializable{
+
 	private Long id;
 	private String nombre;
-	
-	@OneToMany(mappedBy = "rol")
 	private Collection<Usuario> usuarios;
 	
-	public Rol() {
-		this.nombre = "user";
-		this.usuarios = new ArrayList<Usuario>();
+	public RolDTO() {
+		
 	}
 
-	public Rol(Long id, String nombre) {
+	public RolDTO(Long id, String nombre, Collection<Usuario> usuarios) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+		this.usuarios = usuarios;
 	}
 
 	public Long getId() {

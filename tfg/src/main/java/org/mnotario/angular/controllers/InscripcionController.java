@@ -1,11 +1,19 @@
 package org.mnotario.angular.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.mnotario.angular.dto.InscripcionDTO;
+import org.mnotario.angular.dto.NuevaInscripcion;
 import org.mnotario.angular.model.Estado;
 import org.mnotario.angular.model.Evento;
 import org.mnotario.angular.model.Inscripcion;
-import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.EstadoService;
 import org.mnotario.angular.services.EventoService;
@@ -32,6 +40,8 @@ public class InscripcionController {
 	private final EventoService eventoService;
 	private final EstadoService estadoService;
 	
+	private static final Logger logger = LogManager.getLogger(InscripcionController.class);
+	
 	public InscripcionController(InscripcionService inscripcionService, UsuarioService usuarioService, EventoService eventoService, EstadoService estadoService) {
 		super();
 		this.inscripcionService = inscripcionService;
@@ -41,36 +51,83 @@ public class InscripcionController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Inscripcion>> findAllInscripciones(){
+	public ResponseEntity<List<InscripcionDTO>> findAllInscripciones(){
 		List<Inscripcion> inscripciones = inscripcionService.findAllInscripciones();
-		return new ResponseEntity<>(inscripciones, HttpStatus.OK);
+		List<InscripcionDTO> inscripcionesDTO = new ArrayList<>();
+		
+		for(Inscripcion i:inscripciones) {
+			inscripcionesDTO.add(new InscripcionDTO(i.getId(), i.getFecha(), i.getEstado(), i.getUsuario(), i.getEvento()));
+		}
+		
+		return new ResponseEntity<>(inscripcionesDTO, HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Inscripcion> findInscripcionById(@PathVariable("id") Long id){
+	public ResponseEntity<InscripcionDTO> findInscripcionById(@PathVariable("id") Long id){
 		Inscripcion inscripcion = inscripcionService.findInscripcionesById(id);
-		return new ResponseEntity<>(inscripcion, HttpStatus.OK);
+		InscripcionDTO inscripcionDTO = new InscripcionDTO(inscripcion.getId(), inscripcion.getFecha(), inscripcion.getEstado(), inscripcion.getUsuario(), inscripcion.getEvento());
+		return new ResponseEntity<>(inscripcionDTO, HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Inscripcion> addInscripcion(@RequestBody Inscripcion inscripcion){
-		Usuario usuario = usuarioService.findUsuarioById(inscripcion.getUsuario().getId());
+	public ResponseEntity<InscripcionDTO> addInscripcion(@RequestBody InscripcionDTO inscripcionDTO){
+		
+		Inscripcion inscripcion = new Inscripcion();
+		
+		Usuario usuario = usuarioService.findUsuarioById(inscripcionDTO.getUsuario().getId());
 		inscripcion.setUsuario(usuario);
 		
-		Evento evento = eventoService.findEventoById(inscripcion.getEvento().getId());
+		logger.info("USUARIO A INSCRIBIR: " + usuario.getNombre());
+		
+		Evento evento = eventoService.findEventoById(inscripcionDTO.getEvento().getId());
 		inscripcion.setEvento(evento);
 		
-		Estado estado = estadoService.findEstadoById(inscripcion.getEstado().getId());
+		logger.info("EVENTO A INSCRIBIR: " + evento.getNombre());
+		
+		Estado estado = estadoService.findEstadoById(inscripcionDTO.getEstado().getId());
 		inscripcion.setEstado(estado);
 		
-		Inscripcion nuevaInscripcion = inscripcionService.addInscripcion(inscripcion);	
-		return new ResponseEntity<>(nuevaInscripcion, HttpStatus.CREATED);
+		Inscripcion nuevaInscripcion = inscripcionService.addInscripcion(inscripcion);
+		
+		InscripcionDTO nuevaInscripcionDTO = new InscripcionDTO(nuevaInscripcion.getId(), nuevaInscripcion.getFecha(), nuevaInscripcion.getEstado(), nuevaInscripcion.getUsuario(), nuevaInscripcion.getEvento());
+		
+		logger.info("INSCRIPCION QUE LE VOY A PASAR: " + nuevaInscripcionDTO.getUsuario().getInscripciones());;
+		
+		return new ResponseEntity<>(nuevaInscripcionDTO, HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/adddto")
+	public ResponseEntity<String> addInscripcion(@RequestBody NuevaInscripcion inscripcionDTO){
+			
+		Inscripcion inscripcion = new Inscripcion();
+		
+		Usuario usuario = usuarioService.findUsuarioById(inscripcionDTO.getIdUsuario());
+		inscripcion.setUsuario(usuario);
+		
+		logger.info("USUARIO A INSCRIBIR: " + usuario.getNombre());
+		
+		Evento evento = eventoService.findEventoById(inscripcionDTO.getIdEvento());
+		inscripcion.setEvento(evento);
+		
+		logger.info("EVENTO A INSCRIBIR: " + evento.getNombre());
+		
+		Estado estado = estadoService.findEstadoById(inscripcionDTO.getIdEstado());
+		inscripcion.setEstado(estado);
+        
+        inscripcion.setFecha(inscripcionDTO.getFecha());
+		
+		Inscripcion i = inscripcionService.addInscripcion(inscripcion);
+		
+		logger.info("INSCRIPCION CREADA: " + i.getId());
+		
+		return new ResponseEntity<>("", HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Inscripcion> updateInscripcion(@RequestBody Inscripcion inscripcion){
-		Inscripcion inscripcionAct = inscripcionService.updateInscripciones(inscripcion);
-		return new ResponseEntity<>(inscripcionAct, HttpStatus.OK);
+	public ResponseEntity<InscripcionDTO> updateInscripcion(@RequestBody Inscripcion inscripcion){
+		Inscripcion iAct = inscripcionService.updateInscripciones(inscripcion);
+		InscripcionDTO inscripcionActDTO = new InscripcionDTO(iAct.getId(), iAct.getFecha(), iAct.getEstado(), iAct.getUsuario(), iAct.getEvento());
+		return new ResponseEntity<>(inscripcionActDTO, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")

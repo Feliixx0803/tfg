@@ -1,4 +1,4 @@
-export class EstadoModel {
+export interface EstadoModel {
 
   nombre :string;
 }

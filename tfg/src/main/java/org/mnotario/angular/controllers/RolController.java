@@ -1,7 +1,9 @@
 package org.mnotario.angular.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.mnotario.angular.dto.RolDTO;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.services.RolService;
 import org.springframework.http.HttpStatus;
@@ -28,27 +30,36 @@ public class RolController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Rol>> findAllRoles(){
-		List<Rol> Roles = rolService.findAllRoles();
-		return new ResponseEntity<>(Roles, HttpStatus.OK);
+	public ResponseEntity<List<RolDTO>> findAllRoles(){
+		List<Rol> roles = rolService.findAllRoles();
+		List<RolDTO> rolesDTO = new ArrayList<>();
+		
+		for(Rol rol:roles) {
+			rolesDTO.add(new RolDTO(rol.getId(), rol.getNombre(), rol.getUsuarios()));
+		}
+		
+		return new ResponseEntity<>(rolesDTO, HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Rol> findRolById(@PathVariable("id") Long id){
-		Rol Rol = rolService.findRolById(id);
-		return new ResponseEntity<>(Rol, HttpStatus.OK);
+	public ResponseEntity<RolDTO> findRolById(@PathVariable("id") Long id){
+		Rol rol = rolService.findRolById(id);
+		RolDTO rolDTO = new RolDTO(rol.getId(), rol.getNombre(), rol.getUsuarios());
+		return new ResponseEntity<>(rolDTO, HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Rol> addRol(@RequestBody Rol Rol){
+	public ResponseEntity<RolDTO> addRol(@RequestBody Rol Rol){
 		Rol nuevoRol = rolService.addRol(Rol);
-		return new ResponseEntity<>(nuevoRol, HttpStatus.CREATED);
+		RolDTO nuevoRolDTO = new RolDTO(nuevoRol.getId(), nuevoRol.getNombre(), nuevoRol.getUsuarios());
+		return new ResponseEntity<>(nuevoRolDTO, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Rol> updateRol(@RequestBody Rol Rol){
-		Rol RolAct = rolService.updateRol(Rol);
-		return new ResponseEntity<>(RolAct, HttpStatus.OK);
+	public ResponseEntity<RolDTO> updateRol(@RequestBody Rol Rol){
+		Rol rolAct = rolService.updateRol(Rol);
+		RolDTO rolActDTO = new RolDTO(rolAct.getId(), rolAct.getNombre(), rolAct.getUsuarios());
+		return new ResponseEntity<>(rolActDTO, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")

@@ -1,3 +1,3 @@
-export class RolModel {
+export interface RolModel {
   nombre : string;
 }

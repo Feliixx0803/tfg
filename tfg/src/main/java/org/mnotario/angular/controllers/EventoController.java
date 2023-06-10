@@ -1,17 +1,14 @@
 package org.mnotario.angular.controllers;
 
-import java.sql.Blob;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.mnotario.angular.dto.EventoDTO;
 import org.mnotario.angular.model.Evento;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.EventoService;
 import org.mnotario.angular.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,15 +44,29 @@ public class EventoController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Evento>> findAllEventos(){
+	public ResponseEntity<List<EventoDTO>> findAllEventos(){
 		List<Evento> eventos = eventoService.findAllEventos();
-		return new ResponseEntity<>(eventos, HttpStatus.OK);
+		List<EventoDTO> eventoDTOs = new ArrayList<>();
+		
+		for(Evento e: eventos) {
+			eventoDTOs.add(new EventoDTO(e));
+		}
+		return new ResponseEntity<>(eventoDTOs, HttpStatus.OK);
+	}
+	
+	@GetMapping("/findIdByNombre/{nombre}")
+	public ResponseEntity<Long> findIdByNombre(@PathVariable("nombre") String nombre){
+		Evento evento = eventoService.findEventoByNombre(nombre);
+		
+		return new ResponseEntity<>(evento.getId(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Evento> findEventoById(@PathVariable("id") Long id){
+	public ResponseEntity<EventoDTO> findEventoById(@PathVariable("id") Long id){
 		Evento evento = eventoService.findEventoById(id);
-		return new ResponseEntity<>(evento, HttpStatus.OK);
+		EventoDTO eventoDTO = new EventoDTO(evento);
+		
+		return new ResponseEntity<>(eventoDTO, HttpStatus.OK);
 	}
 	
 	/*@PostMapping("/add")
@@ -104,9 +114,10 @@ public class EventoController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Evento> updateEvento(@RequestBody Evento Evento){
+	public ResponseEntity<EventoDTO> updateEvento(@RequestBody Evento Evento){
 		Evento eventoAct = eventoService.updateEvento(Evento);
-		return new ResponseEntity<>(eventoAct, HttpStatus.OK);
+		EventoDTO eventoActDTO = new EventoDTO(eventoAct);
+		return new ResponseEntity<>(eventoActDTO, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
@@ -116,10 +127,11 @@ public class EventoController {
 	}
 	
 	@GetMapping("/findNombre/{nombre}")
-	public ResponseEntity<Evento> findEventoByNombre(@PathVariable("nombre") String nombre){
+	public ResponseEntity<EventoDTO> findEventoByNombre(@PathVariable("nombre") String nombre){
 		logger.info("NOMBRE BUSCADO: " + nombre);
 		Evento evento = eventoService.findEventoByNombre(nombre);
-		return new ResponseEntity<>(evento, HttpStatus.OK);
+		EventoDTO eventoDTO = new EventoDTO(evento);
+		return new ResponseEntity<>(eventoDTO, HttpStatus.OK);
 	}
 	
 }

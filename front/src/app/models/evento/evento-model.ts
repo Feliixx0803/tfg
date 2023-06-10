@@ -1,6 +1,6 @@
 import { UsuarioModel } from "../usuario/usuario-model";
 
-export class EventoModel {
+export interface EventoModel {
 
   nombre: string;
   fechaInicio: Date;

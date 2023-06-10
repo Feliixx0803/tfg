@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuarioModel} from "../../models/usuario/usuario-model";
-import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
+import {DatosUsuario, UsuarioServiceService} from "../../services/usuario/usuario-service.service";
 import { ActivatedRoute } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +13,7 @@ import {EventEmitterService} from "../../services/eventEmitter/event-emitter.ser
 })
 export class UsuarioComponent implements OnInit{
 
-  usuario: UsuarioModel = new UsuarioModel();
+  datosUsuario: DatosUsuario;
 
   nombreUsuario: string;
   emailUsuario: string;
@@ -30,32 +30,35 @@ export class UsuarioComponent implements OnInit{
     const nombre = this.ruta.snapshot.paramMap.get('nombre');
 
     this.encontrarUsuario(nombre).then(() => {
-      console.log(this.usuario);
+      this.nombreUsuario = this.datosUsuario.nombre;
+      this.emailUsuario = this.datosUsuario.email;
+      this.telefonoUsuario = this.datosUsuario.telefono;
+      console.log(this.datosUsuario);
     });
   }
 
   async encontrarUsuario(nombre: string | null){
-    this.usuario = await lastValueFrom(this.usuarioService.getUserByNombre(nombre).pipe());
+    this.datosUsuario = await lastValueFrom(this.usuarioService.getDatosPaginaUsuario(nombre).pipe());
   }
 
   cambiarDatos(){
-    const nombre = this.nombreUsuario;
+    /*const nombre = this.nombreUsuario;
     const email = this.emailUsuario;
     const telefono = this.telefonoUsuario;
 
     if (nombre) {
-      this.usuario.nombre = nombre;
+      this.datosUsuario.nombre = nombre;
     }
     if (email) {
-      this.usuario.email = email;
+      this.datosUsuario.email = email;
     }
     if (telefono) {
-      this.usuario.telefono = telefono;
+      this.datosUsuario.telefono = telefono;
     }
 
     this.http.put<UsuarioModel>('http://localhost:8080/usuario/update',this.usuario)
       .subscribe(()=>{
         this.eventEmitterService.eventoUsuarioActualizado.emit(this.usuario);
-      });
+      });*/
   }
 }
