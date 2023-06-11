@@ -37,18 +37,18 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <img src="assets/eventos-boton-trans.svg" class="link" routerLink="evento">
+                    <img src="assets/eventos-trans.svg" class="link" routerLink="evento">
                 </li>
             </ul>
         </div>
 
         <ng-template [ngIf]="usuarioRegistrado">
-            <img src="assets/usuario-boton-trans.svg" class="link der" [routerLink]="['/usuario', nombreUsuario]">
-            <img src="assets/logout-boton-trans.svg" class="link der" (click)="logout()" routerLink="login">
+            <img src="assets/usuario-trans.svg" class="link der" [routerLink]="['/usuario', nombreUsuario]">
+            <img src="assets/logout-trans.svg" class="link der" (click)="logout()" routerLink="login">
         </ng-template>
         <ng-template [ngIf]="!usuarioRegistrado">
-            <img src="assets/login-boton-trans.svg" class="link der" routerLink="login">
-          <img src="assets/registro-boton-trans.svg" class="link der" routerLink="register">
+            <img src="assets/login-trans.svg" class="link der" routerLink="login">
+          <img src="assets/registro-trans.svg" class="link der" routerLink="register">
         </ng-template>
 
 

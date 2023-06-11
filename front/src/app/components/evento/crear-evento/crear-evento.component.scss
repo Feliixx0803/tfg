@@ -35,12 +35,9 @@ form{
 }
 
 .btn-primary{
-  width: fit-content;
-  margin: 0 auto;
-
   background-color: rgb(80,0,108);
   border: 2px solid rgb(80,0,108);
-  
+
   color: rgb(206,140,165);
 
   font-size: large;
@@ -66,7 +63,7 @@ form{
 .btn-primary:active{
   background-color: rgb(80,0,108);
   border: 2px solid rgb(80,0,108);
-  
+
   color: rgb(206,140,165);
 
   transform: scale(1);
@@ -75,6 +72,7 @@ form{
   transition-property: transform, box-shadow;
   transition-duration: 15ms;
 }
+
 
 .banner{
   display: flex;
@@ -88,11 +86,4 @@ form{
   img{
       margin: 0 auto;
   }
-}
-
-mat-calendar{
-  background-color: rgb(245,232,218);
-  border-radius: 15px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
 }

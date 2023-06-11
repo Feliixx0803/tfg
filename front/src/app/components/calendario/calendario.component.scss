@@ -10,6 +10,10 @@ mat-calendar{
     font-weight: 600;
 }
 
+.mat-calendar-body-selected{
+    background-color: rgb(43,25,46);
+}
+
 .columna-eventos{
     color: rgb(245,232,218);
 }
@@ -29,7 +33,7 @@ mat-calendar{
 .btn-primary{
     background-color: rgb(80,0,108);
     border: 2px solid rgb(80,0,108);
-    
+
     color: rgb(206,140,165);
 
     font-size: large;
@@ -55,7 +59,7 @@ mat-calendar{
 .btn-primary:active{
     background-color: rgb(80,0,108);
     border: 2px solid rgb(80,0,108);
-    
+
     color: rgb(206,140,165);
 
     transform: scale(1);

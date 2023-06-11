@@ -3,29 +3,15 @@
 </div>
 
 <div class="container" *ngIf="datosUsuario">
-  
-  <div class="row" *ngIf="datosUsuario.nombreRol === 'admin'">
-    <div class="col-md-12 justify-content-center">
-      <mat-card class="admin">
-        <mat-card-content>
-          <img src="assets/admin-trans.svg" class="foto-admin">
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-
-  <br>
-
   <div class="row">
 
     <div class="col-md-12">
-        
         <mat-card>
-          
+
           <mat-card-content>
             <br>
             <form class="formulario">
-              
+
               <mat-form-field appearance="outline">
                 <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{datosUsuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
               </mat-form-field>
@@ -44,7 +30,7 @@
 
               <span class="divisor"></span>
 
-              <button class="boton" class="btn btn-primary cambiar" (click)="cambiarDatos()">Cambiar</button>
+              <button class="boton" class="btn btn-primary" (click)="cambiarDatos()">Cambiar</button>
             </form>
           </mat-card-content>
         </mat-card>
@@ -54,9 +40,19 @@
 
   <br>
 
-  <div class="row">
+  <div class="row" *ngIf="datosUsuario.nombreRol === 'admin'">
+    <div class="col-md-12">
+      <mat-card class="admin">
+        <mat-card-content>
+          <img src="assets/admin-trans.svg" class="foto-admin">
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 
-    <!-- INSCRITOS -->
+  <br>
+
+  <div class="row">
 
     <div class="col-md-6">
 
@@ -70,41 +66,23 @@
               <h1 class="nombre"><mat-icon>grade</mat-icon> INSCRIPCIONES A EVENTOS</h1>
             </div>
 
-            <br>
-
             <div class="card-text">
 
-              <ng-template [ngIf]="inscripciones.length !== 0">
-                <div class="card mb-3" *ngFor="let evento of inscripciones">
+              <div *ngFor="let evento of inscripciones">
 
-                  <div class="card-body">
-  
-                    <h2 class="card-title nombre-evento">{{ evento }}</h2>
-  
-                    <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
-  
-                  </div>
-  
-                </div>
-
-                <br>
-              </ng-template>
-
-              <ng-template [ngIf]="inscripciones.length === 0">
                 <div class="card mb-3">
 
                   <div class="card-body">
-  
-                    <h2 class="card-title nombre-evento">No estás inscrito a ningún evento ahora mismo ;(</h2>
-  
-                    <a routerLink="/evento" class="btn btn-primary">Ver eventos</a>
-  
+
+                    <h2 class="card-title">{{ evento }}</h2>
+
+                    <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
+
                   </div>
-  
+
                 </div>
 
-                <br>
-              </ng-template>
+              </div>
 
             </div>
 
@@ -116,7 +94,9 @@
 
     </div>
 
-    <!-- GESTIONADOS -->
+
+
+
 
     <div class="col-md-6">
 
@@ -130,49 +110,19 @@
               <h1 class="nombre"><mat-icon>grade</mat-icon> EVENTOS GESTIONADOS</h1>
             </div>
 
-            <br>
-
             <div class="card-text">
 
-              <ng-template [ngIf]="eventosGestionados.length !== 0">
-                <div class="card mb-3" *ngFor="let evento of eventosGestionados">
+              <div class="card" *ngFor="let evento of eventosGestionados">
 
-                  <div class="card-body">
-  
-                    <h2 class="card-title nombre-evento">{{ evento }}</h2>
-  
-                    <div class="card-text">
-  
-                      <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
-  
-                    </div>
-  
-                  </div>
-  
+                <div class="card-body">
+
+                  <h2 class="card-title">{{ evento }}</h2>
+
+                  <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
+
                 </div>
 
-                <br>
-              </ng-template>
-
-              <ng-template [ngIf]="eventosGestionados.length === 0">
-                <div class="card mb-3">
-
-                  <div class="card-body">
-  
-                    <h2 class="card-title nombre-evento">No estás gestionando ningún evento ahora mismo ;(</h2>
-  
-                    <div class="card-text">
-  
-                      <a routerLink="/nuevo-evento" class="btn btn-primary">Registrar evento</a>
-  
-                    </div>
-  
-                  </div>
-  
-                </div>
-
-                <br>
-              </ng-template>
+              </div>
 
             </div>
 
@@ -181,9 +131,9 @@
         </div>
 
       </div>
-      
-    </div>
-    
-  </div>
 
+    </div>
+
+  </div>
+  <br>
 </div>

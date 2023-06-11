@@ -142,7 +142,7 @@ export class DetallesEventoComponent implements OnInit{
         idEstado: idEstado
       }
 
-      await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe()).then(() => this.router.navigate(['/usuario', localStorage.getItem('usuario')]));
+      await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe());
     }
     else{
       this.router.navigate(['/login']);

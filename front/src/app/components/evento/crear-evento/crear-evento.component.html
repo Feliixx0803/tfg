@@ -7,35 +7,28 @@
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label> <input type="email" name="nombre" matInput [(ngModel)]="nombre"/>
     </mat-form-field>
-
-    <!--<mat-form-field appearance="outline">
+    <br>
+    <mat-form-field appearance="outline">
       <mat-label>Inicio del evento</mat-label> <input type="date" name="fechaInicio" matInput [(ngModel)]="fechaInicio"/>
     </mat-form-field>
-
+    <br>
     <mat-form-field appearance="outline">
       <mat-label>Fin del evento</mat-label> <input type="date" name="fechaFin" matInput [(ngModel)]="fechaFin"/>
-    </mat-form-field>-->
-
-    <mat-form-field appearance="outline">
-      <mat-label>Introduce fechas de inicio y fin</mat-label>
-
-      <mat-date-range-input [rangePicker]="rango">
-        <input matStartDate name="fechaInicio" matInput [(ngModel)]="fechaInicio">
-        <input matEndDate name="fechaFin" matInput [(ngModel)]="fechaFin">
-      </mat-date-range-input>
-
-      <mat-datepicker-toggle matIconSuffix [for]="rango"></mat-datepicker-toggle>
-      <mat-date-range-picker #rango></mat-date-range-picker>
     </mat-form-field>
-    
-
+    <br>
     <mat-form-field appearance="outline">
       <mat-label>Descripcion</mat-label> <textarea name="descripcion" rows="4" cols="20" matInput [(ngModel)]="descripcion"></textarea>
     </mat-form-field>
-
+    <br>
+    <!--<input type="file" #fileInput accept="image/*" style="display: none" (change)="onFileSelected($event)">
+    <button mat-raised-button color="primary" class="custom-file-upload" (click)="fileInput.click()">
+      {{ imagenSeleccionada ? imagenSeleccionada.name : 'Seleccionar archivo' }}
+    </button>
+    <br>-->
     <mat-form-field appearance="outline">
       <mat-label>Ubicación</mat-label> <input type="text" name="ubicacion" matInput [(ngModel)]="ubicacion"/>
     </mat-form-field>
+    <br>
     <button class="btn btn-primary" (click)="registrarEvento()">Crear</button>
   </form>
 </div>
