@@ -56,23 +56,31 @@
 
     <div class="col-md-6">
 
-      <div class="card">
+      <div class="card inscripciones font">
 
         <div class="card-content">
 
-          <div class="card-title">
-            <h1 class="nombre"><mat-icon>grade</mat-icon> INSCRIPCIONES A EVENTOS</h1>
-          </div>
+          <div class="card-body">
 
-          <div class="card-text">
+            <div class="card-title">
+              <h1 class="nombre"><mat-icon>grade</mat-icon> INSCRIPCIONES A EVENTOS</h1>
+            </div>
 
-            <div *ngFor="let evento of inscripciones">
+            <div class="card-text">
 
-              <div class="card-body">
+              <div *ngFor="let evento of inscripciones">
 
-                <h2 class="card-title">{{ evento }}</h2>
+                <div class="card mb-3">
 
-                <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
+                  <div class="card-body">
+
+                    <h2 class="card-title">{{ evento }}</h2>
+
+                    <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
+
+                  </div>
+
+                </div>
 
               </div>
 
@@ -85,28 +93,34 @@
       </div>
 
     </div>
+    
+    
 
 
 
     <div class="col-md-6">
 
-      <div class="card">
+      <div class="card gestionados font">
 
         <div class="card-content">
 
-          <div class="card-title">
-            <h1 class="nombre"><mat-icon>grade</mat-icon> EVENTOS GESTIONADOS</h1>
-          </div>
+          <div class="card-body">
 
-          <div class="card-text">
+            <div class="card-title">
+              <h1 class="nombre"><mat-icon>grade</mat-icon> EVENTOS GESTIONADOS</h1>
+            </div>
 
-            <div class="card" *ngFor="let evento of eventosGestionados">
+            <div class="card-text">
 
-              <div class="card-body">
+              <div class="card" *ngFor="let evento of eventosGestionados">
 
-                <h2 class="card-title">{{ evento }}</h2>
+                <div class="card-body">
 
-                <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
+                  <h2 class="card-title">{{ evento }}</h2>
+
+                  <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
+
+                </div>
 
               </div>
 
@@ -117,8 +131,9 @@
         </div>
 
       </div>
-
+      
     </div>
+    
   </div>
   <br>
 </div>
