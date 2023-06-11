@@ -16,8 +16,8 @@ export class UsuarioComponent implements OnInit{
 
   datosUsuario: DatosUsuario;
 
-  inscripciones: string[];
-  eventosGestionados: string[];
+  inscripciones: string[] = [];
+  eventosGestionados: string[] = [];
 
   nombreUsuario: string;
   emailUsuario: string;
