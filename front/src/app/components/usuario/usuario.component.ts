@@ -77,8 +77,8 @@ export class UsuarioComponent implements OnInit{
       nombre: nombre,
       email: email,
       telefono: telefono,
-      //¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡CAMBIAR ESTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      nombreRol: 'admin'
+      //Rol por defecto
+      nombreRol: 'user'
     }
 
     let nombreUsuarioActual = localStorage.getItem('usuario');
