@@ -39,12 +39,19 @@ export class UsuarioServiceService {
     return this.http.get<number>(`${this.apiUrl}/usuario/findIdByName/${nombre}`);
   }
 
-  getUserByNombre(nombre: string | null): Observable<UsuarioModel> {
-    return this.http.get<UsuarioModel>(`${this.apiUrl}/usuario/findByName/${nombre}`);
+  getUserByNombre(nombre: string | null): Observable<DatosUsuario> {
+    return this.http.get<DatosUsuario>(`${this.apiUrl}/usuario/findByName/${nombre}`);
   }
 
   getDatosPaginaUsuario(nombre: string | null) {
     return this.http.get<DatosUsuario>(`${this.apiUrl}/usuario/findByName/${nombre}`);
   }
-  
+
+  getEventosInscritos(nombre: string | null): Observable<string[]> {
+    return this.http.get<string[]>(`${this.apiUrl}/usuario/getInscritos/${nombre}`);
+  }
+
+  getEventosGestionados(nombre: string | null): Observable<string[]> {
+    return this.http.get<string[]>(`${this.apiUrl}/usuario/getGestionados/${nombre}`);
+  }
 }

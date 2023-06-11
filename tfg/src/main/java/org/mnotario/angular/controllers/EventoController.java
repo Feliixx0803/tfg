@@ -3,6 +3,7 @@ package org.mnotario.angular.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mnotario.angular.dto.CrearEventoDTO;
 import org.mnotario.angular.dto.EventoDTO;
 import org.mnotario.angular.model.Evento;
 import org.mnotario.angular.model.Usuario;
@@ -98,14 +99,23 @@ public class EventoController {
 	}*/
 	
 	@PostMapping("/add")
-	public ResponseEntity<String> addEvento(@RequestBody Evento evento){
+	public ResponseEntity<String> addEvento(@RequestBody CrearEventoDTO eventoDTO){
 		try {
-			Usuario gestor = usuarioService.findUsuarioById(evento.getGestor().getId());
+			Evento evento = new Evento();
+			Usuario gestor = usuarioService.findUsuarioById(eventoDTO.getIdGestor());
 			logger.info("GESTOR RECOGIDO");
 			evento.setGestor(gestor);
 			logger.info("GESTOR ASIGNADO");
+			
+			evento.setNombre(eventoDTO.getNombre());
+			evento.setFechaInicio(eventoDTO.getFechaInicio());
+			evento.setFechaFin(eventoDTO.getFechaFin());
+			evento.setDescripcion(eventoDTO.getDescripcion());
+			evento.setUbicacion(eventoDTO.getUbicacion());
+			
 			Evento nuevoEvento = eventoService.addEvento(evento);
 			logger.info("EVENTO GUARDADO - " + nuevoEvento.getId());
+			
 			return new ResponseEntity<>("" + nuevoEvento.getId(), HttpStatus.CREATED);
 		}
 		catch(Exception e) {

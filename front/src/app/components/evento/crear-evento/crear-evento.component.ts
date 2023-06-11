@@ -2,12 +2,21 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventoService } from '../../../services/evento/evento.service';
 import { EventoModel } from '../../../models/evento/evento-model';
-import { UsuarioServiceService } from '../../../services/usuario/usuario-service.service';
+import { DatosUsuario, UsuarioServiceService } from '../../../services/usuario/usuario-service.service';
 import { UsuarioModel } from '../../../models/usuario/usuario-model';
 import { lastValueFrom } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { VentanaErrorComponent } from '../../ventana-error/ventana-error.component';
 import { ValidadorFechasService } from '../../../services/validadorFechas/validador-fechas.service';
+
+export interface CrearEventoDTO{
+  nombre: string;
+  fechaInicio: Date;
+  fechaFin: Date;
+  descripcion: string;
+  ubicacion: string;
+  idGestor: number;
+}
 
 @Component({
   selector: 'app-crear-evento',
@@ -22,7 +31,7 @@ export class CrearEventoComponent {
   //imagenSeleccionada: File;
   ubicacion: string; 
 
-  usuarioLogeado: UsuarioModel;
+  usuarioLogeado: DatosUsuario;
 
   constructor(
     private router: Router,
@@ -75,25 +84,34 @@ export class CrearEventoComponent {
           console.log(evento); 
         });*/
 
-        const eventoNuevo: EventoModel = {
-          nombre: this.nombre,
-          fechaInicio: this.fechaInicio,
-          fechaFin: this.fechaFin,
-          descripcion: this.descripcion,
-          //imagen: this.imagenSeleccionada,
-          ubicacion: this.ubicacion,
-          gestor: this.usuarioLogeado,
-        };
+        let idUsuario: number = 0;
 
-        this.eventoService.createEvento(eventoNuevo).subscribe(
-          () => {
-            this.router.navigate(['/evento']);
-          },
-          (error) => {
-            console.log(error.error);
-            this.open('Nombre de evento ya existe');
+        this.encontrarIdUsuario().then(id => {
+          idUsuario = id;
+
+          if(idUsuario != 0){
+            const eventoNuevo: CrearEventoDTO = {
+              nombre: this.nombre,
+              fechaInicio: this.fechaInicio,
+              fechaFin: this.fechaFin,
+              descripcion: this.descripcion,
+              ubicacion: this.ubicacion,
+              idGestor: idUsuario,
+            };
+    
+            this.eventoService.createEvento(eventoNuevo).subscribe(
+              () => {
+                this.router.navigate(['/evento']);
+              },
+              (error) => {
+                console.log(error.error);
+                this.open('Nombre de evento ya existe');
+              }
+            );
           }
-        );
+        });
+
+        
       }
 
       
@@ -101,9 +119,11 @@ export class CrearEventoComponent {
   }
 
   async encontrarUsuario() {
-    this.usuarioLogeado = await lastValueFrom(
-      this.usuarioService.getUserByNombre(localStorage.getItem('usuario')).pipe()
-    );
+    this.usuarioLogeado = await lastValueFrom(this.usuarioService.getUserByNombre(localStorage.getItem('usuario')).pipe());
+  }
+
+  async encontrarIdUsuario(){
+    return await lastValueFrom(this.usuarioService.getIdByNombre(this.usuarioLogeado.nombre).pipe());
   }
 
   open(texto: string) {

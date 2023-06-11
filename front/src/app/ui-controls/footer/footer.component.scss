@@ -1,13 +1,31 @@
 .footer {
-    background: linear-gradient(to right, #3f0461, #4b1df0);
-    color: #fff;
+    background-color: rgb(80,0,108);
+    color: rgb(206,140,165);
     mat-toolbar-row {
       a {
-        color: #fff;
+        display: inline-block;
+        position: relative;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: rgb(206,140,165);
         text-decoration: none;
 
-        &:hover {
-          color: #ff9900;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: 10px;
+          left: 0;
+          background-color: rgb(206,140,165);
+          transform-origin: bottom right;
+          transition: transform 0.25s ease-out;
+        }
+
+        &:hover::after{
+          transform: scaleX(1);
+          transform-origin: bottom left;
         }
       }
     }

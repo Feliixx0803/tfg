@@ -16,8 +16,8 @@ export class UsuarioComponent implements OnInit{
 
   datosUsuario: DatosUsuario;
 
-  inscripciones: EventoModel[];
-  eventosGestionados: EventoModel[];
+  inscripciones: string[];
+  eventosGestionados: string[];
 
   nombreUsuario: string;
   emailUsuario: string;
@@ -39,6 +39,17 @@ export class UsuarioComponent implements OnInit{
       this.telefonoUsuario = this.datosUsuario.telefono;
       console.log(this.datosUsuario);
     });
+
+    this.rellenarInscripciones(nombre).then(() => console.log(this.inscripciones));
+    this.rellenarGestionados(nombre).then(() => console.log(this.eventosGestionados));;
+  }
+
+  async rellenarInscripciones(nombre: string | null) {
+    this.inscripciones = await lastValueFrom(this.usuarioService.getEventosInscritos(nombre));
+  }
+
+  async rellenarGestionados(nombre: string | null) {
+    this.eventosGestionados = await lastValueFrom(this.usuarioService.getEventosGestionados(nombre));
   }
 
   async encontrarUsuario(nombre: string | null){

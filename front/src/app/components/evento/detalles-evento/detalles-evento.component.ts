@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom, tap } from 'rxjs';
 import { EstadoModel } from 'src/app/models/estado/estado-model';
 import { EventoModel } from 'src/app/models/evento/evento-model';
@@ -29,7 +29,8 @@ export class DetallesEventoComponent implements OnInit{
     public eventoService: EventoService, 
     private inscripcionService: InscripcionService, 
     private estadoService: EstadoService,
-    private usuarioService: UsuarioServiceService){}
+    private usuarioService: UsuarioServiceService,
+    private router: Router){}
 
   ngOnInit(){
     const nombreEvento = this.ruta.snapshot.paramMap.get('nombre');
@@ -142,6 +143,9 @@ export class DetallesEventoComponent implements OnInit{
       }
 
       await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe());
+    }
+    else{
+      this.router.navigate(['/login']);
     }
   }
   

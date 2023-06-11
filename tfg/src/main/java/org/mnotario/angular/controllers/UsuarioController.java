@@ -6,6 +6,8 @@ import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 import org.mnotario.angular.dto.DatosUsuario;
 import org.mnotario.angular.dto.UsuarioDTO;
+import org.mnotario.angular.model.Evento;
+import org.mnotario.angular.model.Inscripcion;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.RolService;
@@ -106,5 +108,29 @@ public class UsuarioController {
 	public ResponseEntity<?> deleteUsuario(@PathVariable("id") Long id){
 		usuarioService.deleteUsuarioById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/getInscritos/{nombre}")
+	public ResponseEntity<List<String>> getInscritos(@PathVariable("nombre") String nombre){
+		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
+		List<String> nombres = new ArrayList<>();
+		
+		for(Inscripcion i: usuario.getInscripciones()) {
+			nombres.add(i.getEvento().getNombre());
+		}
+		
+		return new ResponseEntity<>(nombres, HttpStatus.OK);
+	}
+	
+	@GetMapping("/getGestionados/{nombre}")
+	public ResponseEntity<List<String>> getGestionados(@PathVariable("nombre") String nombre){
+		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
+		List<String> nombres = new ArrayList<>();
+		
+		for(Evento e: usuario.getEventosGestionados()) {
+			nombres.add(e.getNombre());
+		}
+		
+		return new ResponseEntity<>(nombres, HttpStatus.OK);
 	}
 }

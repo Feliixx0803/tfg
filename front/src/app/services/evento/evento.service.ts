@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {EventoModel} from "../../models/evento/evento-model";
+import { CrearEventoDTO } from 'src/app/components/evento/crear-evento/crear-evento.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class EventoService {
     return this.http.get<EventoModel[]>(this.apiUrl+'/evento/all');
   }
 
-  createEvento(eventoNuevo : EventoModel){
+  createEvento(eventoNuevo : CrearEventoDTO){
     return this.http.post<string>(`${this.apiUrl}/evento/add`, eventoNuevo);
   }
 
