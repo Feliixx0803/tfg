@@ -25,9 +25,9 @@ export interface InscripcionDTO{
 export class DetallesEventoComponent implements OnInit{
   eventoSeleccionado: EventoModel;
 
-  constructor(public ruta: ActivatedRoute, 
-    public eventoService: EventoService, 
-    private inscripcionService: InscripcionService, 
+  constructor(public ruta: ActivatedRoute,
+    public eventoService: EventoService,
+    private inscripcionService: InscripcionService,
     private estadoService: EstadoService,
     private usuarioService: UsuarioServiceService,
     private router: Router){}
@@ -48,7 +48,7 @@ export class DetallesEventoComponent implements OnInit{
     const nombreUsuario = localStorage.getItem('usuario');
     let usuario: UsuarioModel | null = null;
     const nombreEstado = 'Inscrito';
-  
+
     // Verificar el estado "Inscrito"
     this.estadoService.verificarEstadoInscrito(nombreEstado).pipe(
       tap(async (estado: EstadoModel) => {
@@ -59,7 +59,7 @@ export class DetallesEventoComponent implements OnInit{
           if (nombreUsuario) {
             usuario = await lastValueFrom(this.usuarioService.getUserByNombre(nombreUsuario).pipe());
           }
-  
+
           // Realizar la inscripción con el estado "Inscrito"
           if (usuario) {
             const inscripcion: InscripcionModel = {
@@ -68,7 +68,7 @@ export class DetallesEventoComponent implements OnInit{
               evento: this.eventoSeleccionado,
               estado: estado,
             };
-  
+
             this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
               console.log(inscripcionNueva);
             });
@@ -79,14 +79,14 @@ export class DetallesEventoComponent implements OnInit{
           const nuevoEstado: EstadoModel = {
             nombre: nombreEstado
           };
-  
+
           this.estadoService.crearEstadoInscrito().pipe(
             tap(async (estadoCreado: EstadoModel) => {
               // Obtener el usuario logado
               if (nombreUsuario) {
                 usuario = await lastValueFrom(this.usuarioService.getUserByNombre(nombreUsuario).pipe());
               }
-  
+
               // Realizar la inscripción con el estado "Inscrito" creado
               if (usuario) {
                 const inscripcion: InscripcionModel = {
@@ -95,7 +95,7 @@ export class DetallesEventoComponent implements OnInit{
                   evento: this.eventoSeleccionado,
                   estado: estadoCreado,
                 };
-  
+
                 this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
                   console.log(inscripcionNueva.usuario.inscripciones);
                 });
@@ -148,11 +148,11 @@ export class DetallesEventoComponent implements OnInit{
       this.router.navigate(['/login']);
     }
   }
-  
+
   async realizarInscripcion(inscripcion: InscripcionModel) {
     console.log("REALIZAR INSCRIPCIÓN");
     console.log(inscripcion);
     return await lastValueFrom(this.inscripcionService.inscribirUsuario(inscripcion));
   }
-  
+
 }

@@ -3,19 +3,22 @@
 </div>
 
 <div class="contenedor">
-    <form>
+    <form [formGroup]="miFormulario">
         <mat-form-field appearance="outline">
-            <mat-label>Nombre</mat-label> <input type="text" name="nombre" matInput [(ngModel)]="nombre"/>
+            <mat-label>Nombre</mat-label> <input type="text" name="nombre" matInput formControlName="nombre"/>
+        </mat-form-field>
+      <div *ngIf="nombre?.errors?.['pattern'] && nombre?.touched">
+        <p [ngStyle]="{color:'tomato'}">El nombre es obligatorio</p>
+      </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label> <input type="email" name="email" matInput formControlName="email"/>
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label> <input type="email" name="email" matInput [(ngModel)]="email"/>
+            <mat-label>Teléfono</mat-label> <input type="text" name="telefono" matInput formControlName="telefono"/>
         </mat-form-field>
         <mat-form-field appearance="outline">
-            <mat-label>Teléfono</mat-label> <input type="text" name="telefono" matInput [(ngModel)]="telefono"/>
+            <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput formControlName="password"/>
         </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput [(ngModel)]="pwd"/>
-        </mat-form-field>
-        <button class="btn btn-primary" (click)="register()">Registrar</button> 
+        <button mat-raised-button color="primary" [disabled]="miFormulario.invalid" (click)="register()">Registrar</button>
     </form>
 </div>
