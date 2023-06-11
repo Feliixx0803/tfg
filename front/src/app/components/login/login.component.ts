@@ -5,6 +5,7 @@ import { EventEmitterService } from 'src/app/services/eventEmitter/event-emitter
 import { MatDialog } from '@angular/material/dialog';
 import { VentanaErrorComponent } from '../ventana-error/ventana-error.component';
 import { Router } from '@angular/router';
+import { DatosUsuario } from 'src/app/services/usuario/usuario-service.service';
 
 @Component({
   selector: 'login',
@@ -27,7 +28,7 @@ export class LoginComponent {
       pwd: pwd
     }
 
-    this.http.post<UsuarioModel>('http://localhost:8080/login', body, {responseType: 'json'}).subscribe(
+    this.http.post<DatosUsuario>('http://localhost:8080/login', body, {responseType: 'json'}).subscribe(
       (response) => {
         this.validarLogin(response);
         this.router.navigate(["/home"])
@@ -36,7 +37,7 @@ export class LoginComponent {
     );
   }
 
-  validarLogin(response: UsuarioModel): void{
+  validarLogin(response: DatosUsuario): void{
     console.log(response.nombre);
     localStorage.setItem('usuario', response.nombre);
     this.eventEmitterService.eventoLogin.emit({nombreUsuario: localStorage.getItem("usuario")});

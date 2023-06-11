@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuarioModel} from "../../models/usuario/usuario-model";
 import {DatosUsuario, UsuarioServiceService} from "../../services/usuario/usuario-service.service";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {EventEmitterService} from "../../services/eventEmitter/event-emitter.service";
+import { EventoModel } from 'src/app/models/evento/evento-model';
 
 @Component({
   selector: 'usuario',
@@ -15,6 +16,9 @@ export class UsuarioComponent implements OnInit{
 
   datosUsuario: DatosUsuario;
 
+  inscripciones: EventoModel[];
+  eventosGestionados: EventoModel[];
+
   nombreUsuario: string;
   emailUsuario: string;
   telefonoUsuario: string;
@@ -22,8 +26,8 @@ export class UsuarioComponent implements OnInit{
   constructor(
     public ruta: ActivatedRoute,
     private usuarioService : UsuarioServiceService,
-    private http: HttpClient,
-    private eventEmitterService : EventEmitterService
+    private eventEmitterService : EventEmitterService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,8 +45,8 @@ export class UsuarioComponent implements OnInit{
     this.datosUsuario = await lastValueFrom(this.usuarioService.getDatosPaginaUsuario(nombre).pipe());
   }
 
-  cambiarDatos(){
-    /*const nombre = this.nombreUsuario;
+  async cambiarDatos(){
+    const nombre = this.nombreUsuario;
     const email = this.emailUsuario;
     const telefono = this.telefonoUsuario;
 
@@ -56,9 +60,24 @@ export class UsuarioComponent implements OnInit{
       this.datosUsuario.telefono = telefono;
     }
 
-    this.http.put<UsuarioModel>('http://localhost:8080/usuario/update',this.usuario)
-      .subscribe(()=>{
-        this.eventEmitterService.eventoUsuarioActualizado.emit(this.usuario);
-      });*/
+    console.log(nombre + ", " + email + ", " + telefono);
+
+    let datosUsuarioUpdate = {
+      nombre: nombre,
+      email: email,
+      telefono: telefono,
+      //¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡CAMBIAR ESTO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      nombreRol: 'admin'
+    }
+
+    let nombreUsuarioActual = localStorage.getItem('usuario');
+    let idUsuario: number = await lastValueFrom(this.usuarioService.getIdByNombre(nombreUsuarioActual).pipe());
+
+    this.usuarioService.updateUsuario(datosUsuarioUpdate, idUsuario)
+      .subscribe((datosUsuario)=>{
+        this.eventEmitterService.eventoUsuarioActualizado.emit(datosUsuario);
+        localStorage.setItem('usuario', datosUsuario.nombre);
+        this.router.navigate(["/usuario", localStorage.getItem('usuario')]);
+      });
   }
 }

@@ -6,38 +6,38 @@
   <!--<h1 class="titulo">Eventos disponibles</h1>-->
   <div class="row">
     <div class="col-md-5"></div>
-    <div class="col-md-7">
-      <button *ngIf="isUsuarioLogeado" mat-raised-button routerLink="/nuevo-evento">Registrar evento</button>
+    <div class="col-md-7" *ngIf="eventos">
+      <button *ngIf="isUsuarioLogeado && eventos.length > 0" class="btn btn-primary" routerLink="/nuevo-evento">Registrar evento</button>
     </div>
+    <ng-template #noEventosBoton></ng-template>
   </div>
   
   <br>
-  <div class="row">
+  <div class="row" *ngIf="eventos">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <ng-container *ngIf="!eventosFiltrados.length; else eventosFiltradosBlock">
+      <ng-template [ngIf]="eventos">
         <div class="card" *ngFor="let evento of eventos">
           <div class="card-body">
             <h2 class="card-title">{{ evento.nombre }}</h2>
+            <h4 class="card-text"><mat-icon>calendar_today</mat-icon> {{evento.fechaInicio}} / {{evento.fechaFin}}</h4>
             <h4 class="card-text"><mat-icon>place</mat-icon> {{ evento.ubicacion }}</h4>
             <p class="card-text">{{ evento.descripcion }}</p>
             <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
           </div>
         </div>
-        <br><br>
-      </ng-container>
-    </div>
-    <ng-template #eventosFiltradosBlock>
-      <div *ngFor="let evento of eventosFiltrados">
+      </ng-template>
+      <ng-template [ngIf]="eventos.length === 0">
         <div class="card">
           <div class="card-body">
-            <h2 class="card-title">{{ evento.nombre }}</h2>
-            <p class="card-text">{{ evento.descripcion }}</p>
-            <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
+            <h2 class="card-title">No hay eventos actualmente ;(</h2>
+            <p class="card-text">¡Empieza creando uno tú mismo!</p>
+            <h4 class="card-text"><mat-icon>calendar_today</mat-icon> Hoy, mañana, o cuando quieras</h4>
+            <h4 class="card-text"><mat-icon>place</mat-icon> Desde esta misma página</h4>
+            <button *ngIf="isUsuarioLogeado" class="btn btn-primary" routerLink="/nuevo-evento">Registrar evento</button>
           </div>
         </div>
-      </div>
-      <br><br>
-    </ng-template>
+      </ng-template>
+    </div>
   </div>
 </div>

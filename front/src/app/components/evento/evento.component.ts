@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {InscripcionService} from "../../services/inscripcion/inscripcion.service";
 import {EventoModel} from "../../models/evento/evento-model";
 import {EventoService} from "../../services/evento/evento.service";
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'evento',
@@ -9,7 +10,7 @@ import {EventoService} from "../../services/evento/evento.service";
   styleUrls: ['./evento.component.scss']
 })
 export class EventoComponent {
-  eventos: EventoModel[];
+  eventos: EventoModel[] = [];
   eventosFiltrados: EventoModel[] = [];
   isUsuarioLogeado :boolean = localStorage.getItem("usuario") !== null;
 
@@ -29,12 +30,14 @@ export class EventoComponent {
   }
   
   ngOnInit(): void {
-    this.getAllEventos()
+    this.getAllEventos().then(() => {
+      console.log(this.eventos);
+      console.log("-------------");
+      console.log(this.eventosFiltrados);
+    });
   }
 
-  private getAllEventos() {
-    this.eventoServicio.getAllEventos().subscribe(evento => {
-      this.eventos = evento;
-    })  
+  private async getAllEventos() {
+    this.eventos = await lastValueFrom(this.eventoServicio.getAllEventos().pipe());
   }
 }

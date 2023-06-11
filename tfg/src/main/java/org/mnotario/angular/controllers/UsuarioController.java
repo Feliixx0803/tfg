@@ -91,11 +91,14 @@ public class UsuarioController {
 		
 	}
 	
-	@PutMapping("/update")
-	public ResponseEntity<UsuarioDTO> updateUsuario(
-			@RequestBody Usuario usuario){
+	@PutMapping("/update/{id}")
+	public ResponseEntity<DatosUsuario> updateUsuario(@RequestBody DatosUsuario usuarioDTO, @PathVariable("id") Long id){
+		Usuario usuario = usuarioService.findUsuarioById(id);
+		usuario.setNombre(usuarioDTO.getNombre());
+		usuario.setEmail(usuarioDTO.getEmail());
+		usuario.setTelefono(usuarioDTO.getTelefono());
 		Usuario usuarioAct = usuarioService.updateUsuario(usuario);
-		UsuarioDTO usuarioActDTO = new UsuarioDTO(usuarioAct);
+		DatosUsuario usuarioActDTO = new DatosUsuario(usuarioAct.getNombre(), usuarioAct.getEmail(), usuarioAct.getEmail(), usuarioAct.getRol().getNombre());
 		return new ResponseEntity<>(usuarioActDTO, HttpStatus.OK);
 	}
 	

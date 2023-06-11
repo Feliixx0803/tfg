@@ -1,6 +1,7 @@
 package org.mnotario.angular.controllers;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.mnotario.angular.dto.DatosUsuario;
 import org.mnotario.angular.model.LoginDTO;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.UsuarioService;
@@ -18,22 +19,24 @@ public class LoginController {
 	private UsuarioService usuarioService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<Usuario> login(@RequestBody LoginDTO loginDTO){
+	public ResponseEntity<DatosUsuario> login(@RequestBody LoginDTO loginDTO){
 		
 		if (loginDTO.getEmail() == "" || loginDTO.getPwd() == "") {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 		Usuario usuario = usuarioService.findUsuarioByEmail(loginDTO.getEmail());
+		DatosUsuario datos = new DatosUsuario();
+		datos.setNombre(usuario.getNombre());
 		
-		if(usuario == null) {
+		if(datos.getNombre() == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		else if(!BCrypt.checkpw(loginDTO.getPwd(), usuario.getPwd())) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		else {
-			return new ResponseEntity<>(usuario, HttpStatus.OK);
+			return new ResponseEntity<>(datos, HttpStatus.OK);
 		}
 	}
 }
