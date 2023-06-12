@@ -43,6 +43,11 @@ export class UsuarioServiceService {
     return this.http.get<DatosUsuario>(`${this.apiUrl}/usuario/findByName/${nombre}`);
   }
 
+  //Devolver usuario con estructura UsuarioModel
+  getUserByNombreModel(nombre: string | null): Observable<UsuarioModel> {
+    return this.http.get<UsuarioModel>(`${this.apiUrl}/usuario/findByName/${nombre}`);
+  }
+
   getDatosPaginaUsuario(nombre: string | null) {
     return this.http.get<DatosUsuario>(`${this.apiUrl}/usuario/findByName/${nombre}`);
   }

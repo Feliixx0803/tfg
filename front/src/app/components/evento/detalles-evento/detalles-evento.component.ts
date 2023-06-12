@@ -117,7 +117,83 @@ export class DetallesEventoComponent implements OnInit{
         console.log(error.error);
         // Maneja el error si ocurre al verificar el estado "Inscrito"
       }
+    );*/
+
+    //ACTUALIZADO:
+   /* const nombreEstado = 'En curso';
+    let usuario :UsuarioModel;
+    const nombreUsuario = localStorage.getItem('usuario');
+
+    // Verificar el estado "en curso"
+    this.estadoService.verificarEstadoInscrito(nombreEstado).pipe(
+      tap(async (estado: EstadoModel) => {
+        // Si el estado "En curso" existe, realiza la inscripción
+        if (estado) {
+          console.log("ESTADO En curso EXISTE");
+          // Obtener el usuario logado
+          if (nombreUsuario) {
+            usuario = await lastValueFrom(this.usuarioService.getUserByNombreModel(nombreUsuario).pipe());
+          }
+          // Realizar la inscripción con el estado "en curso"
+          if (usuario) {
+            const inscripcion: InscripcionModel = {
+              fecha: new Date(),
+              usuario: usuario,
+              evento: this.eventoSeleccionado,
+              estado: estado,
+            };
+
+
+            this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
+              console.log(inscripcionNueva);
+            });
+          }
+        } else {
+          console.log("ESTADO en curso NO EXISTE");
+          // Si el estado "en curso" no existe, crearlo y luego realizar la inscripción
+          const nuevoEstado: EstadoModel = {
+            nombre: nombreEstado
+          };
+
+          this.estadoService.crearEstadoInscrito().pipe(
+            tap(async (estadoCreado: EstadoModel) => {
+              // Obtener el usuario logado
+              if (nombreUsuario) {
+                usuario = await lastValueFrom(this.usuarioService.getUserByNombreModel(nombreUsuario).pipe());
+              }
+
+              // Realizar la inscripción con el estado "en curso" creado
+              if (usuario) {
+                const inscripcion: InscripcionModel = {
+                  fecha: new Date(),
+                  usuario: usuario,
+                  evento: this.eventoSeleccionado,
+                  estado: estadoCreado,
+                };
+
+                this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
+                  console.log(inscripcionNueva.usuario.inscripciones);
+                });
+              }
+            })
+          ).subscribe(
+            () => {},
+            error => {
+              // Maneja el error si ocurre al crear el estado "en curso"
+            }
+          );
+        }
+      })
+    ).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error.error);
+        // Maneja el error si ocurre al verificar el estado "en curso"
+      }
     );
+
   }*/
 
   async inscribirUsuario(){
@@ -135,24 +211,24 @@ export class DetallesEventoComponent implements OnInit{
 
       let idEstado = 1;
 
+
       let inscripcionDTO: InscripcionDTO = {
         idEvento: idEvento,
         idUsuario: idUsuario,
         fecha: fecha,
         idEstado: idEstado
       }
-
-      await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe()).then(() => this.router.navigate(['/usuario', localStorage.getItem('usuario')]));
+        await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe()).then(() => this.router.navigate(['/usuario', localStorage.getItem('usuario')]));
     }
     else{
       this.router.navigate(['/login']);
     }
   }
 
-  async realizarInscripcion(inscripcion: InscripcionModel) {
+  /*async realizarInscripcion(inscripcion: InscripcionModel) {
     console.log("REALIZAR INSCRIPCIÓN");
     console.log(inscripcion);
     return await lastValueFrom(this.inscripcionService.inscribirUsuario(inscripcion));
-  }
+  }*/
 
 }
