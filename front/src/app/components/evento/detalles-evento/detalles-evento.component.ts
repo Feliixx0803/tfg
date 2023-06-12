@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom, tap } from 'rxjs';
 import { EstadoModel } from 'src/app/models/estado/estado-model';
@@ -9,8 +10,9 @@ import { EstadoService } from 'src/app/services/estado/estado.service';
 import { EventoService } from 'src/app/services/evento/evento.service';
 import { InscripcionService } from 'src/app/services/inscripcion/inscripcion.service';
 import { DatosUsuario, UsuarioServiceService } from 'src/app/services/usuario/usuario-service.service';
+import { VentanaErrorComponent } from '../../ventana-error/ventana-error.component';
 
-export interface InscripcionDTO{
+export interface InscripcionDTO {
   idEvento: number;
   idUsuario: number;
   fecha: Date;
@@ -22,7 +24,7 @@ export interface InscripcionDTO{
   templateUrl: './detalles-evento.component.html',
   styleUrls: ['./detalles-evento.component.scss']
 })
-export class DetallesEventoComponent implements OnInit{
+export class DetallesEventoComponent implements OnInit {
   eventoSeleccionado: EventoModel;
 
   constructor(public ruta: ActivatedRoute,
@@ -30,9 +32,10 @@ export class DetallesEventoComponent implements OnInit{
     private inscripcionService: InscripcionService,
     private estadoService: EstadoService,
     private usuarioService: UsuarioServiceService,
-    private router: Router){}
+    private router: Router,
+    public dialogRef: MatDialog) { }
 
-  ngOnInit(){
+  ngOnInit() {
     const nombreEvento = this.ruta.snapshot.paramMap.get('nombre');
 
     this.encontrarEvento(nombreEvento).then(() => {
@@ -40,7 +43,7 @@ export class DetallesEventoComponent implements OnInit{
     });
   }
 
-  async encontrarEvento(nombreEvento: string | null){
+  async encontrarEvento(nombreEvento: string | null) {
     this.eventoSeleccionado = await lastValueFrom(this.eventoService.findEventoByNombre(nombreEvento).pipe());
   }
 
@@ -119,98 +122,101 @@ export class DetallesEventoComponent implements OnInit{
       }
     );*/
 
-    //ACTUALIZADO:
-   /* const nombreEstado = 'En curso';
-    let usuario :UsuarioModel;
+  //ACTUALIZADO:
+  /* const nombreEstado = 'En curso';
+   let usuario :UsuarioModel;
+   const nombreUsuario = localStorage.getItem('usuario');
+
+   // Verificar el estado "en curso"
+   this.estadoService.verificarEstadoInscrito(nombreEstado).pipe(
+     tap(async (estado: EstadoModel) => {
+       // Si el estado "En curso" existe, realiza la inscripción
+       if (estado) {
+         console.log("ESTADO En curso EXISTE");
+         // Obtener el usuario logado
+         if (nombreUsuario) {
+           usuario = await lastValueFrom(this.usuarioService.getUserByNombreModel(nombreUsuario).pipe());
+         }
+         // Realizar la inscripción con el estado "en curso"
+         if (usuario) {
+           const inscripcion: InscripcionModel = {
+             fecha: new Date(),
+             usuario: usuario,
+             evento: this.eventoSeleccionado,
+             estado: estado,
+           };
+
+
+           this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
+             console.log(inscripcionNueva);
+           });
+         }
+       } else {
+         console.log("ESTADO en curso NO EXISTE");
+         // Si el estado "en curso" no existe, crearlo y luego realizar la inscripción
+         const nuevoEstado: EstadoModel = {
+           nombre: nombreEstado
+         };
+
+         this.estadoService.crearEstadoInscrito().pipe(
+           tap(async (estadoCreado: EstadoModel) => {
+             // Obtener el usuario logado
+             if (nombreUsuario) {
+               usuario = await lastValueFrom(this.usuarioService.getUserByNombreModel(nombreUsuario).pipe());
+             }
+
+             // Realizar la inscripción con el estado "en curso" creado
+             if (usuario) {
+               const inscripcion: InscripcionModel = {
+                 fecha: new Date(),
+                 usuario: usuario,
+                 evento: this.eventoSeleccionado,
+                 estado: estadoCreado,
+               };
+
+               this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
+                 console.log(inscripcionNueva.usuario.inscripciones);
+               });
+             }
+           })
+         ).subscribe(
+           () => {},
+           error => {
+             // Maneja el error si ocurre al crear el estado "en curso"
+           }
+         );
+       }
+     })
+   ).subscribe(
+     (response) => {
+       console.log(response);
+     },
+     (error) => {
+       console.log(error.error);
+       // Maneja el error si ocurre al verificar el estado "en curso"
+     }
+   );
+
+ }*/
+
+  async inscribirUsuario() {
     const nombreUsuario = localStorage.getItem('usuario');
 
-    // Verificar el estado "en curso"
-    this.estadoService.verificarEstadoInscrito(nombreEstado).pipe(
-      tap(async (estado: EstadoModel) => {
-        // Si el estado "En curso" existe, realiza la inscripción
-        if (estado) {
-          console.log("ESTADO En curso EXISTE");
-          // Obtener el usuario logado
-          if (nombreUsuario) {
-            usuario = await lastValueFrom(this.usuarioService.getUserByNombreModel(nombreUsuario).pipe());
-          }
-          // Realizar la inscripción con el estado "en curso"
-          if (usuario) {
-            const inscripcion: InscripcionModel = {
-              fecha: new Date(),
-              usuario: usuario,
-              evento: this.eventoSeleccionado,
-              estado: estado,
-            };
-
-
-            this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
-              console.log(inscripcionNueva);
-            });
-          }
-        } else {
-          console.log("ESTADO en curso NO EXISTE");
-          // Si el estado "en curso" no existe, crearlo y luego realizar la inscripción
-          const nuevoEstado: EstadoModel = {
-            nombre: nombreEstado
-          };
-
-          this.estadoService.crearEstadoInscrito().pipe(
-            tap(async (estadoCreado: EstadoModel) => {
-              // Obtener el usuario logado
-              if (nombreUsuario) {
-                usuario = await lastValueFrom(this.usuarioService.getUserByNombreModel(nombreUsuario).pipe());
-              }
-
-              // Realizar la inscripción con el estado "en curso" creado
-              if (usuario) {
-                const inscripcion: InscripcionModel = {
-                  fecha: new Date(),
-                  usuario: usuario,
-                  evento: this.eventoSeleccionado,
-                  estado: estadoCreado,
-                };
-
-                this.realizarInscripcion(inscripcion).then(inscripcionNueva => {
-                  console.log(inscripcionNueva.usuario.inscripciones);
-                });
-              }
-            })
-          ).subscribe(
-            () => {},
-            error => {
-              // Maneja el error si ocurre al crear el estado "en curso"
-            }
-          );
-        }
-      })
-    ).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error.error);
-        // Maneja el error si ocurre al verificar el estado "en curso"
-      }
-    );
-
-  }*/
-
-  async inscribirUsuario(){
-    const nombreUsuario = localStorage.getItem('usuario');
-
-    if(nombreUsuario){
+    if (nombreUsuario) {
       let idUsuario = await lastValueFrom(this.usuarioService.getIdByNombre(nombreUsuario).pipe());
       console.log(idUsuario);
 
       let idEvento = await lastValueFrom(this.eventoService.getIdByNombre(this.eventoSeleccionado.nombre).pipe());
       console.log(idEvento);
 
-      let fecha = new Date();
+      let inscripcionRepetida = await lastValueFrom(this.inscripcionService.comprobarRepeticiones(idEvento, idUsuario).pipe());
+
+      if(!inscripcionRepetida){
+
+        let fecha = new Date();
       console.log(fecha);
 
       let idEstado = 1;
-
 
       let inscripcionDTO: InscripcionDTO = {
         idEvento: idEvento,
@@ -218,11 +224,25 @@ export class DetallesEventoComponent implements OnInit{
         fecha: fecha,
         idEstado: idEstado
       }
-        await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe()).then(() => this.router.navigate(['/usuario', localStorage.getItem('usuario')]));
+      await lastValueFrom(this.inscripcionService.inscribirUsuarioDTO(inscripcionDTO).pipe()).then(() => this.router.navigate(['/usuario', localStorage.getItem('usuario')]));
+      }
+      else{
+        this.open("INSCRIPCION REPETIDA");
+      }
     }
-    else{
+    else {
       this.router.navigate(['/login']);
     }
+  }
+
+  open(texto: String){
+    this.dialogRef.open(VentanaErrorComponent, {
+      height: '250px',
+      width: '380px',
+      data: {
+        texto: texto
+      }
+    });
   }
 
   /*async realizarInscripcion(inscripcion: InscripcionModel) {

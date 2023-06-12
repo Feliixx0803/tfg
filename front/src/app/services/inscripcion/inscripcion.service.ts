@@ -24,4 +24,8 @@ export class InscripcionService {
   inscribirUsuarioDTO(inscripcionDTO: InscripcionDTO): Observable<string> {
     return this.http.post<string>(this.apiUrl+'/inscripcion/adddto', inscripcionDTO);
   }
+
+  comprobarRepeticiones(idEvento: number, idUsuario: number): Observable<boolean> {
+    return this.http.get<boolean>(this.apiUrl+'/inscripcion/comprobarRepeticiones/' + idEvento + "/" + idUsuario);
+  }
 }

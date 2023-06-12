@@ -6,48 +6,50 @@
   <div class="row">
 
     <div class="col-md-12">
-        <mat-card>
+        <div class="card font">
 
-          <mat-card-content>
-            <br>
-            <form class="formulario">
+            <div class="card-body">
 
-              <mat-form-field appearance="outline">
-                <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{datosUsuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
-              </mat-form-field>
+              <div class="card-title">
 
-              <span class="divisor"></span>
+                <h1 class="nombre"><mat-icon>grade</mat-icon> DATOS PERSONALES <img src="assets/admin-trans.svg" *ngIf="datosUsuario.nombreRol === 'admin'" class="foto-admin"></h1>
 
-              <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label> <input type="email" name="email" value="{{datosUsuario.email}}" matInput [(ngModel)]="emailUsuario"/>
-              </mat-form-field>
+              </div>
 
-              <span class="divisor"></span>
+              <br>
 
-              <mat-form-field appearance="outline">
-                <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{datosUsuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
-              </mat-form-field>
+              <div class="card-text">
 
-              <span class="divisor"></span>
+                <form class="formulario">
+  
+                  <mat-form-field appearance="outline">
+                    <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{datosUsuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
+                  </mat-form-field>
+    
+                  <span class="divisor"></span>
+    
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label> <input type="email" name="email" value="{{datosUsuario.email}}" matInput [(ngModel)]="emailUsuario"/>
+                  </mat-form-field>
+    
+                  <span class="divisor"></span>
+    
+                  <mat-form-field appearance="outline">
+                    <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{datosUsuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
+                  </mat-form-field>
+    
+                  <span class="divisor"></span>
+    
+                  <button class="boton" class="btn btn-primary btn-form" (click)="cambiarDatos()">Cambiar</button>
+                </form>
 
-              <button class="boton" class="btn btn-primary" (click)="cambiarDatos()">Cambiar</button>
-            </form>
-          </mat-card-content>
-        </mat-card>
+              </div>
+
+            </div>
+
+        </div>
     </div>
 
-  </div>
-
-  <br>
-
-  <div class="row" *ngIf="datosUsuario.nombreRol === 'admin'">
-    <div class="col-md-12">
-      <mat-card class="admin">
-        <mat-card-content>
-          <img src="assets/admin-trans.svg" class="foto-admin">
-        </mat-card-content>
-      </mat-card>
-    </div>
   </div>
 
   <br>
@@ -68,21 +70,17 @@
 
             <div class="card-text">
 
-              <div *ngFor="let evento of inscripciones">
-
-                <div class="card mb-3">
+                <div class="card" *ngFor="let evento of inscripciones">
 
                   <div class="card-body">
 
                     <h2 class="card-title">{{ evento }}</h2>
-
+                    <br>
                     <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
 
                   </div>
 
                 </div>
-
-              </div>
 
             </div>
 
@@ -117,7 +115,7 @@
                 <div class="card-body">
 
                   <h2 class="card-title">{{ evento }}</h2>
-
+                  <br>
                   <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
 
                 </div>

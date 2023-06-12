@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.mnotario.angular.dto.ComprobacionDTO;
 import org.mnotario.angular.dto.InscripcionDTO;
 import org.mnotario.angular.dto.NuevaInscripcion;
 import org.mnotario.angular.model.Estado;
@@ -29,7 +30,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/inscripcion")
@@ -134,5 +138,21 @@ public class InscripcionController {
 	public ResponseEntity<?> deleteInscripcion(@PathVariable("id") Long id){
 		inscripcionService.deleteInscripcionById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/comprobarRepeticiones/{idEvento}/{idUsuario}")
+	public ResponseEntity<Boolean> comprobarRepeticiones(@PathVariable("idEvento") long idEvento, @PathVariable("idUsuario") long idUsuario){
+		
+		logger.info("IDS: " + idEvento + "/" + idUsuario);
+		
+		Usuario usuario = usuarioService.findUsuarioById(idUsuario);
+		
+		Boolean respuesta = false;
+		
+		for(Inscripcion i: usuario.getInscripciones()) {
+			respuesta = (i.getEvento().getId() == idEvento) ? true : false;
+		}
+		
+		return new ResponseEntity<>(respuesta, HttpStatus.OK);
 	}
 }
