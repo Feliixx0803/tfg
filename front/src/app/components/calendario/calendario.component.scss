@@ -1,70 +1,72 @@
-.calendario{
-    width: 40%;
+.calendario {
+    width: 100%;
+    max-width: 40%;
     margin-right: 40px;
-}
-
-mat-calendar{
-    background-color: rgb(245,232,218);
+  }
+  
+  @media (max-width: 767px) {
+    .calendario {
+      max-width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  
+  mat-calendar {
+    background-color: rgb(245, 232, 218);
     border-radius: 15px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-}
-
-.mat-calendar-body-selected{
-    background-color: rgb(43,25,46);
-}
-
-.columna-eventos{
-    color: rgb(245,232,218);
-}
-
-.card{
-    background-color: rgb(245,232,218);
-}
-
-.card-title{
+  }
+  
+  .mat-calendar-body-selected {
+    background-color: rgb(43, 25, 46);
+  }
+  
+  .columna-eventos {
+    color: rgb(245, 232, 218);
+  }
+  
+  .card {
+    background-color: rgb(245, 232, 218);
+  }
+  
+  .card-title {
     font-weight: 700;
-}
-
-.card-body{
-    color: rgb(43,25,46);
-}
-
-.btn-primary{
-    background-color: rgb(80,0,108);
-    border: 2px solid rgb(80,0,108);
-
-    color: rgb(206,140,165);
-
+  }
+  
+  .card-body {
+    color: rgb(43, 25, 46);
+  }
+  
+  .btn-primary {
+    background-color: rgb(80, 0, 108);
+    border: 2px solid rgb(80, 0, 108);
+    color: rgb(206, 140, 165);
     font-size: large;
     font-weight: 500;
-
     transform: scale(1);
     box-shadow: 0px 0px 0px rgb(40, 0, 54);
     border-radius: 20px;
-
     transition-property: transform, box-shadow, border-radius;
     transition-duration: 0.2s;
-}
-
-.btn-primary:hover{
+  }
+  
+  .btn-primary:hover {
     box-shadow: 5px 5px 10px rgb(40, 0, 54);
     transform: scale(1.1);
     border-radius: 10px;
-
     transition-property: transform, box-shadow, border-radius;
     transition-duration: 0.2s;
-}
-
-.btn-primary:active{
-    background-color: rgb(80,0,108);
-    border: 2px solid rgb(80,0,108);
-
-    color: rgb(206,140,165);
-
+  }
+  
+  .btn-primary:active {
+    background-color: rgb(80, 0, 108);
+    border: 2px solid rgb(80, 0, 108);
+    color: rgb(206, 140, 165);
     transform: scale(1);
     box-shadow: 0px 0px 0px rgb(40, 0, 54);
-
     transition-property: transform, box-shadow;
     transition-duration: 15ms;
-}
+  }
+  

@@ -1,12 +1,21 @@
-<img src="assets/login-short.png" style="width: 100%">
-<div class="contenedor">
-    <form>
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label> <input type="email" name="email" matInput [(ngModel)]="email"/>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput [(ngModel)]="pwd"/>
-        </mat-form-field>
-        <button class="boton" class="btn btn-primary" (click)="login()">Login</button>
-    </form>
-</div>
+<div class="row">
+    <div class="col-md-12">
+      <img src="assets/login-short.png" style="width: 100%">
+    </div>
+    <div class="col-md-12">
+      <div class="contenedor">
+        <form>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" name="email" matInput [(ngModel)]="email" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" name="pwd" matInput [(ngModel)]="pwd" />
+          </mat-form-field>
+          <button class="boton btn btn-primary" (click)="login()">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
