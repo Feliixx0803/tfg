@@ -10,13 +10,30 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
  
+/**
+ * @author Marcos Notario, Feliz Perez, Miroslav Zhelev
+ */
+/**
+ * La clase EventifyApp es la clase principal de la aplicacion Spring Boot. Contiene el metodo main que inicia la aplicacion.
+ * Ademas, la clase define un bean corsFilter() que configura un filtro CORS para permitir solicitudes cruzadas entre dominios. 
+ * El filtro se configura para permitir solicitudes desde http://localhost:4200 y se definen los encabezados y metodos permitidos.
+ */
 @SpringBootApplication
-public class PruebaAngularApplication {
-
+public class EventifyApp {
+	
+	/**
+	* Punto de entrada de la aplicación EventifyApp.
+	* @param args Los argumentos de la línea de comandos.
+	*/
 	public static void main(String[] args) {
-		SpringApplication.run(PruebaAngularApplication.class, args);
+		SpringApplication.run(EventifyApp.class, args);
 	}
 
+
+    /**
+     * Configura un filtro CORS para permitir solicitudes cruzadas entre dominios.
+     * @return CorsFilter - El filtro CORS configurado.
+     */
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();

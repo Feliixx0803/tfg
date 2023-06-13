@@ -16,103 +16,200 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/**
+ * Esta clase representa a un usuario en el sistema.
+ */
 @Entity
-@Table(name="usuario")
-public class Usuario{
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(nullable = false, updatable = false)
-	private Long id;
-	private String nombre;
-	
-	@Column(unique=true)
-	private String email;
-	private String telefono;
-	private String pwd;
+@Table(name = "usuario")
+public class Usuario {
 
-	@ManyToOne
-	private Rol rol;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Long id;
 
-	@OneToMany(mappedBy = "usuario")
-	private Collection<Inscripcion> inscripciones;
-	
-	
-	@OneToMany(mappedBy = "gestor")
-	private Collection<Evento> eventosGestionados;
+    private String nombre;
 
-	public Usuario() {
-	}
+    @Column(unique = true)
+    private String email;
 
-	public Usuario(Long id, String nombre, String email, String telefono, String pwd) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.email = email;
-		this.telefono = telefono;
-		this.pwd = pwd;
-	}
+    private String telefono;
 
-	public Long getId() {
-		return id;
-	}
+    private String pwd;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    private Rol rol;
 
-	public String getNombre() {
-		return nombre;
-	}
+    @OneToMany(mappedBy = "usuario")
+    private Collection<Inscripcion> inscripciones;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    @OneToMany(mappedBy = "gestor")
+    private Collection<Evento> eventosGestionados;
 
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * Crea una instancia de la clase Usuario.
+     */
+    public Usuario() {
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * Crea una instancia de la clase Usuario con los valores especificados.
+     *
+     * @param id       El identificador del usuario.
+     * @param nombre   El nombre del usuario.
+     * @param email    El correo electrónico del usuario.
+     * @param telefono El número de teléfono del usuario.
+     * @param pwd      La contraseña del usuario.
+     */
+    public Usuario(Long id, String nombre, String email, String telefono, String pwd) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+        this.pwd = pwd;
+    }
 
-	public String getTelefono() {
-		return telefono;
-	}
+    /**
+     * Devuelve el identificador del usuario.
+     *
+     * @return El identificador del usuario.
+     */
+    public Long getId() {
+        return id;
+    }
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+    /**
+     * Establece el identificador del usuario.
+     *
+     * @param id El identificador del usuario.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Rol getRol() {
-		return rol;
-	}
+    /**
+     * Devuelve el nombre del usuario.
+     *
+     * @return El nombre del usuario.
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
-	}
+    /**
+     * Establece el nombre del usuario.
+     *
+     * @param nombre El nombre del usuario.
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public Collection<Inscripcion> getInscripciones() {
-		return inscripciones;
-	}
+    /**
+     * Devuelve el correo electrónico del usuario.
+     *
+     * @return El correo electrónico del usuario.
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	public void setInscripciones(Collection<Inscripcion> inscripciones) {
-		this.inscripciones = inscripciones;
-	}
+    /**
+     * Establece el correo electrónico del usuario.
+     *
+     * @param email El correo electrónico del usuario.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getPwd() {
-		return pwd;
-	}
+    /**
+     * Devuelve el número de teléfono del usuario.
+     *
+     * @return El número de teléfono del usuario.
+     */
+    public String getTelefono() {
+        return telefono;
+    }
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
+    /**
+     * Establece el número de teléfono del usuario.
+     *
+     * @param telefono El número de teléfono del usuario.
+     */
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-	public Collection<Evento> getEventosGestionados() {
-		return eventosGestionados;
-	}
+    /**
+     * Devuelve la contraseña del usuario.
+     *
+     * @return La contraseña del usuario.
+     */
+    public String getPwd() {
+        return pwd;
+    }
 
-	public void setEventosGestionados(Collection<Evento> eventosGestionados) {
-		this.eventosGestionados = eventosGestionados;
-	}
+    /**
+     * Establece la contraseña del usuario.
+     *
+     * @param pwd La contraseña del usuario.
+     */
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    /**
+     * Devuelve el rol asociado al usuario.
+     *
+     * @return El rol asociado al usuario.
+     */
+    public Rol getRol() {
+        return rol;
+    }
+
+    /**
+     * Establece el rol asociado al usuario.
+     *
+     * @param rol El rol asociado al usuario.
+     */
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    /**
+     * Devuelve la colección de inscripciones del usuario.
+     *
+     * @return La colección de inscripciones del usuario.
+     */
+    public Collection<Inscripcion> getInscripciones() {
+        return inscripciones;
+    }
+
+    /**
+     * Establece la colección de inscripciones del usuario.
+     *
+     * @param inscripciones La colección de inscripciones del usuario.
+     */
+    public void setInscripciones(Collection<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
+    }
+
+    /**
+     * Devuelve la colección de eventos gestionados por el usuario.
+     *
+     * @return La colección de eventos gestionados por el usuario.
+     */
+    public Collection<Evento> getEventosGestionados() {
+        return eventosGestionados;
+    }
+
+    /**
+     * Establece la colección de eventos gestionados por el usuario.
+     *
+     * @param eventosGestionados La colección de eventos gestionados por el usuario.
+     */
+    public void setEventosGestionados(Collection<Evento> eventosGestionados) {
+        this.eventosGestionados = eventosGestionados;
+    }
 }

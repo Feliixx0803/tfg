@@ -1,5 +1,5 @@
-2023-06-04 11:27:51.832 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 10980 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
-2023-06-04 11:27:51.864 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-04 11:27:51.832 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.5 with PID 10980 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-06-04 11:27:51.864 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-04 11:27:53.199 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-04 11:27:53.319 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 5 JPA repository interfaces.
 2023-06-04 11:27:54.231 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -20,7 +20,7 @@
 2023-06-04 11:27:58.409 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-04 11:27:58.970 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-04 11:27:59.005 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-04 11:27:59.019 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 7.857 seconds (process running for 9.517)
+2023-06-04 11:27:59.019 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 7.857 seconds (process running for 9.517)
 2023-06-04 11:29:27.773 INFO  [http-nio-8080-exec-3] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-04 11:29:27.773 INFO  [http-nio-8080-exec-3] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-04 11:29:27.776 INFO  [http-nio-8080-exec-3] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
@@ -33,8 +33,8 @@
 2023-06-04 13:30:11.328 INFO  [RMI TCP Connection(133)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-04 13:30:11.335 INFO  [RMI TCP Connection(133)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-04 13:30:11.362 INFO  [RMI TCP Connection(133)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-04 18:33:48.116 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.5 with PID 21888 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
-2023-06-04 18:33:48.135 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-04 18:33:48.116 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.5 with PID 21888 (C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg\target\classes started by marco in C:\Users\marco\OneDrive\Escritorio\TRABAJO FIN DE CURSO\tfg\tfg)
+2023-06-04 18:33:48.135 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-04 18:33:49.510 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-04 18:33:49.633 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105 ms. Found 5 JPA repository interfaces.
 2023-06-04 18:33:50.570 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -55,7 +55,7 @@
 2023-06-04 18:33:54.975 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-04 18:33:55.581 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-04 18:33:55.617 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-04 18:33:55.630 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 8.235 seconds (process running for 9.89)
+2023-06-04 18:33:55.630 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 8.235 seconds (process running for 9.89)
 2023-06-04 18:41:31.396 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-04 18:41:31.398 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-04 18:41:31.401 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
@@ -71,8 +71,8 @@
 2023-06-04 21:00:40.323 INFO  [RMI TCP Connection(157)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-04 21:00:40.336 INFO  [RMI TCP Connection(157)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-04 21:00:40.342 INFO  [RMI TCP Connection(157)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-05 09:24:02.114 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 10876 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 09:24:02.121 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 09:24:02.114 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 10876 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 09:24:02.121 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 09:24:02.539 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 09:24:02.578 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 5 JPA repository interfaces.
 2023-06-05 09:24:02.945 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -93,7 +93,7 @@
 2023-06-05 09:24:04.518 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-05 09:24:04.770 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-05 09:24:04.796 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-05 09:24:04.806 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 2.949 seconds (process running for 3.66)
+2023-06-05 09:24:04.806 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 2.949 seconds (process running for 3.66)
 2023-06-05 09:24:15.473 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-05 09:24:15.473 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-05 09:24:15.476 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
@@ -114,8 +114,8 @@
 2023-06-05 13:27:12.033 INFO  [RMI TCP Connection(225)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-05 13:27:12.051 INFO  [RMI TCP Connection(225)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-05 13:27:12.091 INFO  [RMI TCP Connection(225)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-05 14:14:10.435 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 5260 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 14:14:10.443 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 14:14:10.435 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 5260 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 14:14:10.443 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 14:14:10.866 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 14:14:10.913 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 5 JPA repository interfaces.
 2023-06-05 14:14:11.279 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -136,7 +136,7 @@
 2023-06-05 14:14:13.088 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-05 14:14:13.283 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-05 14:14:13.302 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-05 14:14:13.310 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 3.146 seconds (process running for 3.84)
+2023-06-05 14:14:13.310 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 3.146 seconds (process running for 3.84)
 2023-06-05 14:14:41.877 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-05 14:14:41.877 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-05 14:14:41.879 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
@@ -149,8 +149,8 @@
 2023-06-05 14:22:27.439 INFO  [RMI TCP Connection(18)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-05 14:22:27.440 INFO  [RMI TCP Connection(18)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-05 14:22:27.445 INFO  [RMI TCP Connection(18)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-05 16:04:03.174 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 18004 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 16:04:03.187 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 16:04:03.174 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 18004 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 16:04:03.187 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 16:04:03.794 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 16:04:03.858 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
 2023-06-05 16:04:04.341 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -215,7 +215,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.4.jar:3.0.4]
-	at org.mnotario.angular.PruebaAngularApplication.main(PruebaAngularApplication.java:16) ~[classes/:?]
+	at org.mnotario.angular.EventifyApp.main(PruebaAngularApplication.java:16) ~[classes/:?]
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -299,7 +299,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.4.jar:3.0.4]
-	at org.mnotario.angular.PruebaAngularApplication.main(PruebaAngularApplication.java:16) ~[classes/:?]
+	at org.mnotario.angular.EventifyApp.main(PruebaAngularApplication.java:16) ~[classes/:?]
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -390,7 +390,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.4.jar:3.0.4]
-	at org.mnotario.angular.PruebaAngularApplication.main(PruebaAngularApplication.java:16) ~[classes/:?]
+	at org.mnotario.angular.EventifyApp.main(PruebaAngularApplication.java:16) ~[classes/:?]
 Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -449,7 +449,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.4.jar:3.0.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.4.jar:3.0.4]
-	at org.mnotario.angular.PruebaAngularApplication.main(PruebaAngularApplication.java:16) ~[classes/:?]
+	at org.mnotario.angular.EventifyApp.main(PruebaAngularApplication.java:16) ~[classes/:?]
 Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-6.0.6.jar:6.0.6]
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.6.jar:6.0.6]
@@ -628,8 +628,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.0.6.jar:6.0.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1758) ~[spring-beans-6.0.6.jar:6.0.6]
 	... 16 more
-2023-06-05 16:04:17.154 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 16276 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 16:04:17.162 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 16:04:17.154 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 16276 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 16:04:17.162 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 16:04:17.685 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 16:04:17.749 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 5 JPA repository interfaces.
 2023-06-05 16:04:18.243 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -650,7 +650,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 16:04:20.323 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-05 16:04:20.597 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-05 16:04:20.617 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-05 16:04:20.624 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 3.803 seconds (process running for 4.802)
+2023-06-05 16:04:20.624 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 3.803 seconds (process running for 4.802)
 2023-06-05 16:04:48.975 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-05 16:04:48.975 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-05 16:04:48.975 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
@@ -663,8 +663,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 16:42:50.203 INFO  [RMI TCP Connection(48)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-05 16:42:50.206 INFO  [RMI TCP Connection(48)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-05 16:42:50.208 INFO  [RMI TCP Connection(48)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-05 16:42:52.315 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 13024 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 16:42:52.322 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 16:42:52.315 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 13024 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 16:42:52.322 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 16:42:52.800 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 16:42:52.855 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
 2023-06-05 16:42:53.267 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -685,7 +685,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 16:42:55.202 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-05 16:42:55.436 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-05 16:42:55.454 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-05 16:42:55.460 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 3.46 seconds (process running for 4.309)
+2023-06-05 16:42:55.460 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 3.46 seconds (process running for 4.309)
 2023-06-05 16:43:23.859 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-05 16:43:23.859 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-05 16:43:23.859 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
@@ -698,8 +698,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 16:45:22.360 INFO  [RMI TCP Connection(11)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-05 16:45:22.361 INFO  [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-05 16:45:22.367 INFO  [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-05 16:45:24.463 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 17416 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 16:45:24.470 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 16:45:24.463 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 17416 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 16:45:24.470 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 16:45:24.948 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 16:45:25.002 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
 2023-06-05 16:45:25.408 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -720,7 +720,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 16:45:27.268 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-05 16:45:27.502 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-05 16:45:27.520 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-05 16:45:27.527 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 3.384 seconds (process running for 4.22)
+2023-06-05 16:45:27.527 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 3.384 seconds (process running for 4.22)
 2023-06-05 16:46:02.883 INFO  [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-05 16:46:02.883 INFO  [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-05 16:46:02.884 INFO  [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
@@ -733,8 +733,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 16:53:17.078 INFO  [RMI TCP Connection(15)-127.0.0.1] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-06-05 16:53:17.080 INFO  [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-06-05 16:53:17.086 INFO  [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-06-05 17:20:51.780 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Starting PruebaAngularApplication using Java 17.0.6 with PID 6860 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
-2023-06-05 17:20:51.792 INFO  [main] org.mnotario.angular.PruebaAngularApplication - No active profile set, falling back to 1 default profile: "default"
+2023-06-05 17:20:51.780 INFO  [main] org.mnotario.angular.EventifyApp - Starting PruebaAngularApplication using Java 17.0.6 with PID 6860 (C:\Users\sukit\OneDrive\Escritorio\tfg\tfg\target\classes started by sukit in C:\Users\sukit\OneDrive\Escritorio\tfg\tfg)
+2023-06-05 17:20:51.792 INFO  [main] org.mnotario.angular.EventifyApp - No active profile set, falling back to 1 default profile: "default"
 2023-06-05 17:20:52.140 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2023-06-05 17:20:52.196 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 5 JPA repository interfaces.
 2023-06-05 17:20:52.538 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
@@ -755,7 +755,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2023-06-05 17:20:54.152 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2023-06-05 17:20:54.374 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
 2023-06-05 17:20:54.392 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2023-06-05 17:20:54.398 INFO  [main] org.mnotario.angular.PruebaAngularApplication - Started PruebaAngularApplication in 2.848 seconds (process running for 3.517)
+2023-06-05 17:20:54.398 INFO  [main] org.mnotario.angular.EventifyApp - Started PruebaAngularApplication in 2.848 seconds (process running for 3.517)
 2023-06-05 17:21:41.300 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2023-06-05 17:21:41.300 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2023-06-05 17:21:41.301 INFO  [http-nio-8080-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms

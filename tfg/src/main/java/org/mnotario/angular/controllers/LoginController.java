@@ -12,12 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Este controlador maneja el login de los usuarios, incluyendo los servicios del usuario.
+ *
+ */
 @RestController
 public class LoginController {
 
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	/**
+     * Maneja las solicitudes POST en la ruta "/login" para iniciar sesión.
+     * 
+     * @param loginDTO Datos de inicio de sesión proporcionados por el cliente.
+     * @return ResponseEntity con los datos del usuario si el inicio de sesión es exitoso, o un ResponseEntity con estado de error si falla.
+     */
 	@PostMapping("/login")
 	public ResponseEntity<DatosUsuario> login(@RequestBody LoginDTO loginDTO){
 		

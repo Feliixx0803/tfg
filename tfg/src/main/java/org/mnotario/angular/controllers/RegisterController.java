@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * Este controlador maneja el registro de los usuarios, incluyendo los servicios del usuario y del rol para su asignación.
+ *
+ */
 @RestController
 public class RegisterController {
 	
@@ -22,6 +27,13 @@ public class RegisterController {
 	@Autowired
 	private RolService rolService;
 	
+	
+	 /**
+	 * Maneja las solicitudes POST en la ruta "/register" para registrar un nuevo usuario.
+	 * 
+	 * @param registerDTO Datos del usuario proporcionados por el cliente para el registro.
+	 * @return ResponseEntity con un mensaje indicando si el usuario se creó correctamente o un ResponseEntity con estado de error si falla.
+	 */
 	@PostMapping("/register")
 	public ResponseEntity<String> register(@RequestBody RegisterDTO registerDTO){
 	

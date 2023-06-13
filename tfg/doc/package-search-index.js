@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.mnotario.angular"},{"l":"org.mnotario.angular.controllers"},{"l":"org.mnotario.angular.dto"},{"l":"org.mnotario.angular.model"},{"l":"org.mnotario.angular.repos"},{"l":"org.mnotario.angular.services"}];updateSearchResults();
