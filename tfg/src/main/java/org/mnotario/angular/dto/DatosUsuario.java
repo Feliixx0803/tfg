@@ -1,55 +1,113 @@
 package org.mnotario.angular.dto;
 
-public class DatosUsuario{
-
-	private String nombre;
-	private String email;
-	private String telefono;
-	private String nombreRol;
+/**
+ * Clase que representa los datos de un usuario.
+ */
+public class DatosUsuario {
 	
-	public DatosUsuario() {
-		
-	}
+	/**
+	 * Nombre del usuario
+	 */
+    private String nombre;
+    
+    /**
+     * Email del usuario
+     */
+    private String email;
+    
+    /**
+     * Telefono del usuario
+     */
+    private String telefono;
+    
+    /**
+     * nombre del Rol que tiene asignado el usuario
+     */
+    private String nombreRol;
 
-	public DatosUsuario(String nombre, String email, String telefono, String nombreRol) {
-		super();
-		this.nombre = nombre;
-		this.email = email;
-		this.telefono = telefono;
-		this.nombreRol = nombreRol;
-	}
+    /**
+     * Constructor por defecto de la clase DatosUsuario
+     */
+    public DatosUsuario() {
 
-	public String getNombre() {
-		return nombre;
-	}
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    /**
+     * Crea un nuevo objeto DatosUsuario con los valores proporcionados.
+     * @param nombre - El nombre del usuario.
+     * @param email - El correo electrónico del usuario.
+     * @param telefono - El número de teléfono del usuario.
+     * @param nombreRol - El nombre del rol del usuario.
+     */
+    public DatosUsuario(String nombre, String email, String telefono, String nombreRol) {
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+        this.nombreRol = nombreRol;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * Obtiene el nombre del usuario.
+     * @return El nombre del usuario.
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * Establece el nombre del usuario.
+     * @param nombre El nombre del usuario.
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public String getTelefono() {
-		return telefono;
-	}
+    /**
+     * Obtiene el correo electrónico del usuario.
+     * @return El correo electrónico del usuario.
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+    /**
+     * Establece el correo electrónico del usuario.
+     * @param email El correo electrónico del usuario.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getNombreRol() {
-		return nombreRol;
-	}
+    /**
+     * Obtiene el número de teléfono del usuario.
+     * @return El número de teléfono del usuario.
+     */
+    public String getTelefono() {
+        return telefono;
+    }
 
-	public void setNombreRol(String nombreRol) {
-		this.nombreRol = nombreRol;
-	}
-	
-	
+    /**
+     * Establece el número de teléfono del usuario.
+     * @param telefono El número de teléfono del usuario.
+     */
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    /**
+     * Obtiene el nombre del rol del usuario.
+     * @return El nombre del rol del usuario.
+     */
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    /**
+     * Establece el nombre del rol del usuario.
+     * @param nombreRol El nombre del rol del usuario.
+     */
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
 }
+

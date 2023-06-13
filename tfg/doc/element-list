@@ -1,0 +1,6 @@
+org.mnotario.angular
+org.mnotario.angular.controllers
+org.mnotario.angular.dto
+org.mnotario.angular.model
+org.mnotario.angular.repos
+org.mnotario.angular.services

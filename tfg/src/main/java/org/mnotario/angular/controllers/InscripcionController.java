@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.mnotario.angular.dto.ComprobacionDTO;
 import org.mnotario.angular.dto.InscripcionDTO;
 import org.mnotario.angular.dto.NuevaInscripcion;
 import org.mnotario.angular.model.Estado;
@@ -35,6 +34,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.websocket.server.PathParam;
 
+/**
+ * Este controlador maneja las solicitudes relacionadas con las inscripciones.
+ * Proporciona operaciones CRUD para las inscripciones.
+ */
 @RestController
 @RequestMapping("/inscripcion")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -46,6 +49,14 @@ public class InscripcionController {
 	
 	private static final Logger logger = LogManager.getLogger(InscripcionController.class);
 	
+	/**
+	 * Constructor de InscripcionController.
+	 * 
+	 * @param inscripcionService Servicio de inscripciones
+	 * @param usuarioService Servicio de usuarios
+	 * @param eventoService Servicio de eventos
+	 * @param estadoService Servicio de estados
+	 */
 	public InscripcionController(InscripcionService inscripcionService, UsuarioService usuarioService, EventoService eventoService, EstadoService estadoService) {
 		super();
 		this.inscripcionService = inscripcionService;
@@ -54,6 +65,11 @@ public class InscripcionController {
 		this.estadoService = estadoService;
 	}
 	
+	/**
+	 * Maneja la solicitud GET para obtener todas las inscripciones.
+	 * 
+	 * @return ResponseEntity con la lista de InscripcionDTO y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/all")
 	public ResponseEntity<List<InscripcionDTO>> findAllInscripciones(){
 		List<Inscripcion> inscripciones = inscripcionService.findAllInscripciones();
@@ -66,6 +82,12 @@ public class InscripcionController {
 		return new ResponseEntity<>(inscripcionesDTO, HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud GET para buscar una inscripción por su ID.
+	 * 
+	 * @param id ID de la inscripción
+	 * @return ResponseEntity con el InscripcionDTO correspondiente y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/find/{id}")
 	public ResponseEntity<InscripcionDTO> findInscripcionById(@PathVariable("id") Long id){
 		Inscripcion inscripcion = inscripcionService.findInscripcionesById(id);
@@ -73,6 +95,12 @@ public class InscripcionController {
 		return new ResponseEntity<>(inscripcionDTO, HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud POST para agregar una nueva inscripción.
+	 * 
+	 * @param inscripcionDTO DTO de la inscripción a agregar
+	 * @return ResponseEntity con el InscripcionDTO creado y HttpStatus CREATED si la solicitud es exitosa
+	 */
 	@PostMapping("/add")
 	public ResponseEntity<InscripcionDTO> addInscripcion(@RequestBody InscripcionDTO inscripcionDTO){
 		
@@ -100,6 +128,12 @@ public class InscripcionController {
 		return new ResponseEntity<>(nuevaInscripcionDTO, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * Maneja la solicitud POST para agregar una nueva inscripción utilizando el DTO NuevaInscripcion.
+	 * 
+	 * @param inscripcionDTO DTO de la nueva inscripción
+	 * @return ResponseEntity con un mensaje vacío y HttpStatus CREATED si la solicitud es exitosa
+	 */
 	@PostMapping("/adddto")
 	public ResponseEntity<String> addInscripcion(@RequestBody NuevaInscripcion inscripcionDTO){
 			
@@ -127,6 +161,12 @@ public class InscripcionController {
 		return new ResponseEntity<>("", HttpStatus.CREATED);
 	}
 	
+	/**
+	 * Maneja la solicitud PUT para actualizar una inscripción existente.
+	 * 
+	 * @param inscripcion Inscripción a actualizar
+	 * @return ResponseEntity con el InscripcionDTO actualizado y HttpStatus OK si la solicitud es exitosa
+	 */
 	@PutMapping("/update")
 	public ResponseEntity<InscripcionDTO> updateInscripcion(@RequestBody Inscripcion inscripcion){
 		Inscripcion iAct = inscripcionService.updateInscripciones(inscripcion);
@@ -134,12 +174,25 @@ public class InscripcionController {
 		return new ResponseEntity<>(inscripcionActDTO, HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud DELETE para eliminar una inscripción por su ID.
+	 * 
+	 * @param id ID de la inscripción a eliminar
+	 * @return ResponseEntity con HttpStatus OK si la solicitud es exitosa
+	 */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteInscripcion(@PathVariable("id") Long id){
 		inscripcionService.deleteInscripcionById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud GET para comprobar si un usuario ya está inscrito en un evento.
+	 * 
+	 * @param idEvento ID del evento
+	 * @param idUsuario ID del usuario
+	 * @return ResponseEntity con un valor booleano que indica si el usuario está inscrito en el evento y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/comprobarRepeticiones/{idEvento}/{idUsuario}")
 	public ResponseEntity<Boolean> comprobarRepeticiones(@PathVariable("idEvento") long idEvento, @PathVariable("idUsuario") long idUsuario){
 		

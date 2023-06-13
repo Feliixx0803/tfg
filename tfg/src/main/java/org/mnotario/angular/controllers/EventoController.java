@@ -3,12 +3,6 @@ package org.mnotario.angular.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.mnotario.angular.dto.CrearEventoDTO;
-import org.mnotario.angular.dto.EventoDTO;
-import org.mnotario.angular.model.Evento;
-import org.mnotario.angular.model.Usuario;
-import org.mnotario.angular.services.EventoService;
-import org.mnotario.angular.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +18,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.mnotario.angular.dto.CrearEventoDTO;
+import org.mnotario.angular.dto.EventoDTO;
+import org.mnotario.angular.model.Evento;
+import org.mnotario.angular.model.Usuario;
+import org.mnotario.angular.services.EventoService;
+import org.mnotario.angular.services.UsuarioService;
 
+/**
+ * Este controlador maneja las solicitudes relacionadas con los eventos.
+ * Proporciona operaciones CRUD para los eventos.
+ */
 @RestController
 @RequestMapping("/evento")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -38,12 +42,23 @@ public class EventoController {
 	@Autowired
 	private final UsuarioService usuarioService;
 	
+	/**
+	 * Constructor de EventoController.
+	 * 
+	 * @param eventoService Servicio de eventos
+	 * @param usuarioService Servicio de usuarios
+	 */
 	public EventoController(EventoService eventoService, UsuarioService usuarioService) {
 		super();
 		this.eventoService = eventoService;
 		this.usuarioService = usuarioService;
 	}
 	
+	/**
+	 * Maneja la solicitud GET para obtener todos los eventos.
+	 * 
+	 * @return ResponseEntity con la lista de EventoDTO y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/all")
 	public ResponseEntity<List<EventoDTO>> findAllEventos(){
 		List<Evento> eventos = eventoService.findAllEventos();
@@ -55,6 +70,12 @@ public class EventoController {
 		return new ResponseEntity<>(eventoDTOs, HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud GET para buscar el ID de un evento por su nombre.
+	 * 
+	 * @param nombre Nombre del evento
+	 * @return ResponseEntity con el ID del evento y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/findIdByNombre/{nombre}")
 	public ResponseEntity<Long> findIdByNombre(@PathVariable("nombre") String nombre){
 		Evento evento = eventoService.findEventoByNombre(nombre);
@@ -62,6 +83,12 @@ public class EventoController {
 		return new ResponseEntity<>(evento.getId(), HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud GET para buscar un evento por su ID.
+	 * 
+	 * @param id ID del evento
+	 * @return ResponseEntity con el EventoDTO correspondiente y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/find/{id}")
 	public ResponseEntity<EventoDTO> findEventoById(@PathVariable("id") Long id){
 		Evento evento = eventoService.findEventoById(id);
@@ -70,34 +97,13 @@ public class EventoController {
 		return new ResponseEntity<>(eventoDTO, HttpStatus.OK);
 	}
 	
-	/*@PostMapping("/add")
-	public ResponseEntity<String> addEvento(
-			@RequestParam("nombre") String nombre,
-			@RequestParam("fechaInicio") String fechaInicioString,
-			@RequestParam("fechaFin") String fechaFinString,
-			@RequestParam("descripcion") String descripción,
-			@RequestParam("imagen") MultipartFile imagen,
-			@RequestParam("gestor") Usuario gestor
-			) throws Exception{
-		
-		LocalDate fechaInicio = LocalDate.parse(fechaInicioString, DateTimeFormatter.ISO_DATE);
-		LocalDate fechaFin = LocalDate.parse(fechaFinString, DateTimeFormatter.ISO_DATE);
-		
-		Evento evento = new Evento((long) 0, nombre, fechaInicio, fechaFin, descripción, imagen);
-		
-		try {
-			logger.info("GESTOR RECOGIDO");
-			evento.setGestor(gestor);
-			logger.info("GESTOR ASIGNADO");
-			Evento nuevoEvento = eventoService.addEvento(evento);
-			logger.info("EVENTO GUARDADO - " + nuevoEvento.getId());
-			return new ResponseEntity<>("" + nuevoEvento.getId(), HttpStatus.CREATED);
-		}
-		catch(Exception e) {
-			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-	}*/
-	
+	/**
+	 * Maneja la solicitud POST para agregar un nuevo evento.
+	 * 
+	 * @param eventoDTO DTO del evento a agregar
+	 * @return ResponseEntity con el ID del nuevo evento y HttpStatus CREATED si la solicitud es exitosa,
+	 *         o ResponseEntity con un mensaje de error y HttpStatus BAD_REQUEST si ocurre un error
+	 */
 	@PostMapping("/add")
 	public ResponseEntity<String> addEvento(@RequestBody CrearEventoDTO eventoDTO){
 		try {
@@ -123,6 +129,12 @@ public class EventoController {
 		}
 	}
 	
+	/**
+	 * Maneja la solicitud PUT para actualizar un evento existente.
+	 * 
+	 * @param Evento Evento a actualizar
+	 * @return ResponseEntity con el EventoDTO actualizado y HttpStatus OK si la solicitud es exitosa
+	 */
 	@PutMapping("/update")
 	public ResponseEntity<EventoDTO> updateEvento(@RequestBody Evento Evento){
 		Evento eventoAct = eventoService.updateEvento(Evento);
@@ -130,12 +142,24 @@ public class EventoController {
 		return new ResponseEntity<>(eventoActDTO, HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud DELETE para eliminar un evento por su ID.
+	 * 
+	 * @param id ID del evento a eliminar
+	 * @return ResponseEntity con HttpStatus OK si la solicitud es exitosa
+	 */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteEvento(@PathVariable("id") Long id){
 		eventoService.deleteEventoById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	/**
+	 * Maneja la solicitud GET para buscar un evento por su nombre.
+	 * 
+	 * @param nombre Nombre del evento
+	 * @return ResponseEntity con el EventoDTO correspondiente y HttpStatus OK si la solicitud es exitosa
+	 */
 	@GetMapping("/findNombre/{nombre}")
 	public ResponseEntity<EventoDTO> findEventoByNombre(@PathVariable("nombre") String nombre){
 		logger.info("NOMBRE BUSCADO: " + nombre);

@@ -18,17 +18,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Este controlador maneja las solicitudes relacionadas con los roles.
+ * Proporciona operaciones CRUD para los roles.
+ */
 @RestController
 @RequestMapping("/rol")
 @CrossOrigin(origins = "http://localhost:4200")
 public class RolController {
 
+	/**
+     * Servicio de roles.
+     */
 	private final RolService rolService;
 	
+	/**
+     * Constructor de RolController.
+     * 
+     * @param rolService Servicio de roles.
+     */
 	public RolController(RolService rolService) {
 		this.rolService = rolService;
 	}
 	
+	/**
+     * Maneja las solicitudes GET en la ruta "/rol/all" para obtener todos los roles.
+     * 
+     * @return ResponseEntity con una lista de objetos RolDTO que representan los roles encontrados y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/all")
 	public ResponseEntity<List<RolDTO>> findAllRoles(){
 		List<Rol> roles = rolService.findAllRoles();
@@ -41,6 +58,12 @@ public class RolController {
 		return new ResponseEntity<>(rolesDTO, HttpStatus.OK);
 	}
 	
+	/**
+     * Maneja las solicitudes GET en la ruta "/rol/find/{id}" para obtener un rol por su ID.
+     * 
+     * @param id ID del rol a buscar.
+     * @return ResponseEntity con un objeto RolDTO que representa el rol encontrado y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/find/{id}")
 	public ResponseEntity<RolDTO> findRolById(@PathVariable("id") Long id){
 		Rol rol = rolService.findRolById(id);
@@ -48,6 +71,12 @@ public class RolController {
 		return new ResponseEntity<>(rolDTO, HttpStatus.OK);
 	}
 	
+	/**
+     * Maneja las solicitudes POST en la ruta "/rol/add" para agregar un nuevo rol.
+     * 
+     * @param Rol Rol a agregar.
+     * @return ResponseEntity con un objeto RolDTO que representa el nuevo rol creado y el estado HTTP 201 (Creado).
+     */
 	@PostMapping("/add")
 	public ResponseEntity<RolDTO> addRol(@RequestBody Rol Rol){
 		Rol nuevoRol = rolService.addRol(Rol);
@@ -55,6 +84,12 @@ public class RolController {
 		return new ResponseEntity<>(nuevoRolDTO, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * Maneja las solicitudes PUT en la ruta "/rol/update" para actualizar un rol existente.
+	 * 
+	 * @param Rol El rol actualizado.
+	 * @return ResponseEntity con un objeto RolDTO que representa el rol actualizado y el estado HTTP 200 (OK).
+	 */
 	@PutMapping("/update")
 	public ResponseEntity<RolDTO> updateRol(@RequestBody Rol Rol){
 		Rol rolAct = rolService.updateRol(Rol);
@@ -62,6 +97,12 @@ public class RolController {
 		return new ResponseEntity<>(rolActDTO, HttpStatus.OK);
 	}
 	
+	/**
+     * Maneja las solicitudes DELETE en la ruta "/rol/delete/{id}" para eliminar un rol por su ID.
+     * 
+     * @param id ID del rol a eliminar.
+     * @return ResponseEntity vacío y el estado HTTP 200 (OK).
+     */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteRol(@PathVariable("id") Long id){
 		rolService.deleteRolById(id);

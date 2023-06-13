@@ -26,22 +26,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Este controlador maneja las solicitudes relacionadas con los usuarios.
+ * Proporciona operaciones CRUD para los usuarios.
+ */
 @RestController
 @RequestMapping("/usuario")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
-
-	@Autowired
-	private final UsuarioService usuarioService;
+    /**
+     * Servicio de usuarios.
+     */
+    private final UsuarioService usuarioService;
+    
+    /**
+     * Servicio de roles.
+     */
+    private final RolService rolService;
+    
+    /**
+     * Constructor de UsuarioController.
+     * 
+     * @param usuarioService Servicio de usuarios.
+     * @param rolService     Servicio de roles.
+     */
+    @Autowired
+    public UsuarioController(UsuarioService usuarioService, RolService rolService) {
+        this.usuarioService = usuarioService;
+        this.rolService = rolService;
+    }
 	
-	@Autowired
-	private final RolService rolService;
-	
-	public UsuarioController(UsuarioService usuarioService, RolService rolservice) {
-		this.usuarioService = usuarioService;
-		this.rolService = rolservice;
-	}
-	
+	/**
+     * Retorna todos los usuarios existentes en forma de una lista de objetos UsuarioDTO.
+     *
+     * @return ResponseEntity con la lista de usuarios y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/all")
 	public ResponseEntity<List<UsuarioDTO>> findAllUsuarios(){
 		List<Usuario> usuarios = usuarioService.findAllUsuarios();
@@ -54,6 +73,13 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuarioDTOs, HttpStatus.OK);
 	}
 	
+
+    /**
+     * Busca un usuario por su ID y lo retorna en forma de un objeto UsuarioDTO.
+     *
+     * @param id ID del usuario a buscar.
+     * @return ResponseEntity con el usuario encontrado y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/find/{id}")
 	public ResponseEntity<UsuarioDTO> findUsuarioById(@PathVariable("id") Long id){
 		Usuario usuario = usuarioService.findUsuarioById(id);
@@ -61,6 +87,12 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
 	}
 	
+	/**
+     * Busca un usuario por su nombre y retorna un objeto DatosUsuario que contiene información básica del usuario.
+     *
+     * @param nombre Nombre del usuario a buscar.
+     * @return ResponseEntity con el usuario encontrado y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/findByName/{nombre}")
 	public ResponseEntity<DatosUsuario> findUsuarioByNombre(@PathVariable("nombre") String nombre){
 		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
@@ -68,12 +100,25 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuarioDTO, HttpStatus.OK);
 	}
 	
+	 /**
+     * Busca un usuario por su nombre y retorna su ID.
+     *
+     * @param nombre Nombre del usuario a buscar.
+     * @return ResponseEntity con el ID del usuario y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/findIdByName/{nombre}")
 	public ResponseEntity<Long> findIdByNombre(@PathVariable("nombre") String nombre){
 		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
 		return new ResponseEntity<>(usuario.getId(), HttpStatus.OK);
 	}
 	
+	/**
+     * Agrega un nuevo usuario.
+     *
+     * @param usuario Objeto Usuario a agregar.
+     * @return ResponseEntity con el ID del nuevo usuario creado y el estado HTTP 201 (CREATED).
+     *         Si ocurre algún error, devuelve un mensaje de error con el estado HTTP 400 (BAD REQUEST).
+     */
 	@PostMapping("/add")
 	public ResponseEntity<String> addUsuario(@RequestBody Usuario usuario){
 		try {
@@ -93,6 +138,13 @@ public class UsuarioController {
 		
 	}
 	
+	/**
+     * Actualiza un usuario existente.
+     *
+     * @param usuarioDTO Objeto DatosUsuario actualizado.
+     * @param id         ID del usuario a actualizar.
+     * @return ResponseEntity con el objeto DatosUsuario que representa el usuario actualizado y el estado HTTP 200 (OK).
+     */
 	@PutMapping("/update/{id}")
 	public ResponseEntity<DatosUsuario> updateUsuario(@RequestBody DatosUsuario usuarioDTO, @PathVariable("id") Long id){
 		Usuario usuario = usuarioService.findUsuarioById(id);
@@ -104,12 +156,24 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuarioActDTO, HttpStatus.OK);
 	}
 	
+	/**
+     * Elimina un usuario por su ID.
+     *
+     * @param id ID del usuario a eliminar.
+     * @return ResponseEntity vacío y el estado HTTP 200 (OK).
+     */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteUsuario(@PathVariable("id") Long id){
 		usuarioService.deleteUsuarioById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	 /**
+     * Obtiene una lista de nombres de eventos a los que un usuario está inscrito.
+     *
+     * @param nombre Nombre del usuario.
+     * @return ResponseEntity con la lista de nombres de eventos y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/getInscritos/{nombre}")
 	public ResponseEntity<List<String>> getInscritos(@PathVariable("nombre") String nombre){
 		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
@@ -122,6 +186,12 @@ public class UsuarioController {
 		return new ResponseEntity<>(nombres, HttpStatus.OK);
 	}
 	
+	/**
+     * Obtiene una lista de nombres de eventos que son gestionados por un usuario.
+     *
+     * @param nombre Nombre del usuario.
+     * @return ResponseEntity con la lista de nombres de eventos y el estado HTTP 200 (OK).
+     */
 	@GetMapping("/getGestionados/{nombre}")
 	public ResponseEntity<List<String>> getGestionados(@PathVariable("nombre") String nombre){
 		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
