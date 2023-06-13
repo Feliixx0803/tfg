@@ -18,6 +18,10 @@ export class InscripcionComponent implements OnInit {
   }
 
 
+
+  /**
+   * Obtiene todas las inscripciones.
+   */
   private getAllInscripciones() {
     this.inscripcionServicio.getAllInscripciones().subscribe(inscripcion => {
       this.inscripciones = inscripcion;

@@ -1,5 +1,4 @@
 <div class="container">
-
   <br>
 
   <div class="row">
@@ -8,16 +7,16 @@
     </div>
 
     <div class="col-md-6 columna-eventos" *ngIf="mostrarDivEventos; else noEventoSeleccionado">
-      <h2>Eventos del día {{ selectedDate.getDate() }}</h2>
+      <h2>Eventos del dia {{selectedDate.getDate()}}</h2>
 
       <div *ngIf="!noEventos; else noEventosDia">
         <div *ngFor="let evento of eventosFiltrados">
           <div class="card">
             <div class="card-body">
               <h2 class="card-title">{{ evento.nombre }}</h2>
-              <h4 class="card-text"><mat-icon>calendar_today</mat-icon> {{ evento.fechaInicio }} / {{ evento.fechaFin }}</h4>
-              <h4 class="card-text"><mat-icon>place</mat-icon> {{ evento.ubicacion }}</h4>
-              <p class="card-text">{{ evento.descripcion }}</p>
+            <h4 class="card-text"><mat-icon>calendar_today</mat-icon> {{evento.fechaInicio}} / {{evento.fechaFin}}</h4>
+            <h4 class="card-text"><mat-icon>place</mat-icon> {{ evento.ubicacion }}</h4>
+            <p class="card-text">{{ evento.descripcion }}</p>
               <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
             </div>
           </div>

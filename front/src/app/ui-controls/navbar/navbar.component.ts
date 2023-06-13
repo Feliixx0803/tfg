@@ -12,6 +12,11 @@ export class NavbarComponent implements OnInit{
   usuarioRegistrado: boolean = false;
   nombreUsuario: string | null = "";
 
+  /**
+   * Crea una instancia del componente `NavbarComponent`.
+   * @param router El enrutador de la aplicación.
+   * @param eventEmitterService El servicio EventEmitterService para la comunicación entre componentes.
+   */
   constructor(private router: Router, private eventEmitterService: EventEmitterService){
     this.eventEmitterService.eventoLogin.subscribe((datos: any) => {
       this.loginUsuario(datos.nombreUsuario);
@@ -21,6 +26,9 @@ export class NavbarComponent implements OnInit{
     })
   }
 
+  /**
+   * Se ejecuta al inicializar el componente.
+   */
   ngOnInit(){
     if(localStorage.getItem("usuario")!=null){
       this.usuarioRegistrado = true;
@@ -28,6 +36,10 @@ export class NavbarComponent implements OnInit{
     }
   }
 
+
+  /**
+   * Cierra la sesión del usuario.
+   */
   public logout(): void{
     console.log("logout");
     localStorage.removeItem("usuario");
@@ -37,6 +49,10 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['/home']);
   }
 
+  /**
+   * Maneja el evento de inicio de sesión de usuario.
+   * @param nombreUsuario El nombre del usuario que inició sesión.
+   */
   loginUsuario(nombreUsuario: string): void{
     console.log("USUARIO LOGIN");
     this.nombreUsuario = nombreUsuario;

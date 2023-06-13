@@ -13,11 +13,17 @@ export class EstadoComponent {
   constructor(private estadoServicio: EstadoService) {
   }
 
+  /**
+   * Se ejecuta al inicializar el componente.
+   * Obtiene todos los estados.
+   */
   ngOnInit(): void {
     this.getAllEstados()
   }
 
-
+  /**
+   * Obtiene todos los estados y los asigna a la variable "estados".
+   */
   private getAllEstados() {
     this.estadoServicio.getAllEstados().subscribe(estado => {
       this.estados = estado;

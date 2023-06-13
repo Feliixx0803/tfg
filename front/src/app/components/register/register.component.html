@@ -1,3 +1,4 @@
+<!--Formulario de registro-->
 <div class="banner">
     <img src="assets/registro-trans.svg" class="img-fluid">
 </div>
@@ -19,6 +20,9 @@
         <mat-form-field appearance="outline">
             <mat-label>Contraseña</mat-label> <input type="password" name="pwd" matInput formControlName="password"/>
         </mat-form-field>
+      <div *ngIf="password?.errors?.['pattern'] && password?.touched">
+        <p [ngStyle]="{color:'tomato'}">Debe contener al menos 1 mayuscula, 1 minuscula y 8 caracteres</p>
+      </div>
         <button mat-raised-button color="primary" [disabled]="miFormulario.invalid" (click)="register()">Registrar</button>
     </form>
 </div>

@@ -9,6 +9,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class VentanaErrorComponent {
   texto: string="";
 
+  /**
+   * Crea una instancia del componente VentanaErrorComponent.
+   * @param data - Datos inyectados desde el componente padre.
+   */
   constructor(@Inject (MAT_DIALOG_DATA) public data: any){
     this.texto = data.texto;
   }

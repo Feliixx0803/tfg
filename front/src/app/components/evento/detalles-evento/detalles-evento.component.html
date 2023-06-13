@@ -1,88 +1,88 @@
+<!--Vista de los detalles de eventos-->
 <div class="banner">
     <img src="assets/detalles-trans.svg" class="img-fluid">
   </div>
-  
+
   <div class="container" *ngIf="eventoSeleccionado">
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
-  
+
         <div class="card detalles font">
-  
+
           <div class="card-body">
-  
+
             <div class="card-title">
               <h1 class="nombre"><mat-icon>grade</mat-icon> {{eventoSeleccionado.nombre}}</h1>
             </div>
-  
+
             <br>
-  
+
             <div class="card-text">
               <div class="card card-descripcion">
-  
+
                 <div class="card-body">
-  
+
                   <div class="card-title">
                     <h3 class="titulo-descripcion"><mat-icon>calendar_today</mat-icon> Fecha:</h3>
                   </div>
-  
+
                   <div class="card-text">
-  
+
                     <p class="contenido-descripcion">{{eventoSeleccionado.fechaInicio}}</p>
                     <p class="contenido-descripcion">{{eventoSeleccionado.fechaFin}}</p>
-  
+
                   </div>
-  
+
                 </div>
               </div>
-  
+
               <br>
-  
+
               <div class="card card-descripcion">
-  
+
                 <div class="card-body">
-  
+
                   <div class="card-title">
                     <h3 class="titulo-descripcion"><mat-icon>help</mat-icon> DESCRIPCIÓN</h3>
                   </div>
-  
+
                   <div class="card-text">
                     <p class="contenido-descripcion">{{eventoSeleccionado.descripcion}}</p>
                   </div>
-  
+
                 </div>
-  
+
               </div>
-  
+
               <br>
-  
+
               <div class="card card-descripcion">
-  
+
                 <div class="card-body">
-  
+
                   <div class="card-title">
                     <h3 class="titulo-descripcion"><mat-icon>place</mat-icon> UBICACIÓN</h3>
                   </div>
-  
+
                   <div class="card-text">
                     <p class="contenido-descripcion">{{eventoSeleccionado.ubicacion}}</p>
                   </div>
-  
+
                 </div>
-  
+
               </div>
-  
+
               <br>
-  
+
               <button (click)="inscribirUsuario()" class="btn btn-primary">Inscribirme</button>
-  
+
             </div>
-  
+
           </div>
-  
+
         </div>
-  
+
       </div>
     </div>
   </div>
-  

@@ -6,6 +6,11 @@ import { Injectable } from '@angular/core';
 export class ValidadorFechasService {
 
   constructor() { }
+  /**
+   * Valida si una fecha es válida.
+   * @param fecha La fecha a validar.
+   * @returns `true` si la fecha es válida, de lo contrario `false`.
+   */
   validarFecha(fecha: Date): boolean {
     let isCorrect :boolean;
     if(fecha == undefined){
@@ -17,6 +22,11 @@ export class ValidadorFechasService {
     return isCorrect;
   }
 
+  /**
+   * Valida si un año es válido.
+   * @param fecha La fecha que contiene el año a validar.
+   * @returns `true` si el año es válido, de lo contrario `false`.
+   */
   validarAnio(fecha :Date){
     let isCorrect :boolean = false;
     const MIN_YEAR = 2000; // Año mínimo aceptable

@@ -1,3 +1,4 @@
+<!--Vista del perfil de usuario registrado-->
 <div class="banner">
   <img src="assets/usuario-trans.svg" class="img-fluid">
 </div>
@@ -21,25 +22,25 @@
               <div class="card-text">
 
                 <form class="formulario">
-  
+
                   <mat-form-field appearance="outline">
                     <mat-label>Nombre de usuario</mat-label> <input type="text" name="nombre" value="{{datosUsuario.nombre}}" matInput [(ngModel)]="nombreUsuario"/>
                   </mat-form-field>
-    
+
                   <span class="divisor"></span>
-    
+
                   <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label> <input type="email" name="email" value="{{datosUsuario.email}}" matInput [(ngModel)]="emailUsuario"/>
                   </mat-form-field>
-    
+
                   <span class="divisor"></span>
-    
+
                   <mat-form-field appearance="outline">
                     <mat-label>Teléfono</mat-label> <input type="text" name="telefono" value="{{datosUsuario.telefono}}" matInput [(ngModel)]="telefonoUsuario"/>
                   </mat-form-field>
-    
+
                   <span class="divisor"></span>
-    
+
                   <button class="boton" class="btn btn-primary btn-form" (click)="cambiarDatos()">Cambiar</button>
                 </form>
 

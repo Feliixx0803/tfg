@@ -17,8 +17,21 @@ export class LoginComponent {
   email: string = "";
   pwd: string = "";
 
-  constructor(public http: HttpClient, public eventEmitterService: EventEmitterService, public dialogRef: MatDialog, private router: Router){}
+  /**
+   * Crea una instancia del componente LoginComponent.
+   * @param http - Instancia de HttpClient utilizada para realizar solicitudes HTTP.
+   * @param eventEmitterService - Instancia de EventEmitterService utilizada para emitir eventos relacionados con el inicio de sesión.
+   * @param dialogRef - Instancia de MatDialog utilizada para abrir un diálogo de error.
+   * @param router - Instancia de Router utilizada para la navegación a diferentes rutas.
+   */
+  constructor(public http: HttpClient,
+              public eventEmitterService: EventEmitterService,
+              public dialogRef: MatDialog,
+              private router: Router){}
 
+  /**
+   * Realiza el inicio de sesión.
+   */
   public login():void {
     let email = this.email;
     let pwd = this.pwd;
@@ -37,6 +50,10 @@ export class LoginComponent {
     );
   }
 
+  /**
+   * Valida el inicio de sesión y realiza acciones en consecuencia.
+   * @param response - La respuesta del servidor con los datos del usuario.
+   */
   validarLogin(response: DatosUsuario): void{
     console.log(response.nombre);
     localStorage.setItem('usuario', response.nombre);
@@ -44,6 +61,10 @@ export class LoginComponent {
 
   }
 
+  /**
+   * Abre un diálogo de error con el mensaje especificado.
+   * @param texto - El mensaje de error.
+   */
   open(texto: String){
     this.dialogRef.open(VentanaErrorComponent, {
       height: '250px',

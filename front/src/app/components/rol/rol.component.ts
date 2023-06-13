@@ -12,10 +12,17 @@ export class RolComponent  implements OnInit{
 
   constructor(private rolService : RolService) { }
 
+  /**
+   * Se ejecuta al inicializar el componente.
+   * Obtiene todos los roles disponibles.
+   */
   ngOnInit(): void {
     this.getAllRoles();
   }
 
+  /**
+   * Obtiene todos los roles disponibles.
+   */
   private getAllRoles(){
     this.rolService.getAllRoles().subscribe(rol =>{
       this.roles = rol;

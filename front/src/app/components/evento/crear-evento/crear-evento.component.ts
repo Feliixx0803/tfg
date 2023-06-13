@@ -9,6 +9,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { VentanaErrorComponent } from '../../ventana-error/ventana-error.component';
 import { ValidadorFechasService } from '../../../services/validadorFechas/validador-fechas.service';
 
+/**
+ * Interfaz para crear un EventoDTO
+ */
 export interface CrearEventoDTO{
   nombre: string;
   fechaInicio: Date;
@@ -28,11 +31,18 @@ export class CrearEventoComponent {
   fechaInicio: Date;
   fechaFin: Date;
   descripcion: string;
-  //imagenSeleccionada: File;
-  ubicacion: string; 
+  ubicacion: string;
 
   usuarioLogeado: DatosUsuario;
 
+  /**
+   * Constructor del componente.
+   * @param eventoService Servicio para acceder a los datos de los eventos
+   * @param usuarioService Servicio para acceder a los datos de los usuarios
+   * @param router Objeto Router para redirigir a otras rutas
+   * @param dialogRef Objeto MatDialog para abrir un diálogo
+   * @param validarFechas Servicio para validar las fechas del evento
+   */
   constructor(
     private router: Router,
     public eventoService: EventoService,
@@ -41,6 +51,10 @@ export class CrearEventoComponent {
     public validarFechas: ValidadorFechasService
   ) {}
 
+  /**
+   * Registra un nuevo evento.
+   * Contiene las validaciones para cada campo.
+   */
   registrarEvento() {
     this.encontrarUsuario().then(() => {
       if (
@@ -62,28 +76,8 @@ export class CrearEventoComponent {
         this.open('Todos los campos son obligatorios');
         return;
       }
-      /*else if (this.imagenSeleccionada.size >= 1048576) {
-        this.open('Todos los campos son obligatorios');
-        return;
-      }*/
+
       else{
-
-        /*const formData = new FormData();
-
-        console.log(this.fechaInicio);
-        console.log(this.fechaFin);
-
-        formData.append('nombre', this.nombre);
-        formData.append('fechaInicio', new Date(this.fechaInicio).toISOString());
-        formData.append('fechaFin', new Date(this.fechaFin).toISOString());
-        formData.append('descripcion', this.descripcion); 
-        formData.append('imagen', this.imagenSeleccionada, this.imagenSeleccionada.name);
-        formData.append('gestor', JSON.stringify(this.usuarioLogeado));
-
-        this.nuevoEvento(formData).then((evento) => {
-          console.log(evento); 
-        });*/
-
         let idUsuario: number = 0;
 
         this.encontrarIdUsuario().then(id => {
@@ -98,7 +92,7 @@ export class CrearEventoComponent {
               ubicacion: this.ubicacion,
               idGestor: idUsuario,
             };
-    
+
             this.eventoService.createEvento(eventoNuevo).subscribe(
               () => {
                 this.router.navigate(['/evento']);
@@ -111,21 +105,30 @@ export class CrearEventoComponent {
           }
         });
 
-        
+
       }
 
-      
+
     });
   }
-
+  /**
+   * Obtiene los datos del usuario logeado.
+   */
   async encontrarUsuario() {
     this.usuarioLogeado = await lastValueFrom(this.usuarioService.getUserByNombre(localStorage.getItem('usuario')).pipe());
   }
-
+  /**
+   * Obtiene el ID del usuario logeado.
+   * @returns El ID del usuario logeado.
+   */
   async encontrarIdUsuario(){
     return await lastValueFrom(this.usuarioService.getIdByNombre(this.usuarioLogeado.nombre).pipe());
   }
 
+  /**
+   * Abre un diálogo de error con el mensaje especificado.
+   * @param texto El mensaje de error.
+   */
   open(texto: string) {
     this.dialogRef.open(VentanaErrorComponent, {
       height: '250px',
@@ -136,18 +139,4 @@ export class CrearEventoComponent {
     });
   }
 
-  /*onFileSelected(fileInput: any) {
-    this.imagenSeleccionada = fileInput.target.files[0];
-  }
-
-  onUpload() {
-    if (this.imagenSeleccionada) {
-      const formData = new FormData();
-      formData.append('imagen', this.imagenSeleccionada);
-    }
-  }
-
-  async nuevoEvento(formData: FormData){
-    return await lastValueFrom(this.eventoService.addEvento(formData));
-  }*/
 }
