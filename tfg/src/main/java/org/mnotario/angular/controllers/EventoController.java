@@ -66,6 +66,7 @@ public class EventoController {
 	 * 
 	 * @param eventoService Servicio de eventos
 	 * @param usuarioService Servicio de usuarios
+	 * @param inscripcionService Servicio de inscripciones
 	 */
 	public EventoController(EventoService eventoService, UsuarioService usuarioService, InscripcionService inscripcionService) {
 		super();
@@ -163,12 +164,12 @@ public class EventoController {
 	}
 	
 	/**
-	 * Maneja la solicitud DELETE para eliminar un evento por su ID.
-	 * 
-	 * @param id ID del evento a eliminar
-	 * @return ResponseEntity con HttpStatus OK si la solicitud es exitosa
-	 * @throws MessagingException 
-	 * @throws AddressException 
+	 * Elimina un evento y cancela las inscripciones asociadas.
+	 *
+	 * @param id el ID del evento a eliminar
+	 * @return ResponseEntity con el estado de la respuesta
+	 * @throws AddressException si ocurre un error en las direcciones de correo electrónico
+	 * @throws MessagingException si ocurre un error al enviar el correo electrónico
 	 */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteEvento(@PathVariable("id") Long id) throws AddressException, MessagingException{

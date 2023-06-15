@@ -60,6 +60,7 @@ public class UsuarioController {
      * 
      * @param usuarioService Servicio de usuarios.
      * @param rolService     Servicio de roles.
+     * @param inscripcionService Servicio de inscripciones.
      */
     @Autowired
     public UsuarioController(UsuarioService usuarioService, RolService rolService, InscripcionService inscripcionService) {
