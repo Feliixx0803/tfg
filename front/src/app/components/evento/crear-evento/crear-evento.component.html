@@ -12,7 +12,9 @@
           <input type="email" name="nombre" matInput [(ngModel)]="nombre"/>
         </mat-form-field>
         <br>
-        <mat-form-field appearance="outline">
+
+        <!-- Antigua implementación del rango de fechas -->
+        <!--<mat-form-field appearance="outline">
           <mat-label>Inicio del evento</mat-label>
           <input type="date" name="fechaInicio" matInput [(ngModel)]="fechaInicio"/>
         </mat-form-field>
@@ -21,7 +23,19 @@
           <mat-label>Fin del evento</mat-label>
           <input type="date" name="fechaFin" matInput [(ngModel)]="fechaFin"/>
         </mat-form-field>
+        <br>-->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Introduce un rango de fechas</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input name="fechaInicio" [(ngModel)]="fechaInicio" matStartDate placeholder="Fecha inicio">
+            <input name="fechaFin" [(ngModel)]="fechaFin" matEndDate placeholder="Fecha fin">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
         <br>
+
         <mat-form-field appearance="outline">
           <mat-label>Descripcion</mat-label>
           <textarea name="descripcion" rows="4" cols="20" matInput [(ngModel)]="descripcion"></textarea>

@@ -7,16 +7,19 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <img src="assets/eventos-boton-trans.svg" class="link" routerLink="evento">
+                        &nbsp;&nbsp;
                     </li>
                 </ul>
             </div>
 
             <ng-template [ngIf]="usuarioRegistrado">
                 <img src="assets/usuario-boton-trans.svg" class="link der" [routerLink]="['/usuario', nombreUsuario]">
+                &nbsp;&nbsp;
                 <img src="assets/logout-boton-trans.svg" class="link der" (click)="logout()" routerLink="login">
             </ng-template>
             <ng-template [ngIf]="!usuarioRegistrado">
                 <img src="assets/login-boton-trans.svg" class="link der" routerLink="login">
+                &nbsp;&nbsp;
                 <img src="assets/registro-boton-trans.svg" class="link der" routerLink="register">
             </ng-template>
         </div>

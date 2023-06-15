@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-md-6 columna-eventos" *ngIf="mostrarDivEventos; else noEventoSeleccionado">
-      <h2>Eventos del dia {{selectedDate.getDate()}}</h2>
+      <h2>Eventos del día {{selectedDate.getDate()}}</h2>
 
       <div *ngIf="!noEventos; else noEventosDia">
         <div *ngFor="let evento of eventosFiltrados">

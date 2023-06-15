@@ -9,6 +9,7 @@ import { CrearEventoDTO } from 'src/app/components/evento/crear-evento/crear-eve
   providedIn: 'root'
 })
 export class EventoService {
+  
   /**
    * La URL base de la API para las solicitudes HTTP.
    */
@@ -23,7 +24,6 @@ export class EventoService {
     return this.http.get<EventoModel[]>(this.apiUrl+'/evento/all');
   }
 
-
   /**
    * Crea un nuevo evento.
    * @param eventoNuevo Los datos del nuevo evento a crear.
@@ -32,7 +32,6 @@ export class EventoService {
   createEvento(eventoNuevo : CrearEventoDTO){
     return this.http.post<string>(`${this.apiUrl}/evento/add`, eventoNuevo);
   }
-
 
   /**
    * Busca un evento por su nombre.
@@ -50,5 +49,9 @@ export class EventoService {
    */
   getIdByNombre(nombre: string): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/evento/findIdByNombre/` + nombre);
+  }
+
+  deleteEvento(idEvento: number) {
+    return this.http.delete(`${this.apiUrl}/evento/delete/${idEvento}`);
   }
 }

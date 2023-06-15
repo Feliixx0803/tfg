@@ -79,6 +79,10 @@
     transition-property: transform, box-shadow;
     transition-duration: 15ms;
   }
+
+  .row{
+    width: 100%;
+  }
   
   @media (max-width: 768px) {
     .contenedor {

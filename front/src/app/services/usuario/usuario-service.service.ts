@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
 import {UsuarioModel} from "../../models/usuario/usuario-model";
+import { EventoModel } from 'src/app/models/evento/evento-model';
+import { DatosEvento } from 'src/app/components/usuario/usuario.component';
 
 export interface DatosUsuario{
   nombre: string;
@@ -88,7 +90,11 @@ export class UsuarioServiceService {
    * @param nombre El nombre del usuario.
    * @returns Un `Observable` que emite una matriz de cadenas que representan los nombres de los eventos gestionados.
    */
-  getEventosGestionados(nombre: string | null): Observable<string[]> {
-    return this.http.get<string[]>(`${this.apiUrl}/usuario/getGestionados/${nombre}`);
+  getEventosGestionados(nombre: string | null): Observable<DatosEvento[]> {
+    return this.http.get<DatosEvento[]>(`${this.apiUrl}/usuario/getGestionados/${nombre}`, {responseType: 'json'});
+  }
+
+  deleteInscripcion(idUsuario: number, idEvento: number) {
+    return this.http.delete(`${this.apiUrl}/usuario/deleteInscripcion/${idUsuario}/${idEvento}`);
   }
 }

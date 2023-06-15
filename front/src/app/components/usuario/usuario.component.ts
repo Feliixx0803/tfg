@@ -6,6 +6,12 @@ import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {EventEmitterService} from "../../services/eventEmitter/event-emitter.service";
 import { EventoModel } from 'src/app/models/evento/evento-model';
+import { EventoService } from 'src/app/services/evento/evento.service';
+
+export interface DatosEvento{
+  nombre: string;
+  usuariosInscritos: number;
+}
 
 @Component({
   selector: 'usuario',
@@ -16,8 +22,8 @@ export class UsuarioComponent implements OnInit{
 
   datosUsuario: DatosUsuario;
 
-  inscripciones: string[];
-  eventosGestionados: string[];
+  inscripciones: string[] = [];
+  eventosGestionados: DatosEvento[] = [];
 
   nombreUsuario: string;
   emailUsuario: string;
@@ -27,12 +33,14 @@ export class UsuarioComponent implements OnInit{
    * Crea una instancia del componente UsuarioComponent.
    * @param ruta - Instancia de ActivatedRoute utilizada para obtener el parámetro de la ruta.
    * @param usuarioService - Instancia de UsuarioServiceService utilizada para obtener y actualizar los datos del usuario.
+   * @param eventoService - Instancia de EventoService utilizada para obtener y actualizar los datos de los eventos.
    * @param eventEmitterService - Instancia de EventEmitterService utilizada para emitir eventos relacionados con el usuario.
    * @param router - Instancia de Router utilizada para la navegación.
    */
   constructor(
     public ruta: ActivatedRoute,
     private usuarioService : UsuarioServiceService,
+    private eventoService: EventoService,
     private eventEmitterService : EventEmitterService,
     private router: Router
   ) { }
@@ -68,7 +76,11 @@ export class UsuarioComponent implements OnInit{
    * @param nombre - Nombre del usuario.
    */
   async rellenarGestionados(nombre: string | null) {
-    this.eventosGestionados = await lastValueFrom(this.usuarioService.getEventosGestionados(nombre));
+    let eventosBack = await lastValueFrom(this.usuarioService.getEventosGestionados(nombre));
+
+    eventosBack.forEach(evento => {
+      this.eventosGestionados.push(evento);
+    })
   }
 
 
@@ -117,5 +129,30 @@ export class UsuarioComponent implements OnInit{
         localStorage.setItem('usuario', datosUsuario.nombre);
         this.router.navigate(["/usuario", localStorage.getItem('usuario')]);
       });
+  }
+
+  async eliminarInscripcion(nombreEvento: string){
+
+    let idEvento = await lastValueFrom(this.eventoService.getIdByNombre(nombreEvento).pipe());
+
+    let nombreUsuarioActual = localStorage.getItem('usuario');
+    let idUsuario: number = await lastValueFrom(this.usuarioService.getIdByNombre(nombreUsuarioActual).pipe());
+
+    this.usuarioService.deleteInscripcion(idUsuario, idEvento).subscribe(() => {
+      console.log("RESPUESTA RECIBIDA");
+      const nombre = this.ruta.snapshot.paramMap.get('nombre');
+      this.rellenarInscripciones(nombre);
+    });
+  }
+
+  async eliminarEvento(nombreEvento: string){
+
+    let idEvento = await lastValueFrom(this.eventoService.getIdByNombre(nombreEvento).pipe());
+
+    this.eventoService.deleteEvento(idEvento).subscribe(() => {
+      console.log("RESPUESTA RECIBIDA");
+      const nombre = this.ruta.snapshot.paramMap.get('nombre');
+      this.rellenarGestionados(nombre);
+    });
   }
 }

@@ -78,7 +78,8 @@
                     <h2 class="card-title">{{ evento }}</h2>
                     <br>
                     <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
-
+                    &nbsp;
+                    <a (click)="eliminarInscripcion(evento)" class="btn btn-danger">Eliminar inscripción</a>
                   </div>
 
                 </div>
@@ -111,10 +112,11 @@
 
                 <div class="card-body">
 
-                  <h2 class="card-title">{{ evento }}</h2>
-                  <br>
-                  <a [routerLink]="['/detalles', evento]" class="btn btn-primary">Ver detalles</a>
-
+                  <h2 class="card-title">{{ evento.nombre }}</h2>
+                  <p>Usuarios registrados: {{evento.usuariosInscritos}}</p>
+                  <a [routerLink]="['/detalles', evento.nombre]" class="btn btn-primary">Ver detalles</a>
+                  &nbsp;
+                  <a (click)="eliminarEvento(evento.nombre)" class="btn btn-danger">Eliminar evento</a>
                 </div>
 
               </div>

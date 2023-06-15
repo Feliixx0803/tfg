@@ -3,13 +3,17 @@ package org.mnotario.angular.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.mindrot.jbcrypt.BCrypt;
+import org.mnotario.angular.dto.DatosEvento;
 import org.mnotario.angular.dto.DatosUsuario;
 import org.mnotario.angular.dto.UsuarioDTO;
 import org.mnotario.angular.model.Evento;
 import org.mnotario.angular.model.Inscripcion;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.model.Usuario;
+import org.mnotario.angular.services.InscripcionService;
 import org.mnotario.angular.services.RolService;
 import org.mnotario.angular.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,15 +49,23 @@ public class UsuarioController {
     private final RolService rolService;
     
     /**
+     * Servicio de inscripciones.
+     */
+    private final InscripcionService inscripcionService;
+    
+    private static final Logger logger = LogManager.getLogger(UsuarioController.class);
+    
+    /**
      * Constructor de UsuarioController.
      * 
      * @param usuarioService Servicio de usuarios.
      * @param rolService     Servicio de roles.
      */
     @Autowired
-    public UsuarioController(UsuarioService usuarioService, RolService rolService) {
+    public UsuarioController(UsuarioService usuarioService, RolService rolService, InscripcionService inscripcionService) {
         this.usuarioService = usuarioService;
         this.rolService = rolService;
+        this.inscripcionService = inscripcionService;
     }
 	
 	/**
@@ -187,20 +199,56 @@ public class UsuarioController {
 	}
 	
 	/**
-     * Obtiene una lista de nombres de eventos que son gestionados por un usuario.
+     * Obtiene una lista de eventos que son gestionados por un usuario.
      *
      * @param nombre Nombre del usuario.
-     * @return ResponseEntity con la lista de nombres de eventos y el estado HTTP 200 (OK).
+     * @return ResponseEntity con la lista de eventos y el estado HTTP 200 (OK).
      */
 	@GetMapping("/getGestionados/{nombre}")
-	public ResponseEntity<List<String>> getGestionados(@PathVariable("nombre") String nombre){
+	public ResponseEntity<List<DatosEvento>> getGestionados(@PathVariable("nombre") String nombre){
 		Usuario usuario = usuarioService.findUsuarioByNombre(nombre);
-		List<String> nombres = new ArrayList<>();
+		
+		List<DatosEvento> listaDatos = new ArrayList<>();
 		
 		for(Evento e: usuario.getEventosGestionados()) {
-			nombres.add(e.getNombre());
+			String nombreEvento = e.getNombre();
+			
+			int usuariosInscritos = e.getInscripciones().size();
+			
+			logger.info(nombreEvento + "/" + usuariosInscritos);
+			
+			listaDatos.add(new DatosEvento(nombreEvento, usuariosInscritos));
 		}
 		
-		return new ResponseEntity<>(nombres, HttpStatus.OK);
+		return new ResponseEntity<>(listaDatos, HttpStatus.OK);
+	}
+	
+	/**
+	 * Maneja la solicitud DELETE para eliminar una inscripción según el usuario y evento asociados.
+	 * 
+	 * @param idUsuario ID del usuario asociado a la inscripción
+	 * @param idEvento ID del evento asociado a la inscripción
+	 * @return ResponseEntity con HttpStatus OK si la solicitud es exitosa
+	 */
+	@DeleteMapping("/deleteInscripcion/{idUsuario}/{idEvento}")
+	public ResponseEntity<?> deleteInscripcion(@PathVariable("idUsuario") long idUsuario, @PathVariable("idEvento") long idEvento) {
+		Usuario usuario = usuarioService.findUsuarioById(idUsuario);
+		
+		logger.info("USUARIO: " + usuario.getNombre());
+		
+		Inscripcion inscripcion = new Inscripcion();
+		
+		for(Inscripcion i: usuario.getInscripciones()) {
+			
+			if(i.getEvento().getId() == idEvento) {
+				inscripcion = i;
+			}
+		}
+		
+		usuario.getInscripciones().remove(inscripcion);
+		
+		inscripcionService.deleteInscripcionById(inscripcion.getId());
+		Usuario nuevoUsuario = usuarioService.updateUsuario(usuario);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

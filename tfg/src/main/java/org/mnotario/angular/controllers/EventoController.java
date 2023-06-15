@@ -2,6 +2,7 @@ package org.mnotario.angular.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,13 +17,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.mail.Authenticator;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Multipart;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.mnotario.angular.dto.CrearEventoDTO;
 import org.mnotario.angular.dto.EventoDTO;
 import org.mnotario.angular.model.Evento;
+import org.mnotario.angular.model.Inscripcion;
 import org.mnotario.angular.model.Usuario;
 import org.mnotario.angular.services.EventoService;
+import org.mnotario.angular.services.InscripcionService;
 import org.mnotario.angular.services.UsuarioService;
 
 /**
@@ -42,16 +59,19 @@ public class EventoController {
 	@Autowired
 	private final UsuarioService usuarioService;
 	
+	private final InscripcionService inscripcionService;
+	
 	/**
 	 * Constructor de EventoController.
 	 * 
 	 * @param eventoService Servicio de eventos
 	 * @param usuarioService Servicio de usuarios
 	 */
-	public EventoController(EventoService eventoService, UsuarioService usuarioService) {
+	public EventoController(EventoService eventoService, UsuarioService usuarioService, InscripcionService inscripcionService) {
 		super();
 		this.eventoService = eventoService;
 		this.usuarioService = usuarioService;
+		this.inscripcionService = inscripcionService;
 	}
 	
 	/**
@@ -147,9 +167,56 @@ public class EventoController {
 	 * 
 	 * @param id ID del evento a eliminar
 	 * @return ResponseEntity con HttpStatus OK si la solicitud es exitosa
+	 * @throws MessagingException 
+	 * @throws AddressException 
 	 */
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteEvento(@PathVariable("id") Long id){
+	public ResponseEntity<?> deleteEvento(@PathVariable("id") Long id) throws AddressException, MessagingException{
+		
+		Evento e = eventoService.findEventoById(id);
+		
+		for(Inscripcion i: e.getInscripciones()) {
+			Usuario u = i.getUsuario();
+			String email = u.getEmail();
+			
+			Properties prop = new Properties();
+			prop.put("mail.smtp.auth", true);
+			prop.put("mail.smtp.starttls.enable", "true");
+			prop.put("mail.smtp.host", "sandbox.smtp.mailtrap.io");
+			prop.put("mail.smtp.port", "25");
+			prop.put("mail.smtp.ssl.trust", "sandbox.smtp.mailtrap.io");
+			
+			Session session = Session.getInstance(prop, new Authenticator() {
+			    @Override
+			    protected PasswordAuthentication getPasswordAuthentication() {
+			        return new PasswordAuthentication("d2ab7b2e38c7df", "28db20b61a429f");
+			    }
+			});
+			
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("info@eventify.es"));
+			message.setRecipients(
+			  Message.RecipientType.TO, InternetAddress.parse(email));
+			message.setSubject("Mail Subject");
+
+			String msg = 
+					"Hola " + u.getNombre() + ", el evento " + e.getNombre() + " ha sido cancelado." +
+					"Su inscripción ha sido cancelada. Disculpe las molestias.";
+
+			MimeBodyPart mimeBodyPart = new MimeBodyPart();
+			mimeBodyPart.setContent(msg, "text/html; charset=utf-8");
+
+			Multipart multipart = new MimeMultipart();
+			multipart.addBodyPart(mimeBodyPart);
+
+			message.setContent(multipart);
+
+			Transport.send(message);
+			logger.info("EMAIL ENVIADO A: " + email);
+			
+			inscripcionService.deleteInscripcionById(i.getId());
+		}
+		
 		eventoService.deleteEventoById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
