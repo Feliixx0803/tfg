@@ -3,6 +3,8 @@ package org.mnotario.angular.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.mnotario.angular.dto.RolDTO;
 import org.mnotario.angular.model.Rol;
 import org.mnotario.angular.services.RolService;
@@ -26,6 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/rol")
 @CrossOrigin(origins = "http://localhost:4200")
 public class RolController {
+	
+	private static final Logger logger = LogManager.getLogger(RolController.class);
 
 	/**
      * Servicio de roles.
@@ -74,13 +78,25 @@ public class RolController {
 	/**
      * Maneja las solicitudes POST en la ruta "/rol/add" para agregar un nuevo rol.
      * 
-     * @param Rol Rol a agregar.
+     * @param nombre Nombre del rol a añadir.
      * @return ResponseEntity con un objeto RolDTO que representa el nuevo rol creado y el estado HTTP 201 (Creado).
      */
 	@PostMapping("/add")
-	public ResponseEntity<RolDTO> addRol(@RequestBody Rol Rol){
-		Rol nuevoRol = rolService.addRol(Rol);
-		RolDTO nuevoRolDTO = new RolDTO(nuevoRol.getId(), nuevoRol.getNombre(), nuevoRol.getUsuarios());
+	public ResponseEntity<RolDTO> addRol(@RequestBody String nombre){
+		Rol user = new Rol();
+		Rol admin = new Rol();
+		
+		logger.info("AÑADIDO ROL USER");
+		user.setId((long) 1);
+		user.setNombre("user");
+		logger.info("AÑADIDO ROL admin");
+		admin.setId((long) 2);
+		admin.setNombre("admin");
+		
+		Rol nuevoUser = rolService.addRol(user);
+		Rol nuevoAdmin = rolService.addRol(admin);
+		
+		RolDTO nuevoRolDTO = new RolDTO(nuevoUser.getId(), nuevoUser.getNombre(), nuevoUser.getUsuarios());
 		return new ResponseEntity<>(nuevoRolDTO, HttpStatus.CREATED);
 	}
 	

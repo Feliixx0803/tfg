@@ -12,12 +12,20 @@ export class RolService {
 
   constructor(private http:HttpClient) { }
 
-
   /**
    * Obtiene todos los roles disponibles.
    * @returns Un `Observable` que emite una matriz de objetos `RolModel`.
    */
   getAllRoles() :Observable<RolModel[]>{
     return this.http.get<RolModel[]>(this.apiUrl+'/rol/all');
+  }
+
+  /**
+   * Crea un nuevo rol.
+   * @param nombre Nombre del rol a añadir
+   * @returns Un `Observable` que emite un objeto `RolModel`.
+   */
+  addRol() :Observable<RolModel> {
+    return this.http.post<RolModel>(this.apiUrl+'/rol/add', {nombre: 'user'});
   }
 }
